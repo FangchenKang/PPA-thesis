@@ -19,9 +19,9 @@ jobs:
       SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
       SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
       SMTP_FROM: ${{ secrets.SMTP_FROM }}
-      LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+      LLM_BASE_URL: https://models.sjtu.edu.cn/api/v1
       LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-      LLM_MODEL: ${{ secrets.LLM_MODEL }}
+      LLM_MODEL: deepseek-chat
       PER_JOURNAL_LIMIT: "5"
 
     steps:

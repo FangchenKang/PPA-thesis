@@ -18,8 +18,13 @@ The recipient is already set in the workflow:
 
 ## Optional Setup For AI Summaries
 
-- `LLM_BASE_URL`
 - `LLM_API_KEY`
-- `LLM_MODEL`
+
+The workflow already defaults to:
+
+- `LLM_BASE_URL`: `https://models.sjtu.edu.cn/api/v1`
+- `LLM_MODEL`: `deepseek-chat`
+
+So only `LLM_API_KEY` is required for the first AI summary setup.
 
 The current adapter expects an OpenAI-compatible `/chat/completions` endpoint. If the school API has a different format, update `journal_tracker/tracker.py`.

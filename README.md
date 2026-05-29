@@ -17,6 +17,7 @@ This repository tracks new publications from the political science and public ad
   - `reports/quarterly/`
 - Sends email when SMTP secrets are configured.
 - Uses an LLM summary only when `LLM_API_KEY` is configured. Otherwise it sends a rule-based summary.
+- Can run a separate manual historical backfill that stores public bibliographic metadata in `data/history/`.
 
 The first run initializes a baseline so old articles are not all treated as "new". Later runs only report newly discovered records.
 
@@ -56,11 +57,24 @@ Optional for AI summaries:
 
 | Secret | Meaning |
 | --- | --- |
-| `LLM_BASE_URL` | OpenAI-compatible API base URL, for example `https://api.example.edu.cn/v1` |
 | `LLM_API_KEY` | API key |
-| `LLM_MODEL` | Model name from the provider |
+
+The workflow currently defaults to the SJTU API base URL and `deepseek-chat` model:
+
+- `LLM_BASE_URL`: `https://models.sjtu.edu.cn/api/v1`
+- `LLM_MODEL`: `deepseek-chat`
 
 If the school API is not OpenAI-compatible, update `summarize_with_llm()` in `journal_tracker/tracker.py` after the API documentation is available.
+
+## Historical Backfill
+
+The historical backfill is intentionally separate from the daily digest because it may be large.
+
+Run it manually from GitHub Actions:
+
+`Actions -> Historical backfill -> Run workflow`
+
+The results are stored in `data/history/`. See `docs/HISTORICAL_BACKFILL.md` for batching suggestions.
 
 ## Local Test
 

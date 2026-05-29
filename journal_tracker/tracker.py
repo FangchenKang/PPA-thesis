@@ -12,6 +12,7 @@ import re
 import smtplib
 import ssl
 import sys
+import time
 import textwrap
 import urllib.error
 import urllib.parse
@@ -26,9 +27,11 @@ ROOT = Path(__file__).resolve().parents[1]
 JOURNALS_PATH = ROOT / "data" / "journals.json"
 STATE_PATH = ROOT / "data" / "state.json"
 ITEMS_DIR = ROOT / "data" / "items"
+HISTORY_DIR = ROOT / "data" / "history"
 REPORTS_DIR = ROOT / "reports"
 OVERRIDES_PATH = ROOT / "config" / "feed_overrides.json"
 USER_AGENT = "PPA-thesis-journal-tracker/0.1 (+https://github.com/FangchenKang/PPA-thesis)"
+OPENALEX_BASE_URL = "https://api.openalex.org"
 
 
 @dataclasses.dataclass
@@ -108,6 +111,10 @@ def fetch_text(url: str, timeout: int = 25) -> str:
             charset = match.group(1)
         data = response.read()
         return data.decode(charset, errors="replace")
+
+
+def fetch_json(url: str, timeout: int = 60) -> dict[str, Any]:
+    return json.loads(fetch_text(url, timeout=timeout))
 
 
 def absolute_url(base_url: str, href: str) -> str:
@@ -289,6 +296,197 @@ def article_to_dict(article: Article) -> dict[str, Any]:
         "summary": article.summary,
         "source": article.source,
     }
+
+
+def normalize_match_key(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", value.lower())
+
+
+def openalex_url(path: str, params: dict[str, Any]) -> str:
+    clean_params = {key: value for key, value in params.items() if value not in (None, "")}
+    mailto = os.environ.get("OPENALEX_MAILTO") or os.environ.get("MAIL_TO")
+    if mailto:
+        clean_params["mailto"] = mailto
+    return f"{OPENALEX_BASE_URL}{path}?{urllib.parse.urlencode(clean_params)}"
+
+
+def find_openalex_source(journal: dict[str, Any]) -> tuple[dict[str, Any] | None, str]:
+    title = str(journal["title"])
+    url = openalex_url(
+        "/sources",
+        {"search": title, "filter": "type:journal", "per-page": 10},
+    )
+    payload = fetch_json(url)
+    results = payload.get("results", [])
+    if not results:
+        return None, "no source match"
+
+    title_key = normalize_match_key(title)
+    for source in results:
+        if normalize_match_key(str(source.get("display_name", ""))) == title_key:
+            return source, "exact source match"
+    return results[0], "best source match"
+
+
+def openalex_abstract(inverted_index: dict[str, list[int]] | None) -> str:
+    if not inverted_index:
+        return ""
+    positions: dict[int, str] = {}
+    for word, indexes in inverted_index.items():
+        for index in indexes:
+            positions[index] = word
+    return " ".join(positions[index] for index in sorted(positions))
+
+
+def compact_openalex_work(
+    work: dict[str, Any],
+    journal: dict[str, Any],
+    source: dict[str, Any],
+    include_abstracts: bool,
+) -> dict[str, Any]:
+    doi = str(work.get("doi") or "")
+    title = normalize_text(str(work.get("display_name") or ""))
+    authorships = work.get("authorships") or []
+    authors = [
+        normalize_text(str((authorship.get("author") or {}).get("display_name") or ""))
+        for authorship in authorships[:20]
+    ]
+    authors = [author for author in authors if author]
+    primary_location = work.get("primary_location") or {}
+    landing_page_url = primary_location.get("landing_page_url") or doi or work.get("id") or ""
+    item = {
+        "openalex_id": work.get("id"),
+        "doi": doi,
+        "title": title,
+        "publication_year": work.get("publication_year"),
+        "publication_date": work.get("publication_date"),
+        "authors": authors,
+        "journal_id": journal["id"],
+        "journal_title": journal["title"],
+        "source_openalex_id": source.get("id"),
+        "source_display_name": source.get("display_name"),
+        "url": landing_page_url,
+        "cited_by_count": work.get("cited_by_count"),
+        "is_oa": (work.get("open_access") or {}).get("is_oa"),
+        "oa_status": (work.get("open_access") or {}).get("oa_status"),
+        "type": work.get("type"),
+    }
+    if include_abstracts:
+        item["abstract"] = openalex_abstract(work.get("abstract_inverted_index"))
+    return item
+
+
+def history_file_for_journal(journal_id: int) -> Path:
+    return HISTORY_DIR / "journals" / f"{journal_id:04d}.jsonl"
+
+
+def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        for row in rows:
+            handle.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
+
+
+def read_jsonl_count(path: Path) -> int:
+    if not path.exists():
+        return 0
+    with path.open("r", encoding="utf-8") as handle:
+        return sum(1 for line in handle if line.strip())
+
+
+def run_historical_backfill(
+    start_id: int | None,
+    end_id: int | None,
+    max_journals: int | None,
+    max_pages_per_journal: int,
+    per_page: int,
+    sleep_seconds: float,
+    include_abstracts: bool,
+    dry_run: bool,
+) -> dict[str, Any]:
+    journals = [journal for journal in load_json(JOURNALS_PATH, []) if journal.get("enabled", True)]
+    selected: list[dict[str, Any]] = []
+    for journal in journals:
+        journal_id = int(journal["id"])
+        if start_id is not None and journal_id < start_id:
+            continue
+        if end_id is not None and journal_id > end_id:
+            continue
+        selected.append(journal)
+    if max_journals is not None:
+        selected = selected[:max_journals]
+
+    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+    diagnostics: list[dict[str, Any]] = []
+    total_items = 0
+
+    for journal in selected:
+        journal_id = int(journal["id"])
+        title = str(journal["title"])
+        try:
+            source, source_status = find_openalex_source(journal)
+            if not source:
+                diagnostics.append({"journal_id": journal_id, "journal_title": title, "status": source_status, "items": 0})
+                continue
+
+            source_id = str(source.get("id", ""))
+            source_id_filter = source_id.rsplit("/", 1)[-1]
+            cursor = "*"
+            pages = 0
+            rows: list[dict[str, Any]] = []
+            while cursor:
+                if max_pages_per_journal > 0 and pages >= max_pages_per_journal:
+                    break
+                works_url = openalex_url(
+                    "/works",
+                    {
+                        "filter": f"primary_location.source.id:{source_id_filter},type:article",
+                        "per-page": per_page,
+                        "cursor": cursor,
+                        "sort": "publication_date:desc",
+                    },
+                )
+                payload = fetch_json(works_url)
+                results = payload.get("results", [])
+                rows.extend(compact_openalex_work(work, journal, source, include_abstracts) for work in results)
+                pages += 1
+                next_cursor = (payload.get("meta") or {}).get("next_cursor")
+                if not results or not next_cursor or next_cursor == cursor:
+                    break
+                cursor = next_cursor
+                if sleep_seconds > 0:
+                    time.sleep(sleep_seconds)
+
+            if not dry_run:
+                write_jsonl(history_file_for_journal(journal_id), rows)
+            total_items += len(rows)
+            diagnostics.append(
+                {
+                    "journal_id": journal_id,
+                    "journal_title": title,
+                    "status": source_status,
+                    "source_display_name": source.get("display_name"),
+                    "source_openalex_id": source_id,
+                    "pages": pages,
+                    "items": len(rows),
+                }
+            )
+        except Exception as exc:
+            diagnostics.append({"journal_id": journal_id, "journal_title": title, "status": f"error: {exc}", "items": 0})
+
+    index = {
+        "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "provider": "OpenAlex public API",
+        "scope": "publicly available bibliographic metadata; no paywall or login bypass",
+        "selected_journals": len(selected),
+        "total_items": total_items,
+        "include_abstracts": include_abstracts,
+        "dry_run": dry_run,
+        "diagnostics": diagnostics,
+    }
+    if not dry_run:
+        save_json(HISTORY_DIR / "index.json", index)
+    return index
 
 
 def markdown_link(title: str, url: str) -> str:
@@ -562,6 +760,21 @@ def main(argv: list[str] | None = None) -> None:
     run_parser.add_argument("--include-baseline", action="store_true", help="Treat first discovered records as new on initial run.")
     run_parser.add_argument("--no-fetch", action="store_true", help="Skip network fetching and only generate an empty daily payload.")
 
+    backfill_parser = subparsers.add_parser("backfill", help="Backfill historical public metadata through OpenAlex.")
+    backfill_parser.add_argument("--start-id", type=int, help="First journal id to include.")
+    backfill_parser.add_argument("--end-id", type=int, help="Last journal id to include.")
+    backfill_parser.add_argument("--max-journals", type=int, help="Maximum number of journals to process.")
+    backfill_parser.add_argument(
+        "--max-pages-per-journal",
+        type=int,
+        default=int(os.environ.get("MAX_PAGES_PER_JOURNAL", "0")),
+        help="OpenAlex cursor pages per journal. 0 means no explicit page limit.",
+    )
+    backfill_parser.add_argument("--per-page", type=int, default=int(os.environ.get("OPENALEX_PER_PAGE", "200")))
+    backfill_parser.add_argument("--sleep-seconds", type=float, default=float(os.environ.get("OPENALEX_SLEEP_SECONDS", "0.15")))
+    backfill_parser.add_argument("--include-abstracts", action="store_true", help="Store abstracts when OpenAlex provides them.")
+    backfill_parser.add_argument("--dry-run", action="store_true", help="Fetch and count without writing history files.")
+
     args = parser.parse_args(argv)
     if args.command == "run":
         run_date = parse_date(args.date)
@@ -576,6 +789,28 @@ def main(argv: list[str] | None = None) -> None:
                 Discovered records: {payload['discovered_count']}
                 New records: {len(payload['new_items'])}
                 Reports: {', '.join(str(path.relative_to(ROOT)) for path in paths)}
+                """
+            ).strip()
+        )
+    elif args.command == "backfill":
+        result = run_historical_backfill(
+            args.start_id,
+            args.end_id,
+            args.max_journals,
+            args.max_pages_per_journal,
+            args.per_page,
+            args.sleep_seconds,
+            args.include_abstracts,
+            args.dry_run,
+        )
+        print(
+            textwrap.dedent(
+                f"""
+                Historical backfill completed.
+                Selected journals: {result['selected_journals']}
+                Total metadata records: {result['total_items']}
+                Include abstracts: {result['include_abstracts']}
+                Dry run: {result['dry_run']}
                 """
             ).strip()
         )
