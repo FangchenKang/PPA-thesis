@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-29T16:38:16.848732+00:00",
+  "generated_at": "2026-05-29T16:54:28.137991+00:00",
   "provider": "OpenAlex public API",
   "scope": "publicly available bibliographic metadata; no paywall or login bypass",
-  "selected_journals": 50,
-  "total_items": 87631,
+  "selected_journals": 66,
+  "total_items": 96323,
   "newly_fetched_items": 0,
-  "existing_items": 87631,
+  "existing_items": 96323,
   "include_abstracts": false,
   "dry_run": false,
   "resume": true,
@@ -309,6 +309,102 @@
       "journal_title": "行政论坛",
       "status": "skipped existing file",
       "items": 634
+    },
+    {
+      "journal_id": 51,
+      "journal_title": "公共行政评论",
+      "status": "skipped existing file",
+      "items": 167
+    },
+    {
+      "journal_id": 52,
+      "journal_title": "北京行政学院学报",
+      "status": "skipped existing file",
+      "items": 371
+    },
+    {
+      "journal_id": 53,
+      "journal_title": "中共中央党校（国家行政学院）学报",
+      "status": "no source match",
+      "items": 0
+    },
+    {
+      "journal_id": 54,
+      "journal_title": "求实",
+      "status": "skipped existing file",
+      "items": 1139
+    },
+    {
+      "journal_id": 55,
+      "journal_title": "理论学刊",
+      "status": "skipped existing file",
+      "items": 155
+    },
+    {
+      "journal_id": 56,
+      "journal_title": "理论探索",
+      "status": "skipped existing file",
+      "items": 477
+    },
+    {
+      "journal_id": 57,
+      "journal_title": "上海行政学院学报",
+      "status": "skipped existing file",
+      "items": 204
+    },
+    {
+      "journal_id": 58,
+      "journal_title": "江苏行政学院学报",
+      "status": "skipped existing file",
+      "items": 332
+    },
+    {
+      "journal_id": 59,
+      "journal_title": "甘肃行政学院学报",
+      "status": "skipped existing file",
+      "items": 260
+    },
+    {
+      "journal_id": 60,
+      "journal_title": "中国社会科学",
+      "status": "skipped existing file",
+      "items": 1211
+    },
+    {
+      "journal_id": 61,
+      "journal_title": "社会科学",
+      "status": "skipped existing file",
+      "items": 1211
+    },
+    {
+      "journal_id": 62,
+      "journal_title": "开放时代",
+      "status": "no source match",
+      "items": 0
+    },
+    {
+      "journal_id": 63,
+      "journal_title": "学海",
+      "status": "skipped existing file",
+      "items": 1619
+    },
+    {
+      "journal_id": 64,
+      "journal_title": "学术研究",
+      "status": "skipped existing file",
+      "items": 1052
+    },
+    {
+      "journal_id": 65,
+      "journal_title": "经济研究",
+      "status": "skipped existing file",
+      "items": 269
+    },
+    {
+      "journal_id": 66,
+      "journal_title": "心理学报",
+      "status": "skipped existing file",
+      "items": 225
     }
   ]
 }
