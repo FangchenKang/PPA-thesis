@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-29T16:33:41.533387+00:00",
+  "generated_at": "2026-05-29T16:38:16.848732+00:00",
   "provider": "OpenAlex public API",
   "scope": "publicly available bibliographic metadata; no paywall or login bypass",
-  "selected_journals": 33,
-  "total_items": 80789,
+  "selected_journals": 50,
+  "total_items": 87631,
   "newly_fetched_items": 0,
-  "existing_items": 80789,
+  "existing_items": 87631,
   "include_abstracts": false,
   "dry_run": false,
   "resume": true,
@@ -207,6 +207,108 @@
       "journal_title": "Public Money & Management",
       "status": "skipped existing file",
       "items": 2796
+    },
+    {
+      "journal_id": 34,
+      "journal_title": "社会保障评论",
+      "status": "no source match",
+      "items": 0
+    },
+    {
+      "journal_id": 35,
+      "journal_title": "管理世界",
+      "status": "skipped existing file",
+      "items": 1007
+    },
+    {
+      "journal_id": 36,
+      "journal_title": "公共管理学报",
+      "status": "skipped existing file",
+      "items": 160
+    },
+    {
+      "journal_id": 37,
+      "journal_title": "电子政务",
+      "status": "skipped existing file",
+      "items": 338
+    },
+    {
+      "journal_id": 38,
+      "journal_title": "中国行政管理",
+      "status": "no source match",
+      "items": 0
+    },
+    {
+      "journal_id": 39,
+      "journal_title": "治理研究",
+      "status": "no source match",
+      "items": 0
+    },
+    {
+      "journal_id": 40,
+      "journal_title": "公共管理与政策评论",
+      "status": "skipped existing file",
+      "items": 101
+    },
+    {
+      "journal_id": 41,
+      "journal_title": "行政管理改革",
+      "status": "skipped existing file",
+      "items": 181
+    },
+    {
+      "journal_id": 42,
+      "journal_title": "公共管理评论",
+      "status": "skipped existing file",
+      "items": 100
+    },
+    {
+      "journal_id": 43,
+      "journal_title": "经济体制改革",
+      "status": "skipped existing file",
+      "items": 578
+    },
+    {
+      "journal_id": 44,
+      "journal_title": "城市发展研究",
+      "status": "skipped existing file",
+      "items": 400
+    },
+    {
+      "journal_id": 45,
+      "journal_title": "社会学研究",
+      "status": "skipped existing file",
+      "items": 395
+    },
+    {
+      "journal_id": 46,
+      "journal_title": "理论探讨",
+      "status": "skipped existing file",
+      "items": 770
+    },
+    {
+      "journal_id": 47,
+      "journal_title": "政治学研究",
+      "status": "skipped existing file",
+      "items": 366
+    },
+    {
+      "journal_id": 48,
+      "journal_title": "理论与改革",
+      "status": "skipped existing file",
+      "items": 713
+    },
+    {
+      "journal_id": 49,
+      "journal_title": "探索",
+      "status": "skipped existing file",
+      "items": 1099
+    },
+    {
+      "journal_id": 50,
+      "journal_title": "行政论坛",
+      "status": "skipped existing file",
+      "items": 634
     }
   ]
 }
