@@ -403,6 +403,7 @@ def run_historical_backfill(
     sleep_seconds: float,
     include_abstracts: bool,
     dry_run: bool,
+    resume: bool,
 ) -> dict[str, Any]:
     journals = [journal for journal in load_json(JOURNALS_PATH, []) if journal.get("enabled", True)]
     selected: list[dict[str, Any]] = []
@@ -419,14 +420,41 @@ def run_historical_backfill(
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
     diagnostics: list[dict[str, Any]] = []
     total_items = 0
+    existing_items = 0
+
+    def checkpoint() -> None:
+        if dry_run:
+            return
+        index = {
+            "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+            "provider": "OpenAlex public API",
+            "scope": "publicly available bibliographic metadata; no paywall or login bypass",
+            "selected_journals": len(selected),
+            "total_items": total_items + existing_items,
+            "newly_fetched_items": total_items,
+            "existing_items": existing_items,
+            "include_abstracts": include_abstracts,
+            "dry_run": dry_run,
+            "resume": resume,
+            "diagnostics": diagnostics,
+        }
+        save_json(HISTORY_DIR / "index.json", index)
 
     for journal in selected:
         journal_id = int(journal["id"])
         title = str(journal["title"])
+        history_path = history_file_for_journal(journal_id)
+        if resume and history_path.exists() and history_path.stat().st_size > 0:
+            count = read_jsonl_count(history_path)
+            existing_items += count
+            diagnostics.append({"journal_id": journal_id, "journal_title": title, "status": "skipped existing file", "items": count})
+            checkpoint()
+            continue
         try:
             source, source_status = find_openalex_source(journal)
             if not source:
                 diagnostics.append({"journal_id": journal_id, "journal_title": title, "status": source_status, "items": 0})
+                checkpoint()
                 continue
 
             source_id = str(source.get("id", ""))
@@ -458,7 +486,7 @@ def run_historical_backfill(
                     time.sleep(sleep_seconds)
 
             if not dry_run:
-                write_jsonl(history_file_for_journal(journal_id), rows)
+                write_jsonl(history_path, rows)
             total_items += len(rows)
             diagnostics.append(
                 {
@@ -471,21 +499,24 @@ def run_historical_backfill(
                     "items": len(rows),
                 }
             )
+            checkpoint()
         except Exception as exc:
             diagnostics.append({"journal_id": journal_id, "journal_title": title, "status": f"error: {exc}", "items": 0})
-
+            checkpoint()
     index = {
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "provider": "OpenAlex public API",
         "scope": "publicly available bibliographic metadata; no paywall or login bypass",
         "selected_journals": len(selected),
-        "total_items": total_items,
+        "total_items": total_items + existing_items,
+        "newly_fetched_items": total_items,
+        "existing_items": existing_items,
         "include_abstracts": include_abstracts,
         "dry_run": dry_run,
+        "resume": resume,
         "diagnostics": diagnostics,
     }
-    if not dry_run:
-        save_json(HISTORY_DIR / "index.json", index)
+    checkpoint()
     return index
 
 
@@ -773,6 +804,7 @@ def main(argv: list[str] | None = None) -> None:
     backfill_parser.add_argument("--per-page", type=int, default=int(os.environ.get("OPENALEX_PER_PAGE", "200")))
     backfill_parser.add_argument("--sleep-seconds", type=float, default=float(os.environ.get("OPENALEX_SLEEP_SECONDS", "0.15")))
     backfill_parser.add_argument("--include-abstracts", action="store_true", help="Store abstracts when OpenAlex provides them.")
+    backfill_parser.add_argument("--no-resume", action="store_true", help="Refetch journals even if a history file already exists.")
     backfill_parser.add_argument("--dry-run", action="store_true", help="Fetch and count without writing history files.")
 
     args = parser.parse_args(argv)
@@ -802,6 +834,7 @@ def main(argv: list[str] | None = None) -> None:
             args.sleep_seconds,
             args.include_abstracts,
             args.dry_run,
+            not args.no_resume,
         )
         print(
             textwrap.dedent(

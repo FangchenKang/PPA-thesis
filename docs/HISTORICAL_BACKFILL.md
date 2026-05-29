@@ -30,6 +30,8 @@ Recommended first run:
 
 After confirming the result size, continue with more ID ranges.
 
+The backfill is resumable. If `data/history/journals/0002.jsonl` already exists, rerunning a range that includes journal ID 2 will skip that file by default. Use `--no-resume` locally only when you intentionally want to refetch an existing journal.
+
 ## Full Backfill
 
 To try the full list in one run:
@@ -51,3 +53,9 @@ This asks the script to fetch every available cursor page for every matched jour
 The backfill collects public metadata only. It does not log in to CNKI, school databases, or publisher portals, and it does not download paywalled full text.
 
 Some Chinese journals may have incomplete coverage in OpenAlex. Those will appear in `data/history/index.json` with lower counts or source-match warnings.
+
+For local controlled batches:
+
+```bash
+python -m journal_tracker backfill --start-id 31 --end-id 33
+```

@@ -1,0 +1,212 @@
+{
+  "generated_at": "2026-05-29T16:33:41.533387+00:00",
+  "provider": "OpenAlex public API",
+  "scope": "publicly available bibliographic metadata; no paywall or login bypass",
+  "selected_journals": 33,
+  "total_items": 80789,
+  "newly_fetched_items": 0,
+  "existing_items": 80789,
+  "include_abstracts": false,
+  "dry_run": false,
+  "resume": true,
+  "diagnostics": [
+    {
+      "journal_id": 1,
+      "journal_title": "Journal of Public Administration Research and Theory",
+      "status": "skipped existing file",
+      "items": 1698
+    },
+    {
+      "journal_id": 2,
+      "journal_title": "Policy and Society",
+      "status": "skipped existing file",
+      "items": 902
+    },
+    {
+      "journal_id": 3,
+      "journal_title": "Public Administration",
+      "status": "skipped existing file",
+      "items": 5201
+    },
+    {
+      "journal_id": 4,
+      "journal_title": "Policy Studies Journal",
+      "status": "skipped existing file",
+      "items": 3203
+    },
+    {
+      "journal_id": 5,
+      "journal_title": "Public Administration Review",
+      "status": "skipped existing file",
+      "items": 8494
+    },
+    {
+      "journal_id": 6,
+      "journal_title": "Public Management Review",
+      "status": "skipped existing file",
+      "items": 2027
+    },
+    {
+      "journal_id": 7,
+      "journal_title": "Journal of European Public Policy",
+      "status": "skipped existing file",
+      "items": 2706
+    },
+    {
+      "journal_id": 8,
+      "journal_title": "Regulation & Governance",
+      "status": "skipped existing file",
+      "items": 957
+    },
+    {
+      "journal_id": 9,
+      "journal_title": "Policy Sciences",
+      "status": "skipped existing file",
+      "items": 1696
+    },
+    {
+      "journal_id": 10,
+      "journal_title": "Journal of Chinese Governance",
+      "status": "skipped existing file",
+      "items": 310
+    },
+    {
+      "journal_id": 11,
+      "journal_title": "Review of Policy Research",
+      "status": "skipped existing file",
+      "items": 2427
+    },
+    {
+      "journal_id": 12,
+      "journal_title": "Public Policy and Administration",
+      "status": "skipped existing file",
+      "items": 1514
+    },
+    {
+      "journal_id": 13,
+      "journal_title": "Journal of European Social Policy",
+      "status": "skipped existing file",
+      "items": 1401
+    },
+    {
+      "journal_id": 14,
+      "journal_title": "Policy and Politics",
+      "status": "skipped existing file",
+      "items": 758
+    },
+    {
+      "journal_id": 15,
+      "journal_title": "Review of Public Personnel Administration",
+      "status": "skipped existing file",
+      "items": 1294
+    },
+    {
+      "journal_id": 16,
+      "journal_title": "Governance",
+      "status": "skipped existing file",
+      "items": 1924
+    },
+    {
+      "journal_id": 17,
+      "journal_title": "International Public Management Journal",
+      "status": "skipped existing file",
+      "items": 767
+    },
+    {
+      "journal_id": 18,
+      "journal_title": "Public Performance & Management Review",
+      "status": "skipped existing file",
+      "items": 1158
+    },
+    {
+      "journal_id": 19,
+      "journal_title": "Public Personnel Management",
+      "status": "skipped existing file",
+      "items": 1948
+    },
+    {
+      "journal_id": 20,
+      "journal_title": "International Review of Administrative Sciences",
+      "status": "skipped existing file",
+      "items": 3585
+    },
+    {
+      "journal_id": 21,
+      "journal_title": "Journal of Social Policy",
+      "status": "skipped existing file",
+      "items": 4980
+    },
+    {
+      "journal_id": 22,
+      "journal_title": "American Review of Public Administration",
+      "status": "skipped existing file",
+      "items": 1710
+    },
+    {
+      "journal_id": 23,
+      "journal_title": "Critical Policy Studies",
+      "status": "skipped existing file",
+      "items": 784
+    },
+    {
+      "journal_id": 24,
+      "journal_title": "Journal of Policy Analysis and Management",
+      "status": "skipped existing file",
+      "items": 5241
+    },
+    {
+      "journal_id": 25,
+      "journal_title": "Policy Studies",
+      "status": "skipped existing file",
+      "items": 1424
+    },
+    {
+      "journal_id": 26,
+      "journal_title": "Administration & Society",
+      "status": "skipped existing file",
+      "items": 1911
+    },
+    {
+      "journal_id": 27,
+      "journal_title": "Science and Public Policy",
+      "status": "skipped existing file",
+      "items": 4423
+    },
+    {
+      "journal_id": 28,
+      "journal_title": "Social Policy & Administration",
+      "status": "skipped existing file",
+      "items": 2866
+    },
+    {
+      "journal_id": 29,
+      "journal_title": "Journal of Accounting and Public Policy",
+      "status": "skipped existing file",
+      "items": 1556
+    },
+    {
+      "journal_id": 30,
+      "journal_title": "Journal of Public Policy",
+      "status": "skipped existing file",
+      "items": 1419
+    },
+    {
+      "journal_id": 31,
+      "journal_title": "Australian Journal of Public Administration",
+      "status": "skipped existing file",
+      "items": 4119
+    },
+    {
+      "journal_id": 32,
+      "journal_title": "Public Administration and Development",
+      "status": "skipped existing file",
+      "items": 3590
+    },
+    {
+      "journal_id": 33,
+      "journal_title": "Public Money & Management",
+      "status": "skipped existing file",
+      "items": 2796
+    }
+  ]
+}
