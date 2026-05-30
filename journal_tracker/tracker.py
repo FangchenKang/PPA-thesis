@@ -28,6 +28,7 @@ JOURNALS_PATH = ROOT / "data" / "journals.json"
 STATE_PATH = ROOT / "data" / "state.json"
 ITEMS_DIR = ROOT / "data" / "items"
 HISTORY_DIR = ROOT / "data" / "history"
+HISTORY_JOURNALS_DIR = HISTORY_DIR / "journals"
 REPORTS_DIR = ROOT / "reports"
 OVERRIDES_PATH = ROOT / "config" / "feed_overrides.json"
 USER_AGENT = "PPA-thesis-journal-tracker/0.1 (+https://github.com/FangchenKang/PPA-thesis)"
@@ -383,8 +384,20 @@ def compact_openalex_work(
     return item
 
 
-def history_file_for_journal(journal_id: int) -> Path:
-    return HISTORY_DIR / "journals" / f"{journal_id:04d}.jsonl"
+def safe_path_segment(value: str) -> str:
+    segment = re.sub(r'[<>:"/\\|?*\x00-\x1f]', " ", value)
+    segment = re.sub(r"\s+", "_", segment).strip(" ._")
+    return segment[:120] or "untitled"
+
+
+def history_folder_for_journal(journal: dict[str, Any]) -> Path:
+    journal_id = int(journal["id"])
+    title = safe_path_segment(str(journal.get("title") or f"journal-{journal_id:04d}"))
+    return HISTORY_JOURNALS_DIR / f"{journal_id:04d}-{title}"
+
+
+def history_file_for_journal(journal: dict[str, Any]) -> Path:
+    return history_folder_for_journal(journal) / "works.jsonl"
 
 
 def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
@@ -429,7 +442,7 @@ def run_historical_backfill(
     if max_journals is not None:
         selected = selected[:max_journals]
 
-    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+    HISTORY_JOURNALS_DIR.mkdir(parents=True, exist_ok=True)
     diagnostics: list[dict[str, Any]] = []
     total_items = 0
     existing_items = 0
@@ -455,7 +468,7 @@ def run_historical_backfill(
     for journal in selected:
         journal_id = int(journal["id"])
         title = str(journal["title"])
-        history_path = history_file_for_journal(journal_id)
+        history_path = history_file_for_journal(journal)
         if resume and history_path.exists() and history_path.stat().st_size > 0:
             count = read_jsonl_count(history_path)
             existing_items += count

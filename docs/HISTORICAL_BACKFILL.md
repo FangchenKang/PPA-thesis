@@ -7,10 +7,14 @@ It does not use the school LLM API. It uses the OpenAlex public metadata API to 
 ## Storage Layout
 
 - `data/history/index.json`: run summary and diagnostics.
-- `data/history/journals/0001.jsonl`: one JSON record per article for journal ID 1.
-- `data/history/journals/0002.jsonl`: one JSON record per article for journal ID 2.
+- `data/history/journals/0001-Journal_Name/works.jsonl`: one JSONL record per article for journal ID 1.
+- `data/history/journals/0002-Journal_Name/works.jsonl`: one JSONL record per article for journal ID 2.
 
 Each article record stores compact metadata such as title, DOI, publication date, authors, OpenAlex ID, article URL, citation count, and open access status. Abstracts are off by default to keep the repository smaller.
+
+`works.jsonl` uses JSON Lines rather than a single large JSON array: each line is an independent JSON object. This makes large journal histories easier to append, stream, inspect, and diff in Git.
+
+Future issue-level snapshots can live under the same journal folder, for example `data/history/journals/0001-Journal_Name/issues/2026-1/works.jsonl`.
 
 ## How To Run
 
@@ -30,7 +34,7 @@ Recommended first run:
 
 After confirming the result size, continue with more ID ranges.
 
-The backfill is resumable. If `data/history/journals/0002.jsonl` already exists, rerunning a range that includes journal ID 2 will skip that file by default. Use `--no-resume` locally only when you intentionally want to refetch an existing journal.
+The backfill is resumable. If `data/history/journals/0002-Journal_Name/works.jsonl` already exists, rerunning a range that includes journal ID 2 will skip that file by default. Use `--no-resume` locally only when you intentionally want to refetch an existing journal.
 
 ## Full Backfill
 
