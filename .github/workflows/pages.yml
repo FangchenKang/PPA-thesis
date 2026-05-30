@@ -27,6 +27,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
       - name: Build website data indexes
         run: python -m journal_tracker build-site-index --seed-metadata
 
