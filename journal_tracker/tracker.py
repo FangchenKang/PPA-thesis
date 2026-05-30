@@ -1477,6 +1477,18 @@ def main(argv: list[str] | None = None) -> None:
     )
     summarize_parser.add_argument("--dry-run", action="store_true", help="Scan and report counts without writing summaries.")
 
+    seed_site_metadata_parser = subparsers.add_parser(
+        "seed-site-metadata",
+        help="Create or update the manually editable journal metadata file used by the static website.",
+    )
+    seed_site_metadata_parser.add_argument("--overwrite", action="store_true", help="Regenerate the metadata file from data/journals.json.")
+
+    build_site_parser = subparsers.add_parser(
+        "build-site-index",
+        help="Build static website data indexes from existing historical journal metadata.",
+    )
+    build_site_parser.add_argument("--seed-metadata", action="store_true", help="Create missing journal metadata entries before building indexes.")
+
     args = parser.parse_args(argv)
     if args.command == "run":
         run_date = parse_date(args.date)
@@ -1553,6 +1565,37 @@ def main(argv: list[str] | None = None) -> None:
                 Insufficient information: {result['insufficient']}
                 Missing API key: {result['missing_api']}
                 Dry run: {result['dry_run']}
+                """
+            ).strip()
+        )
+    elif args.command == "seed-site-metadata":
+        from .site_index import seed_journal_metadata
+
+        result = seed_journal_metadata(overwrite=args.overwrite)
+        print(
+            textwrap.dedent(
+                f"""
+                Site journal metadata seeded.
+                Metadata file: {result['metadata_path']}
+                Total journals: {result['total']}
+                Added entries: {result['added']}
+                """
+            ).strip()
+        )
+    elif args.command == "build-site-index":
+        from .site_index import build_site_index, seed_journal_metadata
+
+        if args.seed_metadata:
+            seed_journal_metadata()
+        result = build_site_index()
+        print(
+            textwrap.dedent(
+                f"""
+                Static site indexes built.
+                Data directory: {result['site_data_dir']}
+                Journals: {result['journal_count']}
+                Issues: {result['issue_count']}
+                Articles: {result['article_count']}
                 """
             ).strip()
         )
