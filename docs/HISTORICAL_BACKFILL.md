@@ -72,3 +72,11 @@ To regenerate the issue-like folders after a backfill:
 ```bash
 python -m journal_tracker split-issues --start-id 31 --end-id 33
 ```
+
+To generate resumable per-article AI summaries inside each issue folder:
+
+```bash
+python -m journal_tracker summarize-articles
+```
+
+The command writes `ai_summaries.jsonl` next to each issue's `works.jsonl`. It skips existing summaries by `title` and `source_file`, so interrupted runs can be resumed. It reads `LLM_API_KEY`, `LLM_BASE_URL`, and `LLM_MODEL` from the environment and never stores the API key in the repository.

@@ -724,6 +724,347 @@ def run_historical_backfill(
     return index
 
 
+ARTICLE_CONTEXT_FIELDS = [
+    "abstract",
+    "summary",
+    "description",
+    "body",
+    "content",
+    "intro",
+    "text",
+]
+
+
+def clean_text(value: Any) -> str:
+    if value is None:
+        return ""
+    if isinstance(value, list):
+        return "; ".join(clean_text(item) for item in value if clean_text(item))
+    if isinstance(value, dict):
+        return json.dumps(value, ensure_ascii=False, sort_keys=True)
+    return re.sub(r"\s+", " ", str(value)).strip()
+
+
+def article_keywords(row: dict[str, Any]) -> str:
+    for key in ("keywords", "keyword", "concepts"):
+        value = row.get(key)
+        if not value:
+            continue
+        if key == "concepts" and isinstance(value, list):
+            names = []
+            for item in value:
+                if isinstance(item, dict) and item.get("display_name"):
+                    names.append(str(item["display_name"]))
+            return clean_text(names)
+        return clean_text(value)
+    return ""
+
+
+def article_context(row: dict[str, Any]) -> str:
+    parts = []
+    for key in ARTICLE_CONTEXT_FIELDS:
+        value = clean_text(row.get(key))
+        if value:
+            parts.append(value)
+    return " ".join(parts)
+
+
+def title_has_enough_information(title: str) -> bool:
+    normalized = normalize_text(title)
+    if len(normalized) < 4:
+        return False
+    weak_titles = {
+        "abstract",
+        "article",
+        "back matter",
+        "book review",
+        "book reviews",
+        "books received",
+        "contents",
+        "correction",
+        "editorial",
+        "errata",
+        "erratum",
+        "front matter",
+        "introduction",
+        "preface",
+        "review",
+        "reviews",
+    }
+    return normalized not in weak_titles
+
+
+def summary_basis(row: dict[str, Any]) -> str:
+    title = clean_text(row.get("title"))
+    if not title or not title_has_enough_information(title):
+        return "信息不足，暂不展开"
+    has_context = bool(article_context(row))
+    has_keywords = bool(article_keywords(row))
+    if has_context and has_keywords:
+        return "根据题目、摘要和关键词判断"
+    if has_context:
+        return "根据题目和摘要判断"
+    if has_keywords:
+        return "根据题目和关键词判断"
+    return "仅根据题目判断"
+
+
+def append_title_only_marker(summary: str, basis: str) -> str:
+    summary = summary.strip()
+    if basis == "仅根据题目判断" and not summary.endswith("仅根据题目判断"):
+        return f"{summary} 仅根据题目判断"
+    return summary
+
+
+def extract_json_array(text: str) -> list[Any]:
+    text = text.strip()
+    try:
+        payload = json.loads(text)
+    except json.JSONDecodeError:
+        start = text.find("[")
+        end = text.rfind("]")
+        if start < 0 or end < start:
+            raise
+        payload = json.loads(text[start : end + 1])
+    if not isinstance(payload, list):
+        raise ValueError("LLM response is not a JSON array")
+    return payload
+
+
+def generate_article_summaries_with_llm(records: list[dict[str, Any]]) -> dict[str, str]:
+    api_key = os.environ.get("LLM_API_KEY")
+    if not api_key:
+        raise RuntimeError("LLM_API_KEY is not set")
+    base_url = os.environ.get("LLM_BASE_URL", "https://models.sjtu.edu.cn/api/v1").rstrip("/")
+    model = os.environ.get("LLM_MODEL", "deepseek-chat")
+    payload_records = [
+        {
+            "id": record["id"],
+            "title": record["title"],
+            "authors": record["authors"],
+            "abstract_or_intro": record["context"],
+            "keywords": record["keywords"],
+            "basis": record["basis"],
+        }
+        for record in records
+    ]
+    payload = {
+        "model": model,
+        "messages": [
+            {
+                "role": "system",
+                "content": (
+                    "你为政治学与公共管理期刊文章写中文简明总结。"
+                    "不要复制摘要，不要使用“本文研究了、作者认为、文章指出”等外部评述式表达。"
+                    "直接说明文章关注的问题、对象、关系、机制或判断。"
+                    "不能编造输入中没有的信息。只返回 JSON 数组。"
+                ),
+            },
+            {
+                "role": "user",
+                "content": (
+                    "请为下列文章逐篇生成 ai_summary。"
+                    "每个总结用一到两句话，简洁、准确、平实，不做意义评价。"
+                    "如果 basis 是“仅根据题目判断”，总结末尾必须加“仅根据题目判断”。"
+                    "返回格式为 [{\"id\":\"...\",\"ai_summary\":\"...\"}]。\n\n"
+                    + json.dumps(payload_records, ensure_ascii=False)
+                ),
+            },
+        ],
+        "temperature": 0.2,
+    }
+    request = urllib.request.Request(
+        f"{base_url}/chat/completions",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+            "User-Agent": USER_AGENT,
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=120) as response:
+        data = json.loads(response.read().decode("utf-8"))
+    content = data["choices"][0]["message"]["content"]
+    parsed = extract_json_array(content)
+    summaries: dict[str, str] = {}
+    for item in parsed:
+        if isinstance(item, dict) and item.get("id") and item.get("ai_summary"):
+            summaries[str(item["id"])] = clean_text(item["ai_summary"])
+    return summaries
+
+
+def iter_issue_files(start_id: int | None, end_id: int | None) -> list[Path]:
+    paths: list[Path] = []
+    for journal_dir in sorted(HISTORY_JOURNALS_DIR.iterdir()):
+        if not journal_dir.is_dir():
+            continue
+        match = re.match(r"(\d{4})-", journal_dir.name)
+        if not match:
+            continue
+        journal_id = int(match.group(1))
+        if start_id is not None and journal_id < start_id:
+            continue
+        if end_id is not None and journal_id > end_id:
+            continue
+        paths.extend(sorted((journal_dir / "issues").glob("*/works.jsonl")))
+    return paths
+
+
+def count_journal_dirs(start_id: int | None, end_id: int | None) -> int:
+    count = 0
+    for journal_dir in HISTORY_JOURNALS_DIR.iterdir():
+        if not journal_dir.is_dir():
+            continue
+        match = re.match(r"(\d{4})-", journal_dir.name)
+        if not match:
+            continue
+        journal_id = int(match.group(1))
+        if start_id is not None and journal_id < start_id:
+            continue
+        if end_id is not None and journal_id > end_id:
+            continue
+        count += 1
+    return count
+
+
+def read_existing_summary_keys(path: Path) -> set[tuple[str, str]]:
+    keys: set[tuple[str, str]] = set()
+    if not path.exists():
+        return keys
+    with path.open("r", encoding="utf-8") as handle:
+        for line in handle:
+            if not line.strip():
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            keys.add((clean_text(row.get("title")), clean_text(row.get("source_file"))))
+    return keys
+
+
+def article_summary_output(row: dict[str, Any], source_file: str, summary: str, basis: str) -> dict[str, Any]:
+    published = parse_publication_date(row)
+    return {
+        "journal": row.get("journal_title") or row.get("source_display_name") or "",
+        "year": published.year if published else None,
+        "month": published.month if published else None,
+        "title": clean_text(row.get("title")),
+        "authors": row.get("authors") or [],
+        "source_file": source_file,
+        "ai_summary": append_title_only_marker(summary, basis),
+        "basis": basis,
+    }
+
+
+def run_article_summary_generation(
+    start_id: int | None,
+    end_id: int | None,
+    batch_size: int,
+    max_articles: int | None,
+    sleep_seconds: float,
+    dry_run: bool,
+) -> dict[str, Any]:
+    issue_files = iter_issue_files(start_id, end_id)
+    scanned_journals = count_journal_dirs(start_id, end_id)
+    scanned_periods = len(issue_files)
+    found_articles = 0
+    generated = 0
+    skipped = 0
+    insufficient = 0
+    missing_api = 0
+    pending: list[tuple[Path, dict[str, Any], str, str]] = []
+
+    def flush_batch() -> None:
+        nonlocal generated, missing_api
+        if not pending:
+            return
+        batch = list(pending)
+        pending.clear()
+        if dry_run:
+            return
+        records = [
+            {
+                "id": str(index),
+                "title": clean_text(row.get("title")),
+                "authors": row.get("authors") or [],
+                "context": article_context(row)[:4000],
+                "keywords": article_keywords(row)[:1000],
+                "basis": basis,
+            }
+            for index, (_, row, _, basis) in enumerate(batch)
+        ]
+        try:
+            summaries = generate_article_summaries_with_llm(records)
+        except RuntimeError as exc:
+            if "LLM_API_KEY" in str(exc):
+                missing_api += len(batch)
+                return
+            raise
+        by_output: dict[Path, list[dict[str, Any]]] = {}
+        for index, (output_path, row, source_file, basis) in enumerate(batch):
+            summary = summaries.get(str(index), "")
+            if not summary:
+                summary = "信息不足，暂不展开"
+                basis = "信息不足，暂不展开"
+            by_output.setdefault(output_path, []).append(article_summary_output(row, source_file, summary, basis))
+        for output_path, rows in by_output.items():
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            with output_path.open("a", encoding="utf-8", newline="\n") as handle:
+                for row in rows:
+                    append_jsonl(handle, row)
+                    generated += 1
+        if sleep_seconds > 0:
+            time.sleep(sleep_seconds)
+
+    for source_path in issue_files:
+        output_path = source_path.parent / "ai_summaries.jsonl"
+        existing = read_existing_summary_keys(output_path)
+        source_file = str(source_path.relative_to(ROOT)).replace("\\", "/")
+        for row in read_jsonl_rows(source_path):
+            if max_articles is not None and found_articles >= max_articles:
+                flush_batch()
+                return {
+                    "scanned_journals": scanned_journals,
+                    "scanned_periods": scanned_periods,
+                    "found_articles": found_articles,
+                    "generated": generated,
+                    "skipped": skipped,
+                    "insufficient": insufficient,
+                    "missing_api": missing_api,
+                    "dry_run": dry_run,
+                }
+            found_articles += 1
+            key = (clean_text(row.get("title")), source_file)
+            if key in existing:
+                skipped += 1
+                continue
+            basis = summary_basis(row)
+            if basis == "信息不足，暂不展开":
+                insufficient += 1
+                if not dry_run:
+                    output_path.parent.mkdir(parents=True, exist_ok=True)
+                    with output_path.open("a", encoding="utf-8", newline="\n") as handle:
+                        append_jsonl(handle, article_summary_output(row, source_file, "信息不足，暂不展开", basis))
+                        generated += 1
+                continue
+            pending.append((output_path, row, source_file, basis))
+            if len(pending) >= batch_size:
+                flush_batch()
+    flush_batch()
+    return {
+        "scanned_journals": scanned_journals,
+        "scanned_periods": scanned_periods,
+        "found_articles": found_articles,
+        "generated": generated,
+        "skipped": skipped,
+        "insufficient": insufficient,
+        "missing_api": missing_api,
+        "dry_run": dry_run,
+    }
+
+
 def markdown_link(title: str, url: str) -> str:
     escaped_title = title.replace("[", "\\[").replace("]", "\\]")
     return f"[{escaped_title}]({url})"
@@ -1026,6 +1367,14 @@ def main(argv: list[str] | None = None) -> None:
         help="Do not clear existing issues directories before regenerating buckets.",
     )
 
+    summarize_parser = subparsers.add_parser("summarize-articles", help="Generate per-article AI summaries in each issue folder.")
+    summarize_parser.add_argument("--start-id", type=int, help="First journal id to include.")
+    summarize_parser.add_argument("--end-id", type=int, help="Last journal id to include.")
+    summarize_parser.add_argument("--batch-size", type=int, default=int(os.environ.get("LLM_ARTICLE_BATCH_SIZE", "20")))
+    summarize_parser.add_argument("--max-articles", type=int, help="Maximum number of unskipped source articles to scan.")
+    summarize_parser.add_argument("--sleep-seconds", type=float, default=float(os.environ.get("LLM_SLEEP_SECONDS", "6")))
+    summarize_parser.add_argument("--dry-run", action="store_true", help="Scan and report counts without writing summaries.")
+
     args = parser.parse_args(argv)
     if args.command == "run":
         run_date = parse_date(args.date)
@@ -1076,6 +1425,30 @@ def main(argv: list[str] | None = None) -> None:
                 Total metadata records: {result['total_items']}
                 Period files: {result['period_files']}
                 Frequency mode: {result['frequency_mode']}
+                """
+            ).strip()
+        )
+    elif args.command == "summarize-articles":
+        result = run_article_summary_generation(
+            args.start_id,
+            args.end_id,
+            args.batch_size,
+            args.max_articles,
+            args.sleep_seconds,
+            args.dry_run,
+        )
+        print(
+            textwrap.dedent(
+                f"""
+                Article summary generation completed.
+                Scanned journal directories: {result['scanned_journals']}
+                Scanned period directories: {result['scanned_periods']}
+                Found articles: {result['found_articles']}
+                Newly generated summaries: {result['generated']}
+                Skipped existing summaries: {result['skipped']}
+                Insufficient information: {result['insufficient']}
+                Missing API key: {result['missing_api']}
+                Dry run: {result['dry_run']}
                 """
             ).strip()
         )
