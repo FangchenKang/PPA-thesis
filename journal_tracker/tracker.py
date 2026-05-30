@@ -1489,6 +1489,17 @@ def main(argv: list[str] | None = None) -> None:
     )
     build_site_parser.add_argument("--seed-metadata", action="store_true", help="Create missing journal metadata entries before building indexes.")
 
+    chinese_cssci_parser = subparsers.add_parser(
+        "build-chinese-political-cssci",
+        help="Build and audit the Chinese political science CSSCI article directory from public metadata.",
+    )
+    chinese_cssci_parser.add_argument("--fetch-cqvip", action="store_true", help="Low-frequency check of CQVIP public catalog pages.")
+    chinese_cssci_parser.add_argument("--start-year", type=int, help="First year to check in public catalog pages.")
+    chinese_cssci_parser.add_argument("--end-year", type=int, help="Last year to check in public catalog pages.")
+    chinese_cssci_parser.add_argument("--force-update", action="store_true", help="Reserved for rerunning external checks instead of relying on existing outputs.")
+    chinese_cssci_parser.add_argument("--sleep-seconds", type=float, default=2.5, help="Delay between public catalog requests.")
+    chinese_cssci_parser.add_argument("--max-journals", type=int, help="Limit journal count for controlled test runs.")
+
     args = parser.parse_args(argv)
     if args.command == "run":
         run_date = parse_date(args.date)
@@ -1596,6 +1607,34 @@ def main(argv: list[str] | None = None) -> None:
                 Journals: {result['journal_count']}
                 Issues: {result['issue_count']}
                 Articles: {result['article_count']}
+                """
+            ).strip()
+        )
+    elif args.command == "build-chinese-political-cssci":
+        from .chinese_cssci import build_chinese_political_cssci
+
+        result = build_chinese_political_cssci(
+            fetch_cqvip=args.fetch_cqvip,
+            start_year=args.start_year,
+            end_year=args.end_year,
+            force_update=args.force_update,
+            sleep_seconds=args.sleep_seconds,
+            max_journals=args.max_journals,
+        )
+        print(
+            textwrap.dedent(
+                f"""
+                Chinese political CSSCI directory completed.
+                Scanned journals: {result['scanned_journals']}
+                Covered years: {result['covered_years']}
+                Found issues: {result['found_issues']}
+                Newly completed issues: {result['newly_completed_issues']}
+                New articles: {result['new_articles']}
+                Filled titles: {result['filled_titles']}
+                Filled authors: {result['filled_authors']}
+                Filled abstracts: {result['filled_abstracts']}
+                2026 completed issues: {result['filled_2026_issues']}
+                Remaining missing issues: {result['remaining_missing_issues']}
                 """
             ).strip()
         )
