@@ -1,4 +1,431 @@
 {
-  "seen": {},
-  "initialized_at": null
+  "seen": {
+    "347d0ce56f9625fcfb27187f": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Journal of Social Policy",
+      "title": "Skip to main content"
+    },
+    "c174f3adffe91f7f0475ac73": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Journal of Social Policy",
+      "title": "< Back to search results"
+    },
+    "5c007aad81f765e58ced86c8": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Journal of Social Policy",
+      "title": "Other actions"
+    },
+    "60d34fb0474c75e1fa9a4916": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Journal of Social Policy",
+      "title": "Journal information"
+    },
+    "9b4ab90dfea168a103495cfe": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Journal of Social Policy",
+      "title": "Critical Reviews"
+    },
+    "d4ac8d1de5e80396e2ee7fdd": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Journal of Public Policy",
+      "title": "Skip to main content"
+    },
+    "e1f4f4ee406d391a33908c86": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Journal of Public Policy",
+      "title": "< Back to search results"
+    },
+    "4ad8ca76ca62bc2e6dd382f8": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Journal of Public Policy",
+      "title": "Announcements"
+    },
+    "9c6c1801d1d9da8921fd462e": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Journal of Public Policy",
+      "title": "Other actions"
+    },
+    "081886c3a40b732442643fb6": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Journal of Public Policy",
+      "title": "Journal information"
+    },
+    "4b58d410dc167e2bb04ff3c4": {
+      "first_seen": "2026-05-30",
+      "journal_title": "American Political Science Review",
+      "title": "Skip to main content"
+    },
+    "e006ab1feffa223851b2924c": {
+      "first_seen": "2026-05-30",
+      "journal_title": "American Political Science Review",
+      "title": "< Back to search results"
+    },
+    "ac2c7b59b39b630aef8bcfd6": {
+      "first_seen": "2026-05-30",
+      "journal_title": "American Political Science Review",
+      "title": "Announcements"
+    },
+    "364eb98f8664df47f10ffe4f": {
+      "first_seen": "2026-05-30",
+      "journal_title": "American Political Science Review",
+      "title": "Other actions"
+    },
+    "a93553f194dcf89af3dd9e42": {
+      "first_seen": "2026-05-30",
+      "journal_title": "American Political Science Review",
+      "title": "Journal information"
+    },
+    "b381efba85c64b79381591bd": {
+      "first_seen": "2026-05-30",
+      "journal_title": "British Journal of Political Science",
+      "title": "Skip to main content"
+    },
+    "3b4a5ce982c2e6ff56150aad": {
+      "first_seen": "2026-05-30",
+      "journal_title": "British Journal of Political Science",
+      "title": "< Back to search results"
+    },
+    "94a62f4cc5718f74dbce20b8": {
+      "first_seen": "2026-05-30",
+      "journal_title": "British Journal of Political Science",
+      "title": "Announcements"
+    },
+    "b2042655786c30dd000845c2": {
+      "first_seen": "2026-05-30",
+      "journal_title": "British Journal of Political Science",
+      "title": "Other actions"
+    },
+    "eda18b89aea8f0b8cf93f833": {
+      "first_seen": "2026-05-30",
+      "journal_title": "British Journal of Political Science",
+      "title": "Journal information"
+    },
+    "f4b46f56a72efb1d52e6eb8b": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Political Analysis",
+      "title": "Skip to main content"
+    },
+    "58edd32c65d76d2cf6d8df3b": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Political Analysis",
+      "title": "< Back to search results"
+    },
+    "4c5aae70af184ae47a1f367a": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Political Analysis",
+      "title": "Announcements"
+    },
+    "0683a05e969ba71effbf40f2": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Political Analysis",
+      "title": "Other actions"
+    },
+    "57d6b1620bba1b5f11a80285": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Political Analysis",
+      "title": "Journal information"
+    },
+    "5924d6fd000838606df9104f": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Perspectives on Politics",
+      "title": "Skip to main content"
+    },
+    "e29070a141a924388e2464e7": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Perspectives on Politics",
+      "title": "< Back to search results"
+    },
+    "5f7eb702a7902ad36c9d891b": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Perspectives on Politics",
+      "title": "Announcements"
+    },
+    "ea72a301ec14e4535e18635a": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Perspectives on Politics",
+      "title": "Other actions"
+    },
+    "1ebce5ed4ffcc131af377002": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Perspectives on Politics",
+      "title": "Journal information"
+    },
+    "ba2f4672af1fd2090e4d0457": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Politics & Gender",
+      "title": "Skip to main content"
+    },
+    "6518a8ad22fcf32ea94573f5": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Politics & Gender",
+      "title": "< Back to search results"
+    },
+    "d97a4e1b338cd869326348d6": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Politics & Gender",
+      "title": "Announcements"
+    },
+    "5fd3e10de143c03a05b21c63": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Politics & Gender",
+      "title": "Other actions"
+    },
+    "415e7067462024e25387fd67": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Politics & Gender",
+      "title": "Journal information"
+    },
+    "6a13f316195e872ce1110841": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Government and Opposition",
+      "title": "Skip to main content"
+    },
+    "bd4e544218392047428a55e5": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Government and Opposition",
+      "title": "< Back to search results"
+    },
+    "6436bf5cb34fbb31720207dc": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Government and Opposition",
+      "title": "Announcements"
+    },
+    "2dff17e5736de3c2b946c032": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Government and Opposition",
+      "title": "Other actions"
+    },
+    "f0ab10655ae2419f7796f995": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Government and Opposition",
+      "title": "Journal information"
+    },
+    "a1e795a4bb8f64967103f50f": {
+      "first_seen": "2026-05-30",
+      "journal_title": "International Organization",
+      "title": "Skip to main content"
+    },
+    "6f6851ecf71afb071202fb97": {
+      "first_seen": "2026-05-30",
+      "journal_title": "International Organization",
+      "title": "< Back to search results"
+    },
+    "557539e12a7d699a2dac0ad3": {
+      "first_seen": "2026-05-30",
+      "journal_title": "International Organization",
+      "title": "Announcements"
+    },
+    "52e3ae9995b0dd30028b76f3": {
+      "first_seen": "2026-05-30",
+      "journal_title": "International Organization",
+      "title": "Other actions"
+    },
+    "76d8bd6a90be71472710b47d": {
+      "first_seen": "2026-05-30",
+      "journal_title": "International Organization",
+      "title": "Journal information"
+    },
+    "d969d3e09649204a6471ba63": {
+      "first_seen": "2026-05-30",
+      "journal_title": "World Politics",
+      "title": "Skip to main content"
+    },
+    "238b840d1bbf391a7f32724e": {
+      "first_seen": "2026-05-30",
+      "journal_title": "World Politics",
+      "title": "< Back to search results"
+    },
+    "d13f62297c2f22bd8cbb99b7": {
+      "first_seen": "2026-05-30",
+      "journal_title": "World Politics",
+      "title": "Other actions"
+    },
+    "4ec102dc886000ba007c77cc": {
+      "first_seen": "2026-05-30",
+      "journal_title": "World Politics",
+      "title": "The Study of Critical Junctures: Theory, Narrative, and Counterfactuals in Historical Institutionalism"
+    },
+    "0c3522f58a8935262b80d4cb": {
+      "first_seen": "2026-05-30",
+      "journal_title": "World Politics",
+      "title": "Does Oil Hinder Democracy?"
+    },
+    "02258e789a4e89e7a4c2f972": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Foreign Affairs",
+      "title": "Cuba’s Only Choice"
+    },
+    "23c5d0ada7a28b60deef24f7": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Foreign Affairs",
+      "title": "China’s AI Heist"
+    },
+    "c43fab7b5c48130296c8f38a": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Foreign Affairs",
+      "title": "Trump’s Least Bad Option in Iran"
+    },
+    "fe103b62fe3cc53ff26fb5db": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Foreign Affairs",
+      "title": "The Coming Crisis of NATO Deterrence"
+    },
+    "b4f39d7d799ee7b2a01db011": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Foreign Affairs",
+      "title": "The Right Way for Europe to Spend More on Defense"
+    },
+    "ee8a43a9c419ea6ec6e5f7ee": {
+      "first_seen": "2026-05-30",
+      "journal_title": "China Quarterly",
+      "title": "Skip to main content"
+    },
+    "9c4e7e36b8c86577c8c5c259": {
+      "first_seen": "2026-05-30",
+      "journal_title": "China Quarterly",
+      "title": "< Back to search results"
+    },
+    "dfcabb960c3a5dd991ba2a45": {
+      "first_seen": "2026-05-30",
+      "journal_title": "China Quarterly",
+      "title": "Other actions"
+    },
+    "d162ad824e2ecb8c96c1722a": {
+      "first_seen": "2026-05-30",
+      "journal_title": "China Quarterly",
+      "title": "Journal information"
+    },
+    "f9e4a7117b8c16049a9e4b71": {
+      "first_seen": "2026-05-30",
+      "journal_title": "China Quarterly",
+      "title": "FirstView articles"
+    },
+    "df7e6c9fcb4496021987897d": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Political Science Research and Methods",
+      "title": "Skip to main content"
+    },
+    "79f422d950241b8c52e6f279": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Political Science Research and Methods",
+      "title": "< Back to search results"
+    },
+    "d48ce04f57d37705daae8fa5": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Political Science Research and Methods",
+      "title": "Announcements"
+    },
+    "a467dc968e506c45b419d656": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Political Science Research and Methods",
+      "title": "Other actions"
+    },
+    "7831b9a2bea5841518f3f29f": {
+      "first_seen": "2026-05-30",
+      "journal_title": "Political Science Research and Methods",
+      "title": "Journal information"
+    },
+    "4388e7403fbf07413f7aff5b": {
+      "first_seen": "2026-05-30",
+      "journal_title": "European Political Science Review",
+      "title": "Skip to main content"
+    },
+    "7bd64e70a02fa763c6d10481": {
+      "first_seen": "2026-05-30",
+      "journal_title": "European Political Science Review",
+      "title": "< Back to search results"
+    },
+    "2be3033e9d39b4c9126736f9": {
+      "first_seen": "2026-05-30",
+      "journal_title": "European Political Science Review",
+      "title": "Announcements"
+    },
+    "014bbd1db01026fbe81c1d88": {
+      "first_seen": "2026-05-30",
+      "journal_title": "European Political Science Review",
+      "title": "Other actions"
+    },
+    "032683ff8671d97a7559fbc7": {
+      "first_seen": "2026-05-30",
+      "journal_title": "European Political Science Review",
+      "title": "Journal information"
+    },
+    "23c410b9fb5a258ac5c09d4d": {
+      "first_seen": "2026-05-30",
+      "journal_title": "State Politics & Policy Quarterly",
+      "title": "Skip to main content"
+    },
+    "c378289d845c09359dc7f039": {
+      "first_seen": "2026-05-30",
+      "journal_title": "State Politics & Policy Quarterly",
+      "title": "< Back to search results"
+    },
+    "9d0d5cf546c4ded738c2a1e1": {
+      "first_seen": "2026-05-30",
+      "journal_title": "State Politics & Policy Quarterly",
+      "title": "Announcements"
+    },
+    "f8f244177bd8861bc5efc2b1": {
+      "first_seen": "2026-05-30",
+      "journal_title": "State Politics & Policy Quarterly",
+      "title": "Other actions"
+    },
+    "68e893e9ef791f5e1f3dd48c": {
+      "first_seen": "2026-05-30",
+      "journal_title": "State Politics & Policy Quarterly",
+      "title": "Journal information"
+    },
+    "67834babc4955404e5ff3a1c": {
+      "first_seen": "2026-05-30",
+      "journal_title": "International Theory",
+      "title": "Skip to main content"
+    },
+    "9f2a044840f6b3841755231c": {
+      "first_seen": "2026-05-30",
+      "journal_title": "International Theory",
+      "title": "< Back to search results"
+    },
+    "5729c68e977b10ff917da9c5": {
+      "first_seen": "2026-05-30",
+      "journal_title": "International Theory",
+      "title": "Announcements"
+    },
+    "92e0e40f0d2e3815097ad26e": {
+      "first_seen": "2026-05-30",
+      "journal_title": "International Theory",
+      "title": "Other actions"
+    },
+    "2dd0c4cae7e9447dfabd108e": {
+      "first_seen": "2026-05-30",
+      "journal_title": "International Theory",
+      "title": "Journal information"
+    },
+    "ec3021ed83059fdb9676370c": {
+      "first_seen": "2026-05-30",
+      "journal_title": "PS Political Science & Politics",
+      "title": "Skip to main content"
+    },
+    "7c604512a2858e0acfc2963d": {
+      "first_seen": "2026-05-30",
+      "journal_title": "PS Political Science & Politics",
+      "title": "< Back to search results"
+    },
+    "3f402c631f54c3dc0bd8a6ce": {
+      "first_seen": "2026-05-30",
+      "journal_title": "PS Political Science & Politics",
+      "title": "Announcements"
+    },
+    "add5d039ef0980a17ff35545": {
+      "first_seen": "2026-05-30",
+      "journal_title": "PS Political Science & Politics",
+      "title": "Other actions"
+    },
+    "2fbfe51298d29b26ad6b81b4": {
+      "first_seen": "2026-05-30",
+      "journal_title": "PS Political Science & Politics",
+      "title": "Journal information"
+    }
+  },
+  "initialized_at": "2026-05-30T04:05:03.906685+00:00",
+  "last_run": "2026-05-30T04:05:03.906697+00:00"
 }
