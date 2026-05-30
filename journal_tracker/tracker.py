@@ -101,16 +101,23 @@ def today_china() -> dt.date:
     return dt.datetime.now(dt.timezone(dt.timedelta(hours=8))).date()
 
 
-def fetch_text(url: str, timeout: int = 25) -> str:
+def fetch_text(url: str, timeout: int = 25, attempts: int = 3) -> str:
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(request, timeout=timeout) as response:
-        content_type = response.headers.get("content-type", "")
-        charset = "utf-8"
-        match = re.search(r"charset=([\w-]+)", content_type)
-        if match:
-            charset = match.group(1)
-        data = response.read()
-        return data.decode(charset, errors="replace")
+    for attempt in range(attempts):
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                content_type = response.headers.get("content-type", "")
+                charset = "utf-8"
+                match = re.search(r"charset=([\w-]+)", content_type)
+                if match:
+                    charset = match.group(1)
+                data = response.read()
+                return data.decode(charset, errors="replace")
+        except (TimeoutError, ssl.SSLError, urllib.error.URLError):
+            if attempt == attempts - 1:
+                raise
+            time.sleep(1.5 * (attempt + 1))
+    raise RuntimeError(f"Failed to fetch {url}")
 
 
 def fetch_json(url: str, timeout: int = 60) -> dict[str, Any]:
@@ -387,6 +394,11 @@ def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
             handle.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
 
 
+def append_jsonl(handle: Any, row: dict[str, Any]) -> None:
+    handle.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
+    handle.flush()
+
+
 def read_jsonl_count(path: Path) -> int:
     if not path.exists():
         return 0
@@ -461,33 +473,61 @@ def run_historical_backfill(
             source_id_filter = source_id.rsplit("/", 1)[-1]
             cursor = "*"
             pages = 0
-            rows: list[dict[str, Any]] = []
+            tmp_path = history_path.with_suffix(".jsonl.tmp")
+            row_count = 0
+            select_fields = [
+                "id",
+                "doi",
+                "title",
+                "publication_year",
+                "publication_date",
+                "primary_location",
+                "cited_by_count",
+                "authorships",
+            ]
+            if include_abstracts:
+                select_fields.append("abstract_inverted_index")
+            tmp_path.parent.mkdir(parents=True, exist_ok=True)
+            handle = None if dry_run else tmp_path.open("w", encoding="utf-8", errors="replace", newline="\n")
             while cursor:
-                if max_pages_per_journal > 0 and pages >= max_pages_per_journal:
-                    break
-                works_url = openalex_url(
-                    "/works",
-                    {
-                        "filter": f"primary_location.source.id:{source_id_filter},type:article",
-                        "per-page": per_page,
-                        "cursor": cursor,
-                        "sort": "publication_date:desc",
-                    },
-                )
-                payload = fetch_json(works_url)
-                results = payload.get("results", [])
-                rows.extend(compact_openalex_work(work, journal, source, include_abstracts) for work in results)
-                pages += 1
-                next_cursor = (payload.get("meta") or {}).get("next_cursor")
-                if not results or not next_cursor or next_cursor == cursor:
-                    break
-                cursor = next_cursor
-                if sleep_seconds > 0:
-                    time.sleep(sleep_seconds)
+                try:
+                    if max_pages_per_journal > 0 and pages >= max_pages_per_journal:
+                        break
+                    works_url = openalex_url(
+                        "/works",
+                        {
+                            "filter": f"primary_location.source.id:{source_id_filter},type:article",
+                            "per-page": per_page,
+                            "cursor": cursor,
+                            "select": ",".join(select_fields),
+                        },
+                    )
+                    if pages == 0 or pages % 25 == 0:
+                        print(f"backfill {journal_id} {title}: fetching page {pages + 1}", file=sys.stderr, flush=True)
+                    payload = fetch_json(works_url)
+                    results = payload.get("results", [])
+                    for work in results:
+                        row = compact_openalex_work(work, journal, source, include_abstracts)
+                        row_count += 1
+                        if handle is not None:
+                            append_jsonl(handle, row)
+                    pages += 1
+                    if pages == 1 or pages % 25 == 0:
+                        print(f"backfill {journal_id} {title}: wrote page {pages}, rows {row_count}", file=sys.stderr, flush=True)
+                    next_cursor = (payload.get("meta") or {}).get("next_cursor")
+                    if not results or not next_cursor or next_cursor == cursor:
+                        break
+                    cursor = next_cursor
+                    if sleep_seconds > 0:
+                        time.sleep(sleep_seconds)
+                finally:
+                    if handle is not None:
+                        handle.flush()
 
-            if not dry_run:
-                write_jsonl(history_path, rows)
-            total_items += len(rows)
+            if handle is not None:
+                handle.close()
+                tmp_path.replace(history_path)
+            total_items += row_count
             diagnostics.append(
                 {
                     "journal_id": journal_id,
@@ -496,11 +536,16 @@ def run_historical_backfill(
                     "source_display_name": source.get("display_name"),
                     "source_openalex_id": source_id,
                     "pages": pages,
-                    "items": len(rows),
+                    "items": row_count,
                 }
             )
             checkpoint()
         except Exception as exc:
+            try:
+                if handle is not None and not handle.closed:
+                    handle.close()
+            except NameError:
+                pass
             diagnostics.append({"journal_id": journal_id, "journal_title": title, "status": f"error: {exc}", "items": 0})
             checkpoint()
     index = {
