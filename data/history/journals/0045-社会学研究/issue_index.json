@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-05-30T12:42:39.047001+00:00",
+  "journal_id": 45,
+  "journal_title": "社会学研究",
+  "frequency": "quarterly",
+  "frequency_mode": "auto",
+  "source": "publication_date",
+  "total_items": 395,
+  "period_count": 7,
+  "periods": [
+    {
+      "period": "2017-1",
+      "items": 2,
+      "path": "issues/2017-1/works.jsonl"
+    },
+    {
+      "period": "2016-1",
+      "items": 20,
+      "path": "issues/2016-1/works.jsonl"
+    },
+    {
+      "period": "2015-1",
+      "items": 91,
+      "path": "issues/2015-1/works.jsonl"
+    },
+    {
+      "period": "2014-1",
+      "items": 97,
+      "path": "issues/2014-1/works.jsonl"
+    },
+    {
+      "period": "2013-1",
+      "items": 84,
+      "path": "issues/2013-1/works.jsonl"
+    },
+    {
+      "period": "2012-1",
+      "items": 64,
+      "path": "issues/2012-1/works.jsonl"
+    },
+    {
+      "period": "2011-1",
+      "items": 37,
+      "path": "issues/2011-1/works.jsonl"
+    }
+  ]
+}

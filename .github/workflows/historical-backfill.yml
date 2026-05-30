@@ -54,6 +54,9 @@ jobs:
             args+=(--include-abstracts)
           fi
           python -m journal_tracker backfill "${args[@]}"
+          python -m journal_tracker split-issues \
+            --start-id "${{ inputs.start_id }}" \
+            --end-id "${{ inputs.end_id }}"
 
       - name: Commit historical metadata
         run: |

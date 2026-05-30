@@ -1,0 +1,172 @@
+{
+  "generated_at": "2026-05-30T12:43:00.428757+00:00",
+  "journal_id": 160,
+  "journal_title": "外交评论",
+  "frequency": "quarterly",
+  "frequency_mode": "auto",
+  "source": "publication_date",
+  "total_items": 246,
+  "period_count": 32,
+  "periods": [
+    {
+      "period": "2017-1",
+      "items": 3,
+      "path": "issues/2017-1/works.jsonl"
+    },
+    {
+      "period": "2016-1",
+      "items": 11,
+      "path": "issues/2016-1/works.jsonl"
+    },
+    {
+      "period": "2015-1",
+      "items": 8,
+      "path": "issues/2015-1/works.jsonl"
+    },
+    {
+      "period": "2014-1",
+      "items": 3,
+      "path": "issues/2014-1/works.jsonl"
+    },
+    {
+      "period": "2013-3",
+      "items": 4,
+      "path": "issues/2013-3/works.jsonl"
+    },
+    {
+      "period": "2013-1",
+      "items": 11,
+      "path": "issues/2013-1/works.jsonl"
+    },
+    {
+      "period": "2012-1",
+      "items": 8,
+      "path": "issues/2012-1/works.jsonl"
+    },
+    {
+      "period": "2011-1",
+      "items": 16,
+      "path": "issues/2011-1/works.jsonl"
+    },
+    {
+      "period": "2010-1",
+      "items": 9,
+      "path": "issues/2010-1/works.jsonl"
+    },
+    {
+      "period": "2009-4",
+      "items": 3,
+      "path": "issues/2009-4/works.jsonl"
+    },
+    {
+      "period": "2009-2",
+      "items": 4,
+      "path": "issues/2009-2/works.jsonl"
+    },
+    {
+      "period": "2009-1",
+      "items": 18,
+      "path": "issues/2009-1/works.jsonl"
+    },
+    {
+      "period": "2008-1",
+      "items": 6,
+      "path": "issues/2008-1/works.jsonl"
+    },
+    {
+      "period": "2007-1",
+      "items": 13,
+      "path": "issues/2007-1/works.jsonl"
+    },
+    {
+      "period": "2006-1",
+      "items": 18,
+      "path": "issues/2006-1/works.jsonl"
+    },
+    {
+      "period": "2005-1",
+      "items": 9,
+      "path": "issues/2005-1/works.jsonl"
+    },
+    {
+      "period": "2001-1",
+      "items": 2,
+      "path": "issues/2001-1/works.jsonl"
+    },
+    {
+      "period": "2000-1",
+      "items": 7,
+      "path": "issues/2000-1/works.jsonl"
+    },
+    {
+      "period": "1999-1",
+      "items": 1,
+      "path": "issues/1999-1/works.jsonl"
+    },
+    {
+      "period": "1996-1",
+      "items": 7,
+      "path": "issues/1996-1/works.jsonl"
+    },
+    {
+      "period": "1995-1",
+      "items": 15,
+      "path": "issues/1995-1/works.jsonl"
+    },
+    {
+      "period": "1994-1",
+      "items": 8,
+      "path": "issues/1994-1/works.jsonl"
+    },
+    {
+      "period": "1993-1",
+      "items": 14,
+      "path": "issues/1993-1/works.jsonl"
+    },
+    {
+      "period": "1992-1",
+      "items": 8,
+      "path": "issues/1992-1/works.jsonl"
+    },
+    {
+      "period": "1991-1",
+      "items": 9,
+      "path": "issues/1991-1/works.jsonl"
+    },
+    {
+      "period": "1990-1",
+      "items": 10,
+      "path": "issues/1990-1/works.jsonl"
+    },
+    {
+      "period": "1989-1",
+      "items": 3,
+      "path": "issues/1989-1/works.jsonl"
+    },
+    {
+      "period": "1988-1",
+      "items": 3,
+      "path": "issues/1988-1/works.jsonl"
+    },
+    {
+      "period": "1987-1",
+      "items": 3,
+      "path": "issues/1987-1/works.jsonl"
+    },
+    {
+      "period": "1986-1",
+      "items": 3,
+      "path": "issues/1986-1/works.jsonl"
+    },
+    {
+      "period": "1985-1",
+      "items": 8,
+      "path": "issues/1985-1/works.jsonl"
+    },
+    {
+      "period": "1984-1",
+      "items": 1,
+      "path": "issues/1984-1/works.jsonl"
+    }
+  ]
+}

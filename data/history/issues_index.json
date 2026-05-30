@@ -1,0 +1,1354 @@
+{
+  "generated_at": "2026-05-30T12:43:01.297249+00:00",
+  "frequency_mode": "auto",
+  "source": "publication_date",
+  "selected_journals": 192,
+  "total_items": 414242,
+  "period_files": 27524,
+  "diagnostics": [
+    {
+      "journal_id": 1,
+      "journal_title": "Journal of Public Administration Research and Theory",
+      "frequency": "monthly",
+      "items": 1698,
+      "periods": 293
+    },
+    {
+      "journal_id": 2,
+      "journal_title": "Policy and Society",
+      "frequency": "quarterly",
+      "items": 902,
+      "periods": 95
+    },
+    {
+      "journal_id": 3,
+      "journal_title": "Public Administration",
+      "frequency": "quarterly",
+      "items": 5201,
+      "periods": 392
+    },
+    {
+      "journal_id": 4,
+      "journal_title": "Policy Studies Journal",
+      "frequency": "quarterly",
+      "items": 3203,
+      "periods": 212
+    },
+    {
+      "journal_id": 5,
+      "journal_title": "Public Administration Review",
+      "frequency": "monthly",
+      "items": 8494,
+      "periods": 488
+    },
+    {
+      "journal_id": 6,
+      "journal_title": "Public Management Review",
+      "frequency": "monthly",
+      "items": 2027,
+      "periods": 226
+    },
+    {
+      "journal_id": 7,
+      "journal_title": "Journal of European Public Policy",
+      "frequency": "monthly",
+      "items": 2706,
+      "periods": 248
+    },
+    {
+      "journal_id": 8,
+      "journal_title": "Regulation & Governance",
+      "frequency": "monthly",
+      "items": 957,
+      "periods": 189
+    },
+    {
+      "journal_id": 9,
+      "journal_title": "Policy Sciences",
+      "frequency": "monthly",
+      "items": 1696,
+      "periods": 358
+    },
+    {
+      "journal_id": 10,
+      "journal_title": "Journal of Chinese Governance",
+      "frequency": "monthly",
+      "items": 310,
+      "periods": 96
+    },
+    {
+      "journal_id": 11,
+      "journal_title": "Review of Policy Research",
+      "frequency": "monthly",
+      "items": 2427,
+      "periods": 254
+    },
+    {
+      "journal_id": 12,
+      "journal_title": "Public Policy and Administration",
+      "frequency": "quarterly",
+      "items": 1514,
+      "periods": 148
+    },
+    {
+      "journal_id": 13,
+      "journal_title": "Journal of European Social Policy",
+      "frequency": "monthly",
+      "items": 1401,
+      "periods": 219
+    },
+    {
+      "journal_id": 14,
+      "journal_title": "Policy and Politics",
+      "frequency": "monthly",
+      "items": 758,
+      "periods": 162
+    },
+    {
+      "journal_id": 15,
+      "journal_title": "Review of Public Personnel Administration",
+      "frequency": "quarterly",
+      "items": 1294,
+      "periods": 158
+    },
+    {
+      "journal_id": 16,
+      "journal_title": "Governance",
+      "frequency": "quarterly",
+      "items": 1924,
+      "periods": 152
+    },
+    {
+      "journal_id": 17,
+      "journal_title": "International Public Management Journal",
+      "frequency": "quarterly",
+      "items": 767,
+      "periods": 89
+    },
+    {
+      "journal_id": 18,
+      "journal_title": "Public Performance & Management Review",
+      "frequency": "quarterly",
+      "items": 1158,
+      "periods": 94
+    },
+    {
+      "journal_id": 19,
+      "journal_title": "Public Personnel Management",
+      "frequency": "quarterly",
+      "items": 1948,
+      "periods": 208
+    },
+    {
+      "journal_id": 20,
+      "journal_title": "International Review of Administrative Sciences",
+      "frequency": "quarterly",
+      "items": 3585,
+      "periods": 273
+    },
+    {
+      "journal_id": 21,
+      "journal_title": "Journal of Social Policy",
+      "frequency": "quarterly",
+      "items": 4980,
+      "periods": 215
+    },
+    {
+      "journal_id": 22,
+      "journal_title": "American Review of Public Administration",
+      "frequency": "quarterly",
+      "items": 1710,
+      "periods": 163
+    },
+    {
+      "journal_id": 23,
+      "journal_title": "Critical Policy Studies",
+      "frequency": "monthly",
+      "items": 784,
+      "periods": 155
+    },
+    {
+      "journal_id": 24,
+      "journal_title": "Journal of Policy Analysis and Management",
+      "frequency": "monthly",
+      "items": 5241,
+      "periods": 290
+    },
+    {
+      "journal_id": 25,
+      "journal_title": "Policy Studies",
+      "frequency": "quarterly",
+      "items": 1424,
+      "periods": 177
+    },
+    {
+      "journal_id": 26,
+      "journal_title": "Administration & Society",
+      "frequency": "monthly",
+      "items": 1911,
+      "periods": 350
+    },
+    {
+      "journal_id": 27,
+      "journal_title": "Science and Public Policy",
+      "frequency": "monthly",
+      "items": 4423,
+      "periods": 437
+    },
+    {
+      "journal_id": 28,
+      "journal_title": "Social Policy & Administration",
+      "frequency": "quarterly",
+      "items": 2866,
+      "periods": 219
+    },
+    {
+      "journal_id": 29,
+      "journal_title": "Journal of Accounting and Public Policy",
+      "frequency": "monthly",
+      "items": 1556,
+      "periods": 314
+    },
+    {
+      "journal_id": 30,
+      "journal_title": "Journal of Public Policy",
+      "frequency": "quarterly",
+      "items": 1419,
+      "periods": 155
+    },
+    {
+      "journal_id": 31,
+      "journal_title": "Australian Journal of Public Administration",
+      "frequency": "quarterly",
+      "items": 4119,
+      "periods": 348
+    },
+    {
+      "journal_id": 32,
+      "journal_title": "Public Administration and Development",
+      "frequency": "quarterly",
+      "items": 3590,
+      "periods": 302
+    },
+    {
+      "journal_id": 33,
+      "journal_title": "Public Money & Management",
+      "frequency": "monthly",
+      "items": 2796,
+      "periods": 257
+    },
+    {
+      "journal_id": 34,
+      "journal_title": "社会保障评论",
+      "frequency": "monthly",
+      "items": 0,
+      "periods": 0
+    },
+    {
+      "journal_id": 35,
+      "journal_title": "管理世界",
+      "frequency": "quarterly",
+      "items": 1007,
+      "periods": 39
+    },
+    {
+      "journal_id": 36,
+      "journal_title": "公共管理学报",
+      "frequency": "quarterly",
+      "items": 160,
+      "periods": 19
+    },
+    {
+      "journal_id": 37,
+      "journal_title": "电子政务",
+      "frequency": "quarterly",
+      "items": 338,
+      "periods": 17
+    },
+    {
+      "journal_id": 38,
+      "journal_title": "中国行政管理",
+      "frequency": "monthly",
+      "items": 0,
+      "periods": 0
+    },
+    {
+      "journal_id": 39,
+      "journal_title": "治理研究",
+      "frequency": "monthly",
+      "items": 0,
+      "periods": 0
+    },
+    {
+      "journal_id": 40,
+      "journal_title": "公共管理与政策评论",
+      "frequency": "quarterly",
+      "items": 101,
+      "periods": 26
+    },
+    {
+      "journal_id": 41,
+      "journal_title": "行政管理改革",
+      "frequency": "quarterly",
+      "items": 181,
+      "periods": 14
+    },
+    {
+      "journal_id": 42,
+      "journal_title": "公共管理评论",
+      "frequency": "quarterly",
+      "items": 100,
+      "periods": 16
+    },
+    {
+      "journal_id": 43,
+      "journal_title": "经济体制改革",
+      "frequency": "quarterly",
+      "items": 578,
+      "periods": 40
+    },
+    {
+      "journal_id": 44,
+      "journal_title": "城市发展研究",
+      "frequency": "quarterly",
+      "items": 400,
+      "periods": 28
+    },
+    {
+      "journal_id": 45,
+      "journal_title": "社会学研究",
+      "frequency": "quarterly",
+      "items": 395,
+      "periods": 7
+    },
+    {
+      "journal_id": 46,
+      "journal_title": "理论探讨",
+      "frequency": "quarterly",
+      "items": 770,
+      "periods": 36
+    },
+    {
+      "journal_id": 47,
+      "journal_title": "政治学研究",
+      "frequency": "quarterly",
+      "items": 366,
+      "periods": 30
+    },
+    {
+      "journal_id": 48,
+      "journal_title": "理论与改革",
+      "frequency": "quarterly",
+      "items": 713,
+      "periods": 32
+    },
+    {
+      "journal_id": 49,
+      "journal_title": "探索",
+      "frequency": "quarterly",
+      "items": 1099,
+      "periods": 6
+    },
+    {
+      "journal_id": 50,
+      "journal_title": "行政论坛",
+      "frequency": "quarterly",
+      "items": 634,
+      "periods": 19
+    },
+    {
+      "journal_id": 51,
+      "journal_title": "公共行政评论",
+      "frequency": "quarterly",
+      "items": 167,
+      "periods": 21
+    },
+    {
+      "journal_id": 52,
+      "journal_title": "北京行政学院学报",
+      "frequency": "quarterly",
+      "items": 371,
+      "periods": 25
+    },
+    {
+      "journal_id": 53,
+      "journal_title": "中共中央党校（国家行政学院）学报",
+      "frequency": "monthly",
+      "items": 0,
+      "periods": 0
+    },
+    {
+      "journal_id": 54,
+      "journal_title": "求实",
+      "frequency": "quarterly",
+      "items": 1139,
+      "periods": 45
+    },
+    {
+      "journal_id": 55,
+      "journal_title": "理论学刊",
+      "frequency": "monthly",
+      "items": 155,
+      "periods": 7
+    },
+    {
+      "journal_id": 56,
+      "journal_title": "理论探索",
+      "frequency": "quarterly",
+      "items": 477,
+      "periods": 31
+    },
+    {
+      "journal_id": 57,
+      "journal_title": "上海行政学院学报",
+      "frequency": "quarterly",
+      "items": 204,
+      "periods": 21
+    },
+    {
+      "journal_id": 58,
+      "journal_title": "江苏行政学院学报",
+      "frequency": "quarterly",
+      "items": 332,
+      "periods": 20
+    },
+    {
+      "journal_id": 59,
+      "journal_title": "甘肃行政学院学报",
+      "frequency": "quarterly",
+      "items": 260,
+      "periods": 24
+    },
+    {
+      "journal_id": 60,
+      "journal_title": "中国社会科学",
+      "frequency": "quarterly",
+      "items": 1211,
+      "periods": 26
+    },
+    {
+      "journal_id": 61,
+      "journal_title": "社会科学",
+      "frequency": "quarterly",
+      "items": 1211,
+      "periods": 26
+    },
+    {
+      "journal_id": 62,
+      "journal_title": "开放时代",
+      "frequency": "monthly",
+      "items": 0,
+      "periods": 0
+    },
+    {
+      "journal_id": 63,
+      "journal_title": "学海",
+      "frequency": "quarterly",
+      "items": 1619,
+      "periods": 23
+    },
+    {
+      "journal_id": 64,
+      "journal_title": "学术研究",
+      "frequency": "quarterly",
+      "items": 1052,
+      "periods": 10
+    },
+    {
+      "journal_id": 65,
+      "journal_title": "经济研究",
+      "frequency": "quarterly",
+      "items": 269,
+      "periods": 7
+    },
+    {
+      "journal_id": 66,
+      "journal_title": "心理学报",
+      "frequency": "quarterly",
+      "items": 225,
+      "periods": 101
+    },
+    {
+      "journal_id": 67,
+      "journal_title": "Annual Review of Political Science",
+      "frequency": "monthly",
+      "items": 682,
+      "periods": 118
+    },
+    {
+      "journal_id": 68,
+      "journal_title": "American Political Science Review",
+      "frequency": "monthly",
+      "items": 34029,
+      "periods": 661
+    },
+    {
+      "journal_id": 69,
+      "journal_title": "American Journal of Political Science",
+      "frequency": "quarterly",
+      "items": 3245,
+      "periods": 212
+    },
+    {
+      "journal_id": 70,
+      "journal_title": "Journal of Politics",
+      "frequency": "quarterly",
+      "items": 11980,
+      "periods": 347
+    },
+    {
+      "journal_id": 71,
+      "journal_title": "British Journal of Political Science",
+      "frequency": "quarterly",
+      "items": 2490,
+      "periods": 218
+    },
+    {
+      "journal_id": 72,
+      "journal_title": "Political Analysis",
+      "frequency": "monthly",
+      "items": 1116,
+      "periods": 189
+    },
+    {
+      "journal_id": 73,
+      "journal_title": "Political Communication",
+      "frequency": "quarterly",
+      "items": 1694,
+      "periods": 156
+    },
+    {
+      "journal_id": 74,
+      "journal_title": "Perspectives on Politics",
+      "frequency": "monthly",
+      "items": 8626,
+      "periods": 172
+    },
+    {
+      "journal_id": 75,
+      "journal_title": "European Journal of Political Research",
+      "frequency": "monthly",
+      "items": 3264,
+      "periods": 409
+    },
+    {
+      "journal_id": 76,
+      "journal_title": "Comparative Political Studies",
+      "frequency": "monthly",
+      "items": 2855,
+      "periods": 404
+    },
+    {
+      "journal_id": 77,
+      "journal_title": "Political Behavior",
+      "frequency": "quarterly",
+      "items": 1670,
+      "periods": 166
+    },
+    {
+      "journal_id": 78,
+      "journal_title": "Political Psychology",
+      "frequency": "monthly",
+      "items": 2816,
+      "periods": 322
+    },
+    {
+      "journal_id": 79,
+      "journal_title": "Political Geography",
+      "frequency": "monthly",
+      "items": 3266,
+      "periods": 354
+    },
+    {
+      "journal_id": 80,
+      "journal_title": "Political Studies",
+      "frequency": "quarterly",
+      "items": 3732,
+      "periods": 272
+    },
+    {
+      "journal_id": 81,
+      "journal_title": "Politics & Gender",
+      "frequency": "monthly",
+      "items": 1296,
+      "periods": 165
+    },
+    {
+      "journal_id": 82,
+      "journal_title": "Government and Opposition",
+      "frequency": "quarterly",
+      "items": 2548,
+      "periods": 214
+    },
+    {
+      "journal_id": 83,
+      "journal_title": "West European Politics",
+      "frequency": "quarterly",
+      "items": 3148,
+      "periods": 189
+    },
+    {
+      "journal_id": 84,
+      "journal_title": "Democratization",
+      "frequency": "monthly",
+      "items": 2418,
+      "periods": 262
+    },
+    {
+      "journal_id": 85,
+      "journal_title": "Environmental Politics",
+      "frequency": "monthly",
+      "items": 2406,
+      "periods": 265
+    },
+    {
+      "journal_id": 86,
+      "journal_title": "New Political Economy",
+      "frequency": "monthly",
+      "items": 1426,
+      "periods": 214
+    },
+    {
+      "journal_id": 87,
+      "journal_title": "Journal of European Public Policy",
+      "frequency": "monthly",
+      "items": 2706,
+      "periods": 248
+    },
+    {
+      "journal_id": 88,
+      "journal_title": "International Organization",
+      "frequency": "quarterly",
+      "items": 4301,
+      "periods": 161
+    },
+    {
+      "journal_id": 89,
+      "journal_title": "International Studies Quarterly",
+      "frequency": "quarterly",
+      "items": 2705,
+      "periods": 237
+    },
+    {
+      "journal_id": 90,
+      "journal_title": "International Studies Review",
+      "frequency": "monthly",
+      "items": 2019,
+      "periods": 181
+    },
+    {
+      "journal_id": 91,
+      "journal_title": "World Politics",
+      "frequency": "quarterly",
+      "items": 2503,
+      "periods": 308
+    },
+    {
+      "journal_id": 92,
+      "journal_title": "Journal of Peace Research",
+      "frequency": "quarterly",
+      "items": 4048,
+      "periods": 247
+    },
+    {
+      "journal_id": 93,
+      "journal_title": "Journal of Conflict Resolution",
+      "frequency": "quarterly",
+      "items": 2971,
+      "periods": 274
+    },
+    {
+      "journal_id": 94,
+      "journal_title": "Review of International Political Economy",
+      "frequency": "monthly",
+      "items": 1607,
+      "periods": 230
+    },
+    {
+      "journal_id": 95,
+      "journal_title": "Review of International Organizations",
+      "frequency": "monthly",
+      "items": 631,
+      "periods": 211
+    },
+    {
+      "journal_id": 96,
+      "journal_title": "Global Environmental Politics",
+      "frequency": "monthly",
+      "items": 1305,
+      "periods": 141
+    },
+    {
+      "journal_id": 97,
+      "journal_title": "Contemporary Security Policy",
+      "frequency": "quarterly",
+      "items": 1073,
+      "periods": 112
+    },
+    {
+      "journal_id": 98,
+      "journal_title": "European Security",
+      "frequency": "quarterly",
+      "items": 1261,
+      "periods": 132
+    },
+    {
+      "journal_id": 99,
+      "journal_title": "Journal of Common Market Studies",
+      "frequency": "quarterly",
+      "items": 4544,
+      "periods": 237
+    },
+    {
+      "journal_id": 100,
+      "journal_title": "European Journal of International Relations",
+      "frequency": "monthly",
+      "items": 1046,
+      "periods": 241
+    },
+    {
+      "journal_id": 101,
+      "journal_title": "International Affairs",
+      "frequency": "quarterly",
+      "items": 35761,
+      "periods": 386
+    },
+    {
+      "journal_id": 102,
+      "journal_title": "Security Studies",
+      "frequency": "quarterly",
+      "items": 1057,
+      "periods": 127
+    },
+    {
+      "journal_id": 103,
+      "journal_title": "Foreign Affairs",
+      "frequency": "quarterly",
+      "items": 19323,
+      "periods": 265
+    },
+    {
+      "journal_id": 104,
+      "journal_title": "China Quarterly",
+      "frequency": "quarterly",
+      "items": 8756,
+      "periods": 266
+    },
+    {
+      "journal_id": 105,
+      "journal_title": "Journal of Contemporary China",
+      "frequency": "monthly",
+      "items": 1648,
+      "periods": 223
+    },
+    {
+      "journal_id": 106,
+      "journal_title": "Journal of Chinese Political Science",
+      "frequency": "monthly",
+      "items": 1016,
+      "periods": 209
+    },
+    {
+      "journal_id": 107,
+      "journal_title": "Political Science Research and Methods",
+      "frequency": "monthly",
+      "items": 797,
+      "periods": 147
+    },
+    {
+      "journal_id": 108,
+      "journal_title": "Comparative Politics",
+      "frequency": "quarterly",
+      "items": 1616,
+      "periods": 223
+    },
+    {
+      "journal_id": 109,
+      "journal_title": "Electoral Studies",
+      "frequency": "monthly",
+      "items": 3515,
+      "periods": 349
+    },
+    {
+      "journal_id": 110,
+      "journal_title": "Party Politics",
+      "frequency": "monthly",
+      "items": 2519,
+      "periods": 270
+    },
+    {
+      "journal_id": 111,
+      "journal_title": "Legislative Studies Quarterly",
+      "frequency": "quarterly",
+      "items": 1528,
+      "periods": 202
+    },
+    {
+      "journal_id": 112,
+      "journal_title": "Political Research Quarterly",
+      "frequency": "quarterly",
+      "items": 2894,
+      "periods": 134
+    },
+    {
+      "journal_id": 113,
+      "journal_title": "Public Opinion Quarterly",
+      "frequency": "quarterly",
+      "items": 7492,
+      "periods": 295
+    },
+    {
+      "journal_id": 114,
+      "journal_title": "Political Studies Review",
+      "frequency": "monthly",
+      "items": 3928,
+      "periods": 189
+    },
+    {
+      "journal_id": 115,
+      "journal_title": "Politics",
+      "frequency": "quarterly",
+      "items": 11980,
+      "periods": 347
+    },
+    {
+      "journal_id": 116,
+      "journal_title": "Politics & Society",
+      "frequency": "quarterly",
+      "items": 1300,
+      "periods": 208
+    },
+    {
+      "journal_id": 117,
+      "journal_title": "European Political Science Review",
+      "frequency": "monthly",
+      "items": 554,
+      "periods": 164
+    },
+    {
+      "journal_id": 118,
+      "journal_title": "European Union Politics",
+      "frequency": "monthly",
+      "items": 794,
+      "periods": 209
+    },
+    {
+      "journal_id": 119,
+      "journal_title": "East European Politics",
+      "frequency": "monthly",
+      "items": 587,
+      "periods": 140
+    },
+    {
+      "journal_id": 120,
+      "journal_title": "Comparative European Politics",
+      "frequency": "monthly",
+      "items": 851,
+      "periods": 186
+    },
+    {
+      "journal_id": 121,
+      "journal_title": "Parliamentary Affairs",
+      "frequency": "quarterly",
+      "items": 5378,
+      "periods": 253
+    },
+    {
+      "journal_id": 122,
+      "journal_title": "Publius",
+      "frequency": "quarterly",
+      "items": 2775,
+      "periods": 116
+    },
+    {
+      "journal_id": 123,
+      "journal_title": "American Politics Research",
+      "frequency": "monthly",
+      "items": 1128,
+      "periods": 239
+    },
+    {
+      "journal_id": 124,
+      "journal_title": "State Politics & Policy Quarterly",
+      "frequency": "quarterly",
+      "items": 621,
+      "periods": 77
+    },
+    {
+      "journal_id": 125,
+      "journal_title": "Journal of Elections Public Opinion and Parties",
+      "frequency": "monthly",
+      "items": 710,
+      "periods": 166
+    },
+    {
+      "journal_id": 126,
+      "journal_title": "International Political Science Review",
+      "frequency": "quarterly",
+      "items": 1665,
+      "periods": 183
+    },
+    {
+      "journal_id": 127,
+      "journal_title": "International Political Sociology",
+      "frequency": "monthly",
+      "items": 703,
+      "periods": 128
+    },
+    {
+      "journal_id": 128,
+      "journal_title": "International Theory",
+      "frequency": "monthly",
+      "items": 431,
+      "periods": 113
+    },
+    {
+      "journal_id": 129,
+      "journal_title": "Cooperation and Conflict",
+      "frequency": "quarterly",
+      "items": 1668,
+      "periods": 224
+    },
+    {
+      "journal_id": 130,
+      "journal_title": "Journal of International Relations and Development",
+      "frequency": "monthly",
+      "items": 720,
+      "periods": 178
+    },
+    {
+      "journal_id": 131,
+      "journal_title": "International Relations",
+      "frequency": "monthly",
+      "items": 4752,
+      "periods": 434
+    },
+    {
+      "journal_id": 132,
+      "journal_title": "Foreign Policy Analysis",
+      "frequency": "monthly",
+      "items": 655,
+      "periods": 147
+    },
+    {
+      "journal_id": 133,
+      "journal_title": "Geopolitics",
+      "frequency": "quarterly",
+      "items": 1534,
+      "periods": 107
+    },
+    {
+      "journal_id": 134,
+      "journal_title": "Territory Politics Governance",
+      "frequency": "monthly",
+      "items": 700,
+      "periods": 141
+    },
+    {
+      "journal_id": 135,
+      "journal_title": "Terrorism and Political Violence",
+      "frequency": "monthly",
+      "items": 2306,
+      "periods": 246
+    },
+    {
+      "journal_id": 136,
+      "journal_title": "Studies in Conflict & Terrorism",
+      "frequency": "monthly",
+      "items": 1816,
+      "periods": 273
+    },
+    {
+      "journal_id": 137,
+      "journal_title": "Nations and Nationalism",
+      "frequency": "monthly",
+      "items": 2306,
+      "periods": 222
+    },
+    {
+      "journal_id": 138,
+      "journal_title": "Citizenship Studies",
+      "frequency": "monthly",
+      "items": 1348,
+      "periods": 207
+    },
+    {
+      "journal_id": 139,
+      "journal_title": "Social Movement Studies",
+      "frequency": "monthly",
+      "items": 1117,
+      "periods": 182
+    },
+    {
+      "journal_id": 140,
+      "journal_title": "Journal of Political Philosophy",
+      "frequency": "monthly",
+      "items": 734,
+      "periods": 209
+    },
+    {
+      "journal_id": 141,
+      "journal_title": "Political Theory",
+      "frequency": "monthly",
+      "items": 2959,
+      "periods": 376
+    },
+    {
+      "journal_id": 142,
+      "journal_title": "Politics Philosophy & Economics",
+      "frequency": "monthly",
+      "items": 510,
+      "periods": 169
+    },
+    {
+      "journal_id": 143,
+      "journal_title": "Philosophy & Public Affairs",
+      "frequency": "quarterly",
+      "items": 707,
+      "periods": 138
+    },
+    {
+      "journal_id": 144,
+      "journal_title": "Journal of Theoretical Politics",
+      "frequency": "quarterly",
+      "items": 876,
+      "periods": 144
+    },
+    {
+      "journal_id": 145,
+      "journal_title": "Political Quarterly",
+      "frequency": "quarterly",
+      "items": 12124,
+      "periods": 180
+    },
+    {
+      "journal_id": 146,
+      "journal_title": "PS Political Science & Politics",
+      "frequency": "quarterly",
+      "items": 11658,
+      "periods": 171
+    },
+    {
+      "journal_id": 147,
+      "journal_title": "Research & Politics",
+      "frequency": "quarterly",
+      "items": 589,
+      "periods": 49
+    },
+    {
+      "journal_id": 148,
+      "journal_title": "European Political Science",
+      "frequency": "monthly",
+      "items": 1345,
+      "periods": 206
+    },
+    {
+      "journal_id": 149,
+      "journal_title": "政治学研究",
+      "frequency": "quarterly",
+      "items": 366,
+      "periods": 30
+    },
+    {
+      "journal_id": 150,
+      "journal_title": "世界经济与政治",
+      "frequency": "quarterly",
+      "items": 480,
+      "periods": 33
+    },
+    {
+      "journal_id": 151,
+      "journal_title": "国际政治研究",
+      "frequency": "quarterly",
+      "items": 405,
+      "periods": 42
+    },
+    {
+      "journal_id": 152,
+      "journal_title": "国际政治科学",
+      "frequency": "monthly",
+      "items": 0,
+      "periods": 0
+    },
+    {
+      "journal_id": 153,
+      "journal_title": "国际安全研究",
+      "frequency": "quarterly",
+      "items": 96,
+      "periods": 16
+    },
+    {
+      "journal_id": 154,
+      "journal_title": "国际问题研究",
+      "frequency": "quarterly",
+      "items": 500,
+      "periods": 11
+    },
+    {
+      "journal_id": 155,
+      "journal_title": "国际展望",
+      "frequency": "quarterly",
+      "items": 1652,
+      "periods": 34
+    },
+    {
+      "journal_id": 156,
+      "journal_title": "国际观察",
+      "frequency": "quarterly",
+      "items": 288,
+      "periods": 39
+    },
+    {
+      "journal_id": 157,
+      "journal_title": "国际论坛",
+      "frequency": "quarterly",
+      "items": 1726,
+      "periods": 7
+    },
+    {
+      "journal_id": 158,
+      "journal_title": "国际关系研究",
+      "frequency": "monthly",
+      "items": 0,
+      "periods": 0
+    },
+    {
+      "journal_id": 159,
+      "journal_title": "现代国际关系",
+      "frequency": "quarterly",
+      "items": 766,
+      "periods": 18
+    },
+    {
+      "journal_id": 160,
+      "journal_title": "外交评论",
+      "frequency": "quarterly",
+      "items": 246,
+      "periods": 32
+    },
+    {
+      "journal_id": 161,
+      "journal_title": "欧洲研究",
+      "frequency": "quarterly",
+      "items": 351,
+      "periods": 34
+    },
+    {
+      "journal_id": 162,
+      "journal_title": "美国研究",
+      "frequency": "quarterly",
+      "items": 309,
+      "periods": 33
+    },
+    {
+      "journal_id": 163,
+      "journal_title": "日本学刊",
+      "frequency": "quarterly",
+      "items": 739,
+      "periods": 47
+    },
+    {
+      "journal_id": 164,
+      "journal_title": "当代亚太",
+      "frequency": "quarterly",
+      "items": 239,
+      "periods": 29
+    },
+    {
+      "journal_id": 165,
+      "journal_title": "东北亚论坛",
+      "frequency": "quarterly",
+      "items": 297,
+      "periods": 32
+    },
+    {
+      "journal_id": 166,
+      "journal_title": "东南亚研究",
+      "frequency": "quarterly",
+      "items": 148,
+      "periods": 21
+    },
+    {
+      "journal_id": 167,
+      "journal_title": "南洋问题研究",
+      "frequency": "quarterly",
+      "items": 159,
+      "periods": 35
+    },
+    {
+      "journal_id": 168,
+      "journal_title": "西亚非洲",
+      "frequency": "quarterly",
+      "items": 454,
+      "periods": 41
+    },
+    {
+      "journal_id": 169,
+      "journal_title": "亚太安全与海洋研究",
+      "frequency": "monthly",
+      "items": 0,
+      "periods": 0
+    },
+    {
+      "journal_id": 170,
+      "journal_title": "太平洋学报",
+      "frequency": "quarterly",
+      "items": 341,
+      "periods": 30
+    },
+    {
+      "journal_id": 171,
+      "journal_title": "台湾研究",
+      "frequency": "quarterly",
+      "items": 218,
+      "periods": 21
+    },
+    {
+      "journal_id": 172,
+      "journal_title": "港澳研究",
+      "frequency": "monthly",
+      "items": 0,
+      "periods": 0
+    },
+    {
+      "journal_id": 173,
+      "journal_title": "当代美国评论",
+      "frequency": "monthly",
+      "items": 0,
+      "periods": 0
+    },
+    {
+      "journal_id": 174,
+      "journal_title": "当代世界",
+      "frequency": "quarterly",
+      "items": 983,
+      "periods": 29
+    },
+    {
+      "journal_id": 175,
+      "journal_title": "和平与发展",
+      "frequency": "quarterly",
+      "items": 172,
+      "periods": 19
+    },
+    {
+      "journal_id": 176,
+      "journal_title": "中国评论",
+      "frequency": "quarterly",
+      "items": 687,
+      "periods": 16
+    },
+    {
+      "journal_id": 177,
+      "journal_title": "人权",
+      "frequency": "quarterly",
+      "items": 386,
+      "periods": 15
+    },
+    {
+      "journal_id": 178,
+      "journal_title": "北京行政学院学报",
+      "frequency": "quarterly",
+      "items": 371,
+      "periods": 25
+    },
+    {
+      "journal_id": 179,
+      "journal_title": "上海行政学院学报",
+      "frequency": "quarterly",
+      "items": 204,
+      "periods": 21
+    },
+    {
+      "journal_id": 180,
+      "journal_title": "江苏行政学院学报",
+      "frequency": "quarterly",
+      "items": 332,
+      "periods": 20
+    },
+    {
+      "journal_id": 181,
+      "journal_title": "甘肃行政学院学报",
+      "frequency": "quarterly",
+      "items": 260,
+      "periods": 24
+    },
+    {
+      "journal_id": 182,
+      "journal_title": "行政论坛",
+      "frequency": "quarterly",
+      "items": 634,
+      "periods": 19
+    },
+    {
+      "journal_id": 183,
+      "journal_title": "公共行政评论",
+      "frequency": "quarterly",
+      "items": 167,
+      "periods": 21
+    },
+    {
+      "journal_id": 184,
+      "journal_title": "公共行政学报",
+      "frequency": "monthly",
+      "items": 0,
+      "periods": 0
+    },
+    {
+      "journal_id": 185,
+      "journal_title": "理论探索",
+      "frequency": "quarterly",
+      "items": 477,
+      "periods": 31
+    },
+    {
+      "journal_id": 186,
+      "journal_title": "理论探讨",
+      "frequency": "quarterly",
+      "items": 770,
+      "periods": 36
+    },
+    {
+      "journal_id": 187,
+      "journal_title": "理论学刊",
+      "frequency": "monthly",
+      "items": 155,
+      "periods": 7
+    },
+    {
+      "journal_id": 188,
+      "journal_title": "理论与改革",
+      "frequency": "quarterly",
+      "items": 713,
+      "periods": 32
+    },
+    {
+      "journal_id": 189,
+      "journal_title": "求实",
+      "frequency": "quarterly",
+      "items": 1139,
+      "periods": 45
+    },
+    {
+      "journal_id": 190,
+      "journal_title": "探索",
+      "frequency": "quarterly",
+      "items": 1099,
+      "periods": 6
+    },
+    {
+      "journal_id": 191,
+      "journal_title": "中共中央党校，国家行政学院，学报",
+      "frequency": "monthly",
+      "items": 0,
+      "periods": 0
+    },
+    {
+      "journal_id": 192,
+      "journal_title": "中国人民公安大学学报，社会科学版",
+      "frequency": "quarterly",
+      "items": 412,
+      "periods": 35
+    }
+  ]
+}

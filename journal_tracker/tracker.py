@@ -9,6 +9,7 @@ import html
 import json
 import os
 import re
+import shutil
 import smtplib
 import ssl
 import sys
@@ -417,6 +418,151 @@ def read_jsonl_count(path: Path) -> int:
         return 0
     with path.open("r", encoding="utf-8") as handle:
         return sum(1 for line in handle if line.strip())
+
+
+def read_jsonl_rows(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    rows: list[dict[str, Any]] = []
+    with path.open("r", encoding="utf-8") as handle:
+        for line in handle:
+            if line.strip():
+                rows.append(json.loads(line))
+    return rows
+
+
+def parse_publication_date(row: dict[str, Any]) -> dt.date | None:
+    value = row.get("publication_date")
+    if isinstance(value, str):
+        try:
+            return dt.date.fromisoformat(value[:10])
+        except ValueError:
+            return None
+    year = row.get("publication_year")
+    if isinstance(year, int):
+        return dt.date(year, 1, 1)
+    return None
+
+
+def infer_issue_frequency(journal: dict[str, Any], rows: list[dict[str, Any]]) -> str:
+    title = str(journal.get("title") or "").lower()
+    if "quarterly" in title:
+        return "quarterly"
+    months_by_year: dict[int, set[int]] = {}
+    current_year = today_china().year
+    for row in rows:
+        published = parse_publication_date(row)
+        if not published or published.year >= current_year:
+            continue
+        months_by_year.setdefault(published.year, set()).add(published.month)
+    counts = sorted(len(months) for months in months_by_year.values() if months)
+    if counts and counts[len(counts) // 2] <= 4:
+        return "quarterly"
+    return "monthly"
+
+
+def issue_key_for_date(published: dt.date | None, frequency: str) -> str:
+    if not published:
+        return "unknown-date"
+    if frequency == "quarterly":
+        period = ((published.month - 1) // 3) + 1
+    else:
+        period = published.month
+    return f"{published.year}-{period}"
+
+
+def issue_sort_key(issue_key: str) -> tuple[int, int]:
+    match = re.fullmatch(r"(\d{4})-(\d{1,2})", issue_key)
+    if not match:
+        return (-1, -1)
+    return (int(match.group(1)), int(match.group(2)))
+
+
+def run_issue_split(
+    start_id: int | None,
+    end_id: int | None,
+    frequency_mode: str,
+    clear_existing: bool,
+) -> dict[str, Any]:
+    journals = [journal for journal in load_json(JOURNALS_PATH, []) if journal.get("enabled", True)]
+    selected: list[dict[str, Any]] = []
+    for journal in journals:
+        journal_id = int(journal["id"])
+        if start_id is not None and journal_id < start_id:
+            continue
+        if end_id is not None and journal_id > end_id:
+            continue
+        selected.append(journal)
+
+    diagnostics: list[dict[str, Any]] = []
+    total_items = 0
+    total_periods = 0
+    for journal in selected:
+        folder = history_folder_for_journal(journal)
+        history_path = history_file_for_journal(journal)
+        rows = read_jsonl_rows(history_path)
+        issues_dir = folder / "issues"
+        if clear_existing and issues_dir.exists():
+            shutil.rmtree(issues_dir)
+
+        if frequency_mode == "auto":
+            frequency = infer_issue_frequency(journal, rows)
+        else:
+            frequency = frequency_mode
+
+        buckets: dict[str, list[dict[str, Any]]] = {}
+        for row in rows:
+            key = issue_key_for_date(parse_publication_date(row), frequency)
+            buckets.setdefault(key, []).append(row)
+
+        periods: list[dict[str, Any]] = []
+        for key in sorted(buckets, key=issue_sort_key, reverse=True):
+            path = issues_dir / key / "works.jsonl"
+            write_jsonl(path, buckets[key])
+            periods.append(
+                {
+                    "period": key,
+                    "items": len(buckets[key]),
+                    "path": str(path.relative_to(folder)).replace("\\", "/"),
+                }
+            )
+
+        index = {
+            "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+            "journal_id": int(journal["id"]),
+            "journal_title": journal.get("title"),
+            "frequency": frequency,
+            "frequency_mode": frequency_mode,
+            "source": "publication_date",
+            "total_items": len(rows),
+            "period_count": len(periods),
+            "periods": periods,
+        }
+        folder.mkdir(parents=True, exist_ok=True)
+        save_json(folder / "issue_index.json", index)
+        total_items += len(rows)
+        total_periods += len(periods)
+        diagnostics.append(
+            {
+                "journal_id": int(journal["id"]),
+                "journal_title": journal.get("title"),
+                "frequency": frequency,
+                "items": len(rows),
+                "periods": len(periods),
+            }
+        )
+
+    summary = {
+        "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "frequency_mode": frequency_mode,
+        "source": "publication_date",
+        "selected_journals": len(selected),
+        "total_items": total_items,
+        "period_files": total_periods,
+        "diagnostics": diagnostics,
+    }
+    save_json(HISTORY_DIR / "issues_index.json", summary)
+    return summary
 
 
 def run_historical_backfill(
@@ -865,6 +1011,21 @@ def main(argv: list[str] | None = None) -> None:
     backfill_parser.add_argument("--no-resume", action="store_true", help="Refetch journals even if a history file already exists.")
     backfill_parser.add_argument("--dry-run", action="store_true", help="Fetch and count without writing history files.")
 
+    split_parser = subparsers.add_parser("split-issues", help="Split journal history files into issue-like date buckets.")
+    split_parser.add_argument("--start-id", type=int, help="First journal id to include.")
+    split_parser.add_argument("--end-id", type=int, help="Last journal id to include.")
+    split_parser.add_argument(
+        "--frequency",
+        choices=["auto", "monthly", "quarterly"],
+        default="auto",
+        help="Issue bucket frequency. Auto infers monthly or quarterly per journal.",
+    )
+    split_parser.add_argument(
+        "--keep-existing",
+        action="store_true",
+        help="Do not clear existing issues directories before regenerating buckets.",
+    )
+
     args = parser.parse_args(argv)
     if args.command == "run":
         run_date = parse_date(args.date)
@@ -902,6 +1063,19 @@ def main(argv: list[str] | None = None) -> None:
                 Total metadata records: {result['total_items']}
                 Include abstracts: {result['include_abstracts']}
                 Dry run: {result['dry_run']}
+                """
+            ).strip()
+        )
+    elif args.command == "split-issues":
+        result = run_issue_split(args.start_id, args.end_id, args.frequency, not args.keep_existing)
+        print(
+            textwrap.dedent(
+                f"""
+                Issue split completed.
+                Selected journals: {result['selected_journals']}
+                Total metadata records: {result['total_items']}
+                Period files: {result['period_files']}
+                Frequency mode: {result['frequency_mode']}
                 """
             ).strip()
         )

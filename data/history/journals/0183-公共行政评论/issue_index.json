@@ -1,0 +1,117 @@
+{
+  "generated_at": "2026-05-30T12:43:01.041963+00:00",
+  "journal_id": 183,
+  "journal_title": "公共行政评论",
+  "frequency": "quarterly",
+  "frequency_mode": "auto",
+  "source": "publication_date",
+  "total_items": 167,
+  "period_count": 21,
+  "periods": [
+    {
+      "period": "2020-2",
+      "items": 1,
+      "path": "issues/2020-2/works.jsonl"
+    },
+    {
+      "period": "2020-1",
+      "items": 2,
+      "path": "issues/2020-1/works.jsonl"
+    },
+    {
+      "period": "2019-3",
+      "items": 1,
+      "path": "issues/2019-3/works.jsonl"
+    },
+    {
+      "period": "2019-1",
+      "items": 5,
+      "path": "issues/2019-1/works.jsonl"
+    },
+    {
+      "period": "2018-1",
+      "items": 1,
+      "path": "issues/2018-1/works.jsonl"
+    },
+    {
+      "period": "2017-1",
+      "items": 3,
+      "path": "issues/2017-1/works.jsonl"
+    },
+    {
+      "period": "2016-1",
+      "items": 9,
+      "path": "issues/2016-1/works.jsonl"
+    },
+    {
+      "period": "2015-4",
+      "items": 3,
+      "path": "issues/2015-4/works.jsonl"
+    },
+    {
+      "period": "2015-2",
+      "items": 1,
+      "path": "issues/2015-2/works.jsonl"
+    },
+    {
+      "period": "2015-1",
+      "items": 18,
+      "path": "issues/2015-1/works.jsonl"
+    },
+    {
+      "period": "2014-1",
+      "items": 20,
+      "path": "issues/2014-1/works.jsonl"
+    },
+    {
+      "period": "2013-3",
+      "items": 2,
+      "path": "issues/2013-3/works.jsonl"
+    },
+    {
+      "period": "2013-2",
+      "items": 1,
+      "path": "issues/2013-2/works.jsonl"
+    },
+    {
+      "period": "2013-1",
+      "items": 18,
+      "path": "issues/2013-1/works.jsonl"
+    },
+    {
+      "period": "2012-3",
+      "items": 3,
+      "path": "issues/2012-3/works.jsonl"
+    },
+    {
+      "period": "2012-1",
+      "items": 22,
+      "path": "issues/2012-1/works.jsonl"
+    },
+    {
+      "period": "2011-4",
+      "items": 1,
+      "path": "issues/2011-4/works.jsonl"
+    },
+    {
+      "period": "2011-1",
+      "items": 15,
+      "path": "issues/2011-1/works.jsonl"
+    },
+    {
+      "period": "2010-1",
+      "items": 14,
+      "path": "issues/2010-1/works.jsonl"
+    },
+    {
+      "period": "2009-1",
+      "items": 13,
+      "path": "issues/2009-1/works.jsonl"
+    },
+    {
+      "period": "2008-1",
+      "items": 14,
+      "path": "issues/2008-1/works.jsonl"
+    }
+  ]
+}

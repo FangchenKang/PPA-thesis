@@ -1,0 +1,107 @@
+{
+  "generated_at": "2026-05-30T12:43:00.841614+00:00",
+  "journal_id": 175,
+  "journal_title": "和平与发展",
+  "frequency": "quarterly",
+  "frequency_mode": "auto",
+  "source": "publication_date",
+  "total_items": 172,
+  "period_count": 19,
+  "periods": [
+    {
+      "period": "2020-1",
+      "items": 1,
+      "path": "issues/2020-1/works.jsonl"
+    },
+    {
+      "period": "2017-1",
+      "items": 3,
+      "path": "issues/2017-1/works.jsonl"
+    },
+    {
+      "period": "2016-1",
+      "items": 9,
+      "path": "issues/2016-1/works.jsonl"
+    },
+    {
+      "period": "2015-1",
+      "items": 9,
+      "path": "issues/2015-1/works.jsonl"
+    },
+    {
+      "period": "2014-1",
+      "items": 6,
+      "path": "issues/2014-1/works.jsonl"
+    },
+    {
+      "period": "2013-1",
+      "items": 10,
+      "path": "issues/2013-1/works.jsonl"
+    },
+    {
+      "period": "2012-1",
+      "items": 18,
+      "path": "issues/2012-1/works.jsonl"
+    },
+    {
+      "period": "2011-1",
+      "items": 15,
+      "path": "issues/2011-1/works.jsonl"
+    },
+    {
+      "period": "2010-1",
+      "items": 15,
+      "path": "issues/2010-1/works.jsonl"
+    },
+    {
+      "period": "2009-1",
+      "items": 17,
+      "path": "issues/2009-1/works.jsonl"
+    },
+    {
+      "period": "2008-1",
+      "items": 5,
+      "path": "issues/2008-1/works.jsonl"
+    },
+    {
+      "period": "2007-1",
+      "items": 4,
+      "path": "issues/2007-1/works.jsonl"
+    },
+    {
+      "period": "2006-1",
+      "items": 10,
+      "path": "issues/2006-1/works.jsonl"
+    },
+    {
+      "period": "2005-1",
+      "items": 7,
+      "path": "issues/2005-1/works.jsonl"
+    },
+    {
+      "period": "2004-1",
+      "items": 11,
+      "path": "issues/2004-1/works.jsonl"
+    },
+    {
+      "period": "2003-1",
+      "items": 7,
+      "path": "issues/2003-1/works.jsonl"
+    },
+    {
+      "period": "2002-1",
+      "items": 20,
+      "path": "issues/2002-1/works.jsonl"
+    },
+    {
+      "period": "2001-1",
+      "items": 4,
+      "path": "issues/2001-1/works.jsonl"
+    },
+    {
+      "period": "2000-1",
+      "items": 1,
+      "path": "issues/2000-1/works.jsonl"
+    }
+  ]
+}

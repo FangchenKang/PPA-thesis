@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-05-30T12:43:01.254767+00:00",
+  "journal_id": 190,
+  "journal_title": "探索",
+  "frequency": "quarterly",
+  "frequency_mode": "auto",
+  "source": "publication_date",
+  "total_items": 1099,
+  "period_count": 6,
+  "periods": [
+    {
+      "period": "2026-1",
+      "items": 148,
+      "path": "issues/2026-1/works.jsonl"
+    },
+    {
+      "period": "2025-1",
+      "items": 473,
+      "path": "issues/2025-1/works.jsonl"
+    },
+    {
+      "period": "2024-1",
+      "items": 328,
+      "path": "issues/2024-1/works.jsonl"
+    },
+    {
+      "period": "2023-1",
+      "items": 97,
+      "path": "issues/2023-1/works.jsonl"
+    },
+    {
+      "period": "2021-1",
+      "items": 8,
+      "path": "issues/2021-1/works.jsonl"
+    },
+    {
+      "period": "2020-1",
+      "items": 45,
+      "path": "issues/2020-1/works.jsonl"
+    }
+  ]
+}

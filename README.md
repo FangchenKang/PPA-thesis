@@ -74,7 +74,7 @@ Run it manually from GitHub Actions:
 
 `Actions -> Historical backfill -> Run workflow`
 
-The results are stored by journal under `data/history/journals/<journal-id>-<journal-title>/works.jsonl`. See `docs/HISTORICAL_BACKFILL.md` for batching suggestions and the JSONL layout.
+The results are stored by journal under `data/history/journals/<journal-id>-<journal-title>/works.jsonl`, with issue-like date buckets under each journal's `issues/` folder. See `docs/HISTORICAL_BACKFILL.md` for batching suggestions and the JSONL layout.
 
 ## Local Test
 

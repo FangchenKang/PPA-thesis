@@ -1,0 +1,102 @@
+{
+  "generated_at": "2026-05-30T12:43:00.394243+00:00",
+  "journal_id": 159,
+  "journal_title": "现代国际关系",
+  "frequency": "quarterly",
+  "frequency_mode": "auto",
+  "source": "publication_date",
+  "total_items": 766,
+  "period_count": 18,
+  "periods": [
+    {
+      "period": "2017-1",
+      "items": 13,
+      "path": "issues/2017-1/works.jsonl"
+    },
+    {
+      "period": "2016-1",
+      "items": 19,
+      "path": "issues/2016-1/works.jsonl"
+    },
+    {
+      "period": "2015-1",
+      "items": 73,
+      "path": "issues/2015-1/works.jsonl"
+    },
+    {
+      "period": "2014-1",
+      "items": 77,
+      "path": "issues/2014-1/works.jsonl"
+    },
+    {
+      "period": "2013-1",
+      "items": 73,
+      "path": "issues/2013-1/works.jsonl"
+    },
+    {
+      "period": "2012-1",
+      "items": 81,
+      "path": "issues/2012-1/works.jsonl"
+    },
+    {
+      "period": "2011-1",
+      "items": 60,
+      "path": "issues/2011-1/works.jsonl"
+    },
+    {
+      "period": "2010-1",
+      "items": 79,
+      "path": "issues/2010-1/works.jsonl"
+    },
+    {
+      "period": "2009-1",
+      "items": 49,
+      "path": "issues/2009-1/works.jsonl"
+    },
+    {
+      "period": "2008-1",
+      "items": 39,
+      "path": "issues/2008-1/works.jsonl"
+    },
+    {
+      "period": "2007-1",
+      "items": 40,
+      "path": "issues/2007-1/works.jsonl"
+    },
+    {
+      "period": "2006-1",
+      "items": 30,
+      "path": "issues/2006-1/works.jsonl"
+    },
+    {
+      "period": "2005-1",
+      "items": 26,
+      "path": "issues/2005-1/works.jsonl"
+    },
+    {
+      "period": "2004-1",
+      "items": 41,
+      "path": "issues/2004-1/works.jsonl"
+    },
+    {
+      "period": "2001-1",
+      "items": 1,
+      "path": "issues/2001-1/works.jsonl"
+    },
+    {
+      "period": "2000-1",
+      "items": 23,
+      "path": "issues/2000-1/works.jsonl"
+    },
+    {
+      "period": "1999-1",
+      "items": 22,
+      "path": "issues/1999-1/works.jsonl"
+    },
+    {
+      "period": "1998-1",
+      "items": 20,
+      "path": "issues/1998-1/works.jsonl"
+    }
+  ]
+}

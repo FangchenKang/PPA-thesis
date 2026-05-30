@@ -1,0 +1,857 @@
+{
+  "generated_at": "2026-05-30T12:42:58.799206+00:00",
+  "journal_id": 142,
+  "journal_title": "Politics Philosophy & Economics",
+  "frequency": "monthly",
+  "frequency_mode": "auto",
+  "source": "publication_date",
+  "total_items": 510,
+  "period_count": 169,
+  "periods": [
+    {
+      "period": "2026-5",
+      "items": 1,
+      "path": "issues/2026-5/works.jsonl"
+    },
+    {
+      "period": "2026-4",
+      "items": 1,
+      "path": "issues/2026-4/works.jsonl"
+    },
+    {
+      "period": "2026-3",
+      "items": 1,
+      "path": "issues/2026-3/works.jsonl"
+    },
+    {
+      "period": "2026-2",
+      "items": 1,
+      "path": "issues/2026-2/works.jsonl"
+    },
+    {
+      "period": "2026-1",
+      "items": 3,
+      "path": "issues/2026-1/works.jsonl"
+    },
+    {
+      "period": "2025-11",
+      "items": 2,
+      "path": "issues/2025-11/works.jsonl"
+    },
+    {
+      "period": "2025-10",
+      "items": 1,
+      "path": "issues/2025-10/works.jsonl"
+    },
+    {
+      "period": "2025-9",
+      "items": 2,
+      "path": "issues/2025-9/works.jsonl"
+    },
+    {
+      "period": "2025-8",
+      "items": 3,
+      "path": "issues/2025-8/works.jsonl"
+    },
+    {
+      "period": "2025-7",
+      "items": 1,
+      "path": "issues/2025-7/works.jsonl"
+    },
+    {
+      "period": "2025-6",
+      "items": 1,
+      "path": "issues/2025-6/works.jsonl"
+    },
+    {
+      "period": "2025-5",
+      "items": 3,
+      "path": "issues/2025-5/works.jsonl"
+    },
+    {
+      "period": "2025-4",
+      "items": 2,
+      "path": "issues/2025-4/works.jsonl"
+    },
+    {
+      "period": "2025-2",
+      "items": 2,
+      "path": "issues/2025-2/works.jsonl"
+    },
+    {
+      "period": "2025-1",
+      "items": 2,
+      "path": "issues/2025-1/works.jsonl"
+    },
+    {
+      "period": "2024-11",
+      "items": 4,
+      "path": "issues/2024-11/works.jsonl"
+    },
+    {
+      "period": "2024-10",
+      "items": 2,
+      "path": "issues/2024-10/works.jsonl"
+    },
+    {
+      "period": "2024-9",
+      "items": 2,
+      "path": "issues/2024-9/works.jsonl"
+    },
+    {
+      "period": "2024-8",
+      "items": 1,
+      "path": "issues/2024-8/works.jsonl"
+    },
+    {
+      "period": "2024-7",
+      "items": 2,
+      "path": "issues/2024-7/works.jsonl"
+    },
+    {
+      "period": "2024-6",
+      "items": 3,
+      "path": "issues/2024-6/works.jsonl"
+    },
+    {
+      "period": "2024-5",
+      "items": 4,
+      "path": "issues/2024-5/works.jsonl"
+    },
+    {
+      "period": "2024-4",
+      "items": 1,
+      "path": "issues/2024-4/works.jsonl"
+    },
+    {
+      "period": "2024-3",
+      "items": 2,
+      "path": "issues/2024-3/works.jsonl"
+    },
+    {
+      "period": "2024-2",
+      "items": 2,
+      "path": "issues/2024-2/works.jsonl"
+    },
+    {
+      "period": "2024-1",
+      "items": 1,
+      "path": "issues/2024-1/works.jsonl"
+    },
+    {
+      "period": "2023-12",
+      "items": 1,
+      "path": "issues/2023-12/works.jsonl"
+    },
+    {
+      "period": "2023-11",
+      "items": 2,
+      "path": "issues/2023-11/works.jsonl"
+    },
+    {
+      "period": "2023-8",
+      "items": 1,
+      "path": "issues/2023-8/works.jsonl"
+    },
+    {
+      "period": "2023-7",
+      "items": 2,
+      "path": "issues/2023-7/works.jsonl"
+    },
+    {
+      "period": "2023-6",
+      "items": 3,
+      "path": "issues/2023-6/works.jsonl"
+    },
+    {
+      "period": "2023-5",
+      "items": 6,
+      "path": "issues/2023-5/works.jsonl"
+    },
+    {
+      "period": "2023-4",
+      "items": 6,
+      "path": "issues/2023-4/works.jsonl"
+    },
+    {
+      "period": "2023-3",
+      "items": 4,
+      "path": "issues/2023-3/works.jsonl"
+    },
+    {
+      "period": "2023-2",
+      "items": 3,
+      "path": "issues/2023-2/works.jsonl"
+    },
+    {
+      "period": "2023-1",
+      "items": 1,
+      "path": "issues/2023-1/works.jsonl"
+    },
+    {
+      "period": "2022-11",
+      "items": 2,
+      "path": "issues/2022-11/works.jsonl"
+    },
+    {
+      "period": "2022-10",
+      "items": 1,
+      "path": "issues/2022-10/works.jsonl"
+    },
+    {
+      "period": "2022-9",
+      "items": 1,
+      "path": "issues/2022-9/works.jsonl"
+    },
+    {
+      "period": "2022-8",
+      "items": 1,
+      "path": "issues/2022-8/works.jsonl"
+    },
+    {
+      "period": "2022-7",
+      "items": 1,
+      "path": "issues/2022-7/works.jsonl"
+    },
+    {
+      "period": "2022-6",
+      "items": 1,
+      "path": "issues/2022-6/works.jsonl"
+    },
+    {
+      "period": "2022-5",
+      "items": 3,
+      "path": "issues/2022-5/works.jsonl"
+    },
+    {
+      "period": "2022-4",
+      "items": 2,
+      "path": "issues/2022-4/works.jsonl"
+    },
+    {
+      "period": "2022-3",
+      "items": 4,
+      "path": "issues/2022-3/works.jsonl"
+    },
+    {
+      "period": "2022-2",
+      "items": 1,
+      "path": "issues/2022-2/works.jsonl"
+    },
+    {
+      "period": "2022-1",
+      "items": 3,
+      "path": "issues/2022-1/works.jsonl"
+    },
+    {
+      "period": "2021-12",
+      "items": 1,
+      "path": "issues/2021-12/works.jsonl"
+    },
+    {
+      "period": "2021-11",
+      "items": 2,
+      "path": "issues/2021-11/works.jsonl"
+    },
+    {
+      "period": "2021-8",
+      "items": 3,
+      "path": "issues/2021-8/works.jsonl"
+    },
+    {
+      "period": "2021-7",
+      "items": 1,
+      "path": "issues/2021-7/works.jsonl"
+    },
+    {
+      "period": "2021-6",
+      "items": 1,
+      "path": "issues/2021-6/works.jsonl"
+    },
+    {
+      "period": "2021-5",
+      "items": 2,
+      "path": "issues/2021-5/works.jsonl"
+    },
+    {
+      "period": "2021-4",
+      "items": 3,
+      "path": "issues/2021-4/works.jsonl"
+    },
+    {
+      "period": "2021-2",
+      "items": 3,
+      "path": "issues/2021-2/works.jsonl"
+    },
+    {
+      "period": "2021-1",
+      "items": 1,
+      "path": "issues/2021-1/works.jsonl"
+    },
+    {
+      "period": "2020-11",
+      "items": 1,
+      "path": "issues/2020-11/works.jsonl"
+    },
+    {
+      "period": "2020-9",
+      "items": 2,
+      "path": "issues/2020-9/works.jsonl"
+    },
+    {
+      "period": "2020-8",
+      "items": 4,
+      "path": "issues/2020-8/works.jsonl"
+    },
+    {
+      "period": "2020-6",
+      "items": 2,
+      "path": "issues/2020-6/works.jsonl"
+    },
+    {
+      "period": "2020-5",
+      "items": 5,
+      "path": "issues/2020-5/works.jsonl"
+    },
+    {
+      "period": "2020-2",
+      "items": 2,
+      "path": "issues/2020-2/works.jsonl"
+    },
+    {
+      "period": "2020-1",
+      "items": 2,
+      "path": "issues/2020-1/works.jsonl"
+    },
+    {
+      "period": "2019-12",
+      "items": 1,
+      "path": "issues/2019-12/works.jsonl"
+    },
+    {
+      "period": "2019-11",
+      "items": 6,
+      "path": "issues/2019-11/works.jsonl"
+    },
+    {
+      "period": "2019-10",
+      "items": 2,
+      "path": "issues/2019-10/works.jsonl"
+    },
+    {
+      "period": "2019-9",
+      "items": 2,
+      "path": "issues/2019-9/works.jsonl"
+    },
+    {
+      "period": "2019-7",
+      "items": 1,
+      "path": "issues/2019-7/works.jsonl"
+    },
+    {
+      "period": "2019-5",
+      "items": 2,
+      "path": "issues/2019-5/works.jsonl"
+    },
+    {
+      "period": "2019-2",
+      "items": 7,
+      "path": "issues/2019-2/works.jsonl"
+    },
+    {
+      "period": "2018-11",
+      "items": 2,
+      "path": "issues/2018-11/works.jsonl"
+    },
+    {
+      "period": "2018-10",
+      "items": 1,
+      "path": "issues/2018-10/works.jsonl"
+    },
+    {
+      "period": "2018-9",
+      "items": 1,
+      "path": "issues/2018-9/works.jsonl"
+    },
+    {
+      "period": "2018-8",
+      "items": 1,
+      "path": "issues/2018-8/works.jsonl"
+    },
+    {
+      "period": "2018-6",
+      "items": 2,
+      "path": "issues/2018-6/works.jsonl"
+    },
+    {
+      "period": "2018-5",
+      "items": 3,
+      "path": "issues/2018-5/works.jsonl"
+    },
+    {
+      "period": "2018-4",
+      "items": 1,
+      "path": "issues/2018-4/works.jsonl"
+    },
+    {
+      "period": "2018-3",
+      "items": 5,
+      "path": "issues/2018-3/works.jsonl"
+    },
+    {
+      "period": "2018-1",
+      "items": 1,
+      "path": "issues/2018-1/works.jsonl"
+    },
+    {
+      "period": "2017-11",
+      "items": 4,
+      "path": "issues/2017-11/works.jsonl"
+    },
+    {
+      "period": "2017-10",
+      "items": 5,
+      "path": "issues/2017-10/works.jsonl"
+    },
+    {
+      "period": "2017-9",
+      "items": 2,
+      "path": "issues/2017-9/works.jsonl"
+    },
+    {
+      "period": "2017-8",
+      "items": 1,
+      "path": "issues/2017-8/works.jsonl"
+    },
+    {
+      "period": "2017-7",
+      "items": 4,
+      "path": "issues/2017-7/works.jsonl"
+    },
+    {
+      "period": "2017-6",
+      "items": 1,
+      "path": "issues/2017-6/works.jsonl"
+    },
+    {
+      "period": "2017-5",
+      "items": 5,
+      "path": "issues/2017-5/works.jsonl"
+    },
+    {
+      "period": "2017-4",
+      "items": 1,
+      "path": "issues/2017-4/works.jsonl"
+    },
+    {
+      "period": "2017-3",
+      "items": 2,
+      "path": "issues/2017-3/works.jsonl"
+    },
+    {
+      "period": "2017-2",
+      "items": 2,
+      "path": "issues/2017-2/works.jsonl"
+    },
+    {
+      "period": "2017-1",
+      "items": 1,
+      "path": "issues/2017-1/works.jsonl"
+    },
+    {
+      "period": "2016-11",
+      "items": 1,
+      "path": "issues/2016-11/works.jsonl"
+    },
+    {
+      "period": "2016-9",
+      "items": 2,
+      "path": "issues/2016-9/works.jsonl"
+    },
+    {
+      "period": "2016-6",
+      "items": 6,
+      "path": "issues/2016-6/works.jsonl"
+    },
+    {
+      "period": "2016-5",
+      "items": 1,
+      "path": "issues/2016-5/works.jsonl"
+    },
+    {
+      "period": "2016-1",
+      "items": 2,
+      "path": "issues/2016-1/works.jsonl"
+    },
+    {
+      "period": "2015-12",
+      "items": 3,
+      "path": "issues/2015-12/works.jsonl"
+    },
+    {
+      "period": "2015-10",
+      "items": 1,
+      "path": "issues/2015-10/works.jsonl"
+    },
+    {
+      "period": "2015-9",
+      "items": 4,
+      "path": "issues/2015-9/works.jsonl"
+    },
+    {
+      "period": "2015-8",
+      "items": 2,
+      "path": "issues/2015-8/works.jsonl"
+    },
+    {
+      "period": "2015-5",
+      "items": 1,
+      "path": "issues/2015-5/works.jsonl"
+    },
+    {
+      "period": "2015-3",
+      "items": 3,
+      "path": "issues/2015-3/works.jsonl"
+    },
+    {
+      "period": "2015-1",
+      "items": 1,
+      "path": "issues/2015-1/works.jsonl"
+    },
+    {
+      "period": "2014-12",
+      "items": 3,
+      "path": "issues/2014-12/works.jsonl"
+    },
+    {
+      "period": "2014-10",
+      "items": 1,
+      "path": "issues/2014-10/works.jsonl"
+    },
+    {
+      "period": "2014-9",
+      "items": 1,
+      "path": "issues/2014-9/works.jsonl"
+    },
+    {
+      "period": "2014-8",
+      "items": 5,
+      "path": "issues/2014-8/works.jsonl"
+    },
+    {
+      "period": "2014-7",
+      "items": 2,
+      "path": "issues/2014-7/works.jsonl"
+    },
+    {
+      "period": "2014-6",
+      "items": 2,
+      "path": "issues/2014-6/works.jsonl"
+    },
+    {
+      "period": "2014-5",
+      "items": 5,
+      "path": "issues/2014-5/works.jsonl"
+    },
+    {
+      "period": "2014-4",
+      "items": 2,
+      "path": "issues/2014-4/works.jsonl"
+    },
+    {
+      "period": "2014-3",
+      "items": 1,
+      "path": "issues/2014-3/works.jsonl"
+    },
+    {
+      "period": "2013-10",
+      "items": 6,
+      "path": "issues/2013-10/works.jsonl"
+    },
+    {
+      "period": "2013-9",
+      "items": 2,
+      "path": "issues/2013-9/works.jsonl"
+    },
+    {
+      "period": "2013-8",
+      "items": 5,
+      "path": "issues/2013-8/works.jsonl"
+    },
+    {
+      "period": "2013-7",
+      "items": 4,
+      "path": "issues/2013-7/works.jsonl"
+    },
+    {
+      "period": "2013-6",
+      "items": 1,
+      "path": "issues/2013-6/works.jsonl"
+    },
+    {
+      "period": "2013-5",
+      "items": 5,
+      "path": "issues/2013-5/works.jsonl"
+    },
+    {
+      "period": "2013-4",
+      "items": 2,
+      "path": "issues/2013-4/works.jsonl"
+    },
+    {
+      "period": "2013-1",
+      "items": 2,
+      "path": "issues/2013-1/works.jsonl"
+    },
+    {
+      "period": "2012-11",
+      "items": 1,
+      "path": "issues/2012-11/works.jsonl"
+    },
+    {
+      "period": "2012-10",
+      "items": 4,
+      "path": "issues/2012-10/works.jsonl"
+    },
+    {
+      "period": "2012-7",
+      "items": 2,
+      "path": "issues/2012-7/works.jsonl"
+    },
+    {
+      "period": "2012-6",
+      "items": 6,
+      "path": "issues/2012-6/works.jsonl"
+    },
+    {
+      "period": "2012-4",
+      "items": 1,
+      "path": "issues/2012-4/works.jsonl"
+    },
+    {
+      "period": "2012-3",
+      "items": 1,
+      "path": "issues/2012-3/works.jsonl"
+    },
+    {
+      "period": "2012-2",
+      "items": 5,
+      "path": "issues/2012-2/works.jsonl"
+    },
+    {
+      "period": "2012-1",
+      "items": 2,
+      "path": "issues/2012-1/works.jsonl"
+    },
+    {
+      "period": "2011-11",
+      "items": 1,
+      "path": "issues/2011-11/works.jsonl"
+    },
+    {
+      "period": "2011-10",
+      "items": 4,
+      "path": "issues/2011-10/works.jsonl"
+    },
+    {
+      "period": "2011-9",
+      "items": 3,
+      "path": "issues/2011-9/works.jsonl"
+    },
+    {
+      "period": "2011-8",
+      "items": 2,
+      "path": "issues/2011-8/works.jsonl"
+    },
+    {
+      "period": "2011-5",
+      "items": 1,
+      "path": "issues/2011-5/works.jsonl"
+    },
+    {
+      "period": "2011-4",
+      "items": 1,
+      "path": "issues/2011-4/works.jsonl"
+    },
+    {
+      "period": "2011-3",
+      "items": 2,
+      "path": "issues/2011-3/works.jsonl"
+    },
+    {
+      "period": "2011-2",
+      "items": 9,
+      "path": "issues/2011-2/works.jsonl"
+    },
+    {
+      "period": "2011-1",
+      "items": 3,
+      "path": "issues/2011-1/works.jsonl"
+    },
+    {
+      "period": "2010-12",
+      "items": 1,
+      "path": "issues/2010-12/works.jsonl"
+    },
+    {
+      "period": "2010-11",
+      "items": 4,
+      "path": "issues/2010-11/works.jsonl"
+    },
+    {
+      "period": "2010-10",
+      "items": 2,
+      "path": "issues/2010-10/works.jsonl"
+    },
+    {
+      "period": "2010-9",
+      "items": 7,
+      "path": "issues/2010-9/works.jsonl"
+    },
+    {
+      "period": "2010-8",
+      "items": 6,
+      "path": "issues/2010-8/works.jsonl"
+    },
+    {
+      "period": "2010-4",
+      "items": 4,
+      "path": "issues/2010-4/works.jsonl"
+    },
+    {
+      "period": "2010-2",
+      "items": 4,
+      "path": "issues/2010-2/works.jsonl"
+    },
+    {
+      "period": "2009-10",
+      "items": 4,
+      "path": "issues/2009-10/works.jsonl"
+    },
+    {
+      "period": "2009-6",
+      "items": 8,
+      "path": "issues/2009-6/works.jsonl"
+    },
+    {
+      "period": "2009-4",
+      "items": 5,
+      "path": "issues/2009-4/works.jsonl"
+    },
+    {
+      "period": "2009-1",
+      "items": 5,
+      "path": "issues/2009-1/works.jsonl"
+    },
+    {
+      "period": "2008-10",
+      "items": 6,
+      "path": "issues/2008-10/works.jsonl"
+    },
+    {
+      "period": "2008-7",
+      "items": 6,
+      "path": "issues/2008-7/works.jsonl"
+    },
+    {
+      "period": "2008-4",
+      "items": 6,
+      "path": "issues/2008-4/works.jsonl"
+    },
+    {
+      "period": "2008-1",
+      "items": 6,
+      "path": "issues/2008-1/works.jsonl"
+    },
+    {
+      "period": "2007-9",
+      "items": 6,
+      "path": "issues/2007-9/works.jsonl"
+    },
+    {
+      "period": "2007-5",
+      "items": 6,
+      "path": "issues/2007-5/works.jsonl"
+    },
+    {
+      "period": "2007-1",
+      "items": 5,
+      "path": "issues/2007-1/works.jsonl"
+    },
+    {
+      "period": "2006-10",
+      "items": 8,
+      "path": "issues/2006-10/works.jsonl"
+    },
+    {
+      "period": "2006-5",
+      "items": 6,
+      "path": "issues/2006-5/works.jsonl"
+    },
+    {
+      "period": "2006-1",
+      "items": 6,
+      "path": "issues/2006-1/works.jsonl"
+    },
+    {
+      "period": "2005-9",
+      "items": 7,
+      "path": "issues/2005-9/works.jsonl"
+    },
+    {
+      "period": "2005-5",
+      "items": 8,
+      "path": "issues/2005-5/works.jsonl"
+    },
+    {
+      "period": "2005-2",
+      "items": 6,
+      "path": "issues/2005-2/works.jsonl"
+    },
+    {
+      "period": "2004-10",
+      "items": 7,
+      "path": "issues/2004-10/works.jsonl"
+    },
+    {
+      "period": "2004-5",
+      "items": 7,
+      "path": "issues/2004-5/works.jsonl"
+    },
+    {
+      "period": "2004-2",
+      "items": 6,
+      "path": "issues/2004-2/works.jsonl"
+    },
+    {
+      "period": "2003-10",
+      "items": 4,
+      "path": "issues/2003-10/works.jsonl"
+    },
+    {
+      "period": "2003-6",
+      "items": 6,
+      "path": "issues/2003-6/works.jsonl"
+    },
+    {
+      "period": "2003-2",
+      "items": 7,
+      "path": "issues/2003-2/works.jsonl"
+    },
+    {
+      "period": "2002-10",
+      "items": 6,
+      "path": "issues/2002-10/works.jsonl"
+    },
+    {
+      "period": "2002-6",
+      "items": 5,
+      "path": "issues/2002-6/works.jsonl"
+    },
+    {
+      "period": "2002-2",
+      "items": 6,
+      "path": "issues/2002-2/works.jsonl"
+    }
+  ]
+}

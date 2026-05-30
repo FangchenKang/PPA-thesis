@@ -9,12 +9,15 @@ It does not use the school LLM API. It uses the OpenAlex public metadata API to 
 - `data/history/index.json`: run summary and diagnostics.
 - `data/history/journals/0001-Journal_Name/works.jsonl`: one JSONL record per article for journal ID 1.
 - `data/history/journals/0002-Journal_Name/works.jsonl`: one JSONL record per article for journal ID 2.
+- `data/history/journals/0001-Journal_Name/issues/2026-1/works.jsonl`: the same records split into issue-like time buckets.
+- `data/history/journals/0001-Journal_Name/issue_index.json`: per-journal split summary.
+- `data/history/issues_index.json`: global split summary.
 
 Each article record stores compact metadata such as title, DOI, publication date, authors, OpenAlex ID, article URL, citation count, and open access status. Abstracts are off by default to keep the repository smaller.
 
 `works.jsonl` uses JSON Lines rather than a single large JSON array: each line is an independent JSON object. This makes large journal histories easier to append, stream, inspect, and diff in Git.
 
-Future issue-level snapshots can live under the same journal folder, for example `data/history/journals/0001-Journal_Name/issues/2026-1/works.jsonl`.
+Issue folders are generated from `publication_date`. In automatic mode, journal titles containing `Quarterly` are split by quarter; other journals are inferred as monthly or quarterly from their active publication months. The folder name uses `year-period`, so `2026-1` means January for a monthly journal and the first quarter for a quarterly journal.
 
 ## How To Run
 
@@ -62,4 +65,10 @@ For local controlled batches:
 
 ```bash
 python -m journal_tracker backfill --start-id 31 --end-id 33
+```
+
+To regenerate the issue-like folders after a backfill:
+
+```bash
+python -m journal_tracker split-issues --start-id 31 --end-id 33
 ```

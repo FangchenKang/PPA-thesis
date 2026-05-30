@@ -1,0 +1,142 @@
+{
+  "generated_at": "2026-05-30T12:42:38.928944+00:00",
+  "journal_id": 40,
+  "journal_title": "公共管理与政策评论",
+  "frequency": "quarterly",
+  "frequency_mode": "auto",
+  "source": "publication_date",
+  "total_items": 101,
+  "period_count": 26,
+  "periods": [
+    {
+      "period": "2021-4",
+      "items": 5,
+      "path": "issues/2021-4/works.jsonl"
+    },
+    {
+      "period": "2021-3",
+      "items": 6,
+      "path": "issues/2021-3/works.jsonl"
+    },
+    {
+      "period": "2021-2",
+      "items": 2,
+      "path": "issues/2021-2/works.jsonl"
+    },
+    {
+      "period": "2021-1",
+      "items": 8,
+      "path": "issues/2021-1/works.jsonl"
+    },
+    {
+      "period": "2020-4",
+      "items": 6,
+      "path": "issues/2020-4/works.jsonl"
+    },
+    {
+      "period": "2020-3",
+      "items": 7,
+      "path": "issues/2020-3/works.jsonl"
+    },
+    {
+      "period": "2020-2",
+      "items": 3,
+      "path": "issues/2020-2/works.jsonl"
+    },
+    {
+      "period": "2020-1",
+      "items": 4,
+      "path": "issues/2020-1/works.jsonl"
+    },
+    {
+      "period": "2019-4",
+      "items": 1,
+      "path": "issues/2019-4/works.jsonl"
+    },
+    {
+      "period": "2019-3",
+      "items": 6,
+      "path": "issues/2019-3/works.jsonl"
+    },
+    {
+      "period": "2019-2",
+      "items": 1,
+      "path": "issues/2019-2/works.jsonl"
+    },
+    {
+      "period": "2019-1",
+      "items": 3,
+      "path": "issues/2019-1/works.jsonl"
+    },
+    {
+      "period": "2018-4",
+      "items": 2,
+      "path": "issues/2018-4/works.jsonl"
+    },
+    {
+      "period": "2018-3",
+      "items": 2,
+      "path": "issues/2018-3/works.jsonl"
+    },
+    {
+      "period": "2018-1",
+      "items": 8,
+      "path": "issues/2018-1/works.jsonl"
+    },
+    {
+      "period": "2017-2",
+      "items": 5,
+      "path": "issues/2017-2/works.jsonl"
+    },
+    {
+      "period": "2017-1",
+      "items": 5,
+      "path": "issues/2017-1/works.jsonl"
+    },
+    {
+      "period": "2016-2",
+      "items": 3,
+      "path": "issues/2016-2/works.jsonl"
+    },
+    {
+      "period": "2016-1",
+      "items": 2,
+      "path": "issues/2016-1/works.jsonl"
+    },
+    {
+      "period": "2015-2",
+      "items": 3,
+      "path": "issues/2015-2/works.jsonl"
+    },
+    {
+      "period": "2015-1",
+      "items": 2,
+      "path": "issues/2015-1/works.jsonl"
+    },
+    {
+      "period": "2014-2",
+      "items": 3,
+      "path": "issues/2014-2/works.jsonl"
+    },
+    {
+      "period": "2014-1",
+      "items": 8,
+      "path": "issues/2014-1/works.jsonl"
+    },
+    {
+      "period": "2013-2",
+      "items": 2,
+      "path": "issues/2013-2/works.jsonl"
+    },
+    {
+      "period": "2013-1",
+      "items": 3,
+      "path": "issues/2013-1/works.jsonl"
+    },
+    {
+      "period": "2012-1",
+      "items": 1,
+      "path": "issues/2012-1/works.jsonl"
+    }
+  ]
+}
