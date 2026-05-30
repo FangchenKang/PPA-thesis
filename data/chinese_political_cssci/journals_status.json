@@ -13,7 +13,7 @@
     "missing_issue_count": 0,
     "missing_abstract_article_count": 0,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": ""
   },
   {
@@ -22,10 +22,9 @@
     "discipline": "政治学",
     "journal_type": "CSSCI",
     "metadata_source": "journal_metadata:CSSCI政治学",
-    "earliest_year": 1948,
+    "earliest_year": 1985,
     "latest_year": 2026,
     "included_years": [
-      "1948",
       "1985",
       "1986",
       "1987",
@@ -54,18 +53,25 @@
       "2015",
       "2016",
       "2017",
+      "2018",
+      "2019",
       "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
       "2026"
     ],
-    "included_issue_count": 121,
-    "included_article_count": 382,
-    "missing_issue_count": 351,
-    "missing_abstract_article_count": 382,
+    "included_issue_count": 189,
+    "included_article_count": 2969,
+    "missing_issue_count": 30,
+    "missing_abstract_article_count": 128,
     "found_2026_issues": [
       1,
       2
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "82131X"
   },
   {
@@ -116,12 +122,9 @@
     "missing_issue_count": 232,
     "missing_abstract_article_count": 486,
     "found_2026_issues": [
-      1,
-      2,
-      3,
       4
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "92442X"
   },
   {
@@ -182,7 +185,7 @@
     "found_2026_issues": [
       1
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "82189X"
   },
   {
@@ -199,7 +202,7 @@
     "missing_issue_count": 0,
     "missing_abstract_article_count": 0,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": ""
   },
   {
@@ -234,11 +237,9 @@
     "missing_issue_count": 96,
     "missing_abstract_article_count": 104,
     "found_2026_issues": [
-      1,
-      2,
       3
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "84335A"
   },
   {
@@ -267,7 +268,7 @@
     "missing_issue_count": 69,
     "missing_abstract_article_count": 500,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "88468X"
   },
   {
@@ -316,11 +317,9 @@
     "missing_issue_count": 221,
     "missing_abstract_article_count": 1660,
     "found_2026_issues": [
-      1,
-      2,
       3
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "95355X"
   },
   {
@@ -377,7 +376,7 @@
     "found_2026_issues": [
       1
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "96991A"
   },
   {
@@ -398,7 +397,7 @@
     "missing_issue_count": 21,
     "missing_abstract_article_count": 1726,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": ""
   },
   {
@@ -415,7 +414,7 @@
     "missing_issue_count": 0,
     "missing_abstract_article_count": 0,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": ""
   },
   {
@@ -452,10 +451,9 @@
     "missing_issue_count": 209,
     "missing_abstract_article_count": 772,
     "found_2026_issues": [
-      1,
       2
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "88066X"
   },
   {
@@ -505,7 +503,7 @@
     "found_2026_issues": [
       1
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "90401A"
   },
   {
@@ -558,10 +556,9 @@
     "missing_issue_count": 110,
     "missing_abstract_article_count": 358,
     "found_2026_issues": [
-      1,
       2
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "92440B"
   },
   {
@@ -611,10 +608,9 @@
     "missing_issue_count": 125,
     "missing_abstract_article_count": 319,
     "found_2026_issues": [
-      1,
       2
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "94975X"
   },
   {
@@ -669,7 +665,7 @@
     "missing_issue_count": 98,
     "missing_abstract_article_count": 733,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": ""
   },
   {
@@ -715,10 +711,9 @@
     "missing_issue_count": 272,
     "missing_abstract_article_count": 246,
     "found_2026_issues": [
-      1,
       2
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "97842A"
   },
   {
@@ -766,11 +761,9 @@
     "missing_issue_count": 80,
     "missing_abstract_article_count": 306,
     "found_2026_issues": [
-      1,
-      2,
       3
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "97722X"
   },
   {
@@ -808,7 +801,7 @@
     "missing_issue_count": 89,
     "missing_abstract_article_count": 148,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "83353A"
   },
   {
@@ -859,7 +852,7 @@
     "found_2026_issues": [
       1
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "83427X"
   },
   {
@@ -917,10 +910,9 @@
     "missing_issue_count": 348,
     "missing_abstract_article_count": 461,
     "found_2026_issues": [
-      1,
       2
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "92366X"
   },
   {
@@ -937,7 +929,7 @@
     "missing_issue_count": 0,
     "missing_abstract_article_count": 0,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": ""
   },
   {
@@ -983,12 +975,9 @@
     "missing_issue_count": 222,
     "missing_abstract_article_count": 349,
     "found_2026_issues": [
-      1,
-      2,
-      3,
       4
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "90397X"
   },
   {
@@ -1023,7 +1012,7 @@
     "missing_issue_count": 85,
     "missing_abstract_article_count": 217,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "97723X"
   },
   {
@@ -1040,7 +1029,7 @@
     "missing_issue_count": 0,
     "missing_abstract_article_count": 0,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": ""
   },
   {
@@ -1057,7 +1046,7 @@
     "missing_issue_count": 0,
     "missing_abstract_article_count": 0,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": ""
   },
   {
@@ -1103,12 +1092,9 @@
     "missing_issue_count": 111,
     "missing_abstract_article_count": 998,
     "found_2026_issues": [
-      1,
-      2,
-      3,
       4
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "81099X"
   },
   {
@@ -1146,10 +1132,9 @@
     "missing_issue_count": 85,
     "missing_abstract_article_count": 180,
     "found_2026_issues": [
-      1,
       2
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "82051X"
   },
   {
@@ -1183,7 +1168,7 @@
     "missing_issue_count": 159,
     "missing_abstract_article_count": 687,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "88594X"
   },
   {
@@ -1216,7 +1201,7 @@
     "missing_issue_count": 9,
     "missing_abstract_article_count": 386,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": ""
   },
   {
@@ -1257,10 +1242,9 @@
     "missing_issue_count": 61,
     "missing_abstract_article_count": 383,
     "found_2026_issues": [
-      1,
       2
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "81965X"
   },
   {
@@ -1300,11 +1284,9 @@
     "missing_issue_count": 70,
     "missing_abstract_article_count": 215,
     "found_2026_issues": [
-      1,
-      2,
       3
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "96218X"
   },
   {
@@ -1341,7 +1323,7 @@
     "missing_issue_count": 57,
     "missing_abstract_article_count": 331,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "84084X"
   },
   {
@@ -1383,7 +1365,7 @@
     "found_2026_issues": [
       1
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "85375X"
   },
   {
@@ -1420,7 +1402,7 @@
     "missing_issue_count": 56,
     "missing_abstract_article_count": 634,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "70584X"
   },
   {
@@ -1452,10 +1434,9 @@
     "missing_issue_count": 48,
     "missing_abstract_article_count": 180,
     "found_2026_issues": [
-      1,
       2
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "89372X"
   },
   {
@@ -1472,7 +1453,7 @@
     "missing_issue_count": 0,
     "missing_abstract_article_count": 0,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": ""
   },
   {
@@ -1521,10 +1502,9 @@
     "missing_issue_count": 76,
     "missing_abstract_article_count": 492,
     "found_2026_issues": [
-      1,
       2
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "86923X"
   },
   {
@@ -1578,11 +1558,9 @@
     "missing_issue_count": 71,
     "missing_abstract_article_count": 787,
     "found_2026_issues": [
-      1,
-      2,
       3
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "97847X"
   },
   {
@@ -1605,7 +1583,7 @@
       2,
       4
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": ""
   },
   {
@@ -1655,10 +1633,9 @@
     "missing_issue_count": 275,
     "missing_abstract_article_count": 728,
     "found_2026_issues": [
-      1,
       2
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "97846X"
   },
   {
@@ -1718,10 +1695,9 @@
     "missing_issue_count": 193,
     "missing_abstract_article_count": 1149,
     "found_2026_issues": [
-      1,
       2
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "80552X"
   },
   {
@@ -1747,7 +1723,7 @@
     "found_2026_issues": [
       1
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": ""
   },
   {
@@ -1764,7 +1740,7 @@
     "missing_issue_count": 0,
     "missing_abstract_article_count": 0,
     "found_2026_issues": [],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": ""
   },
   {
@@ -1820,7 +1796,7 @@
     "found_2026_issues": [
       1
     ],
-    "last_updated": "2026-05-30T15:54:31.725912+00:00",
+    "last_updated": "2026-05-30T17:28:16.621042+00:00",
     "cqvip_code": "82240A"
   }
 ]

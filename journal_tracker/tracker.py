@@ -1494,11 +1494,14 @@ def main(argv: list[str] | None = None) -> None:
         help="Build and audit the Chinese political science CSSCI article directory from public metadata.",
     )
     chinese_cssci_parser.add_argument("--fetch-cqvip", action="store_true", help="Low-frequency check of CQVIP public catalog pages.")
+    chinese_cssci_parser.add_argument("--fetch-ncpssd", action="store_true", help="Low-frequency check of NCPSDD public catalog and article metadata pages.")
     chinese_cssci_parser.add_argument("--start-year", type=int, help="First year to check in public catalog pages.")
     chinese_cssci_parser.add_argument("--end-year", type=int, help="Last year to check in public catalog pages.")
     chinese_cssci_parser.add_argument("--force-update", action="store_true", help="Reserved for rerunning external checks instead of relying on existing outputs.")
     chinese_cssci_parser.add_argument("--sleep-seconds", type=float, default=2.5, help="Delay between public catalog requests.")
     chinese_cssci_parser.add_argument("--max-journals", type=int, help="Limit journal count for controlled test runs.")
+    chinese_cssci_parser.add_argument("--journal-id", type=int, action="append", help="Only fetch external sources for this journal id while keeping full index output.")
+    chinese_cssci_parser.add_argument("--journal", action="append", help="Only fetch external sources for this journal name while keeping full index output.")
 
     args = parser.parse_args(argv)
     if args.command == "run":
@@ -1615,11 +1618,14 @@ def main(argv: list[str] | None = None) -> None:
 
         result = build_chinese_political_cssci(
             fetch_cqvip=args.fetch_cqvip,
+            fetch_ncpssd=args.fetch_ncpssd,
             start_year=args.start_year,
             end_year=args.end_year,
             force_update=args.force_update,
             sleep_seconds=args.sleep_seconds,
             max_journals=args.max_journals,
+            fetch_journal_ids=set(args.journal_id or []),
+            fetch_journal_names=set(args.journal or []),
         )
         print(
             textwrap.dedent(

@@ -6,6 +6,7 @@ import hashlib
 import html
 import json
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -241,11 +242,13 @@ def cqvip_code_from_rows(rows: list[dict[str, Any]]) -> str:
 
 def article_key(row: dict[str, Any]) -> str:
     title_key = normalize_title(row.get("title") or row.get("original_title") or "")
-    author_key = "|".join(normalize_authors(row.get("authors")))[:120]
     source_url = clean_text(row.get("source_url"))
+    if title_key:
+        return hashlib.sha256(f"{title_key}|{row.get('year')}|{row.get('issue')}".encode("utf-8")).hexdigest()[:24]
     if source_url:
         return hashlib.sha256(source_url.encode("utf-8")).hexdigest()[:24]
-    return hashlib.sha256(f"{title_key}|{author_key}|{row.get('year')}|{row.get('issue')}".encode("utf-8")).hexdigest()[:24]
+    author_key = "|".join(normalize_authors(row.get("authors")))[:120]
+    return hashlib.sha256(f"{author_key}|{row.get('year')}|{row.get('issue')}".encode("utf-8")).hexdigest()[:24]
 
 
 def data_status(row: dict[str, Any]) -> str:
@@ -349,6 +352,25 @@ def fetch_text(url: str, timeout: int = 30) -> str:
     with urllib.request.urlopen(request, timeout=timeout) as response:
         charset = response.headers.get_content_charset() or "utf-8"
         return response.read().decode(charset, errors="replace")
+
+
+def post_json(url: str, payload: dict[str, Any], timeout: int = 30) -> dict[str, Any]:
+    body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+    request = urllib.request.Request(
+        url,
+        data=body,
+        headers={
+            "User-Agent": USER_AGENT,
+            "Content-Type": "application/json; charset=utf-8",
+            "Accept": "application/json, text/javascript, */*; q=0.01",
+            "X-Requested-With": "XMLHttpRequest",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=timeout) as response:
+        charset = response.headers.get_content_charset() or "utf-8"
+        text = response.read().decode(charset, errors="replace")
+    return json.loads(text)
 
 
 def parse_cqvip_nuxt(html_text: str) -> dict[str, Any]:
@@ -508,6 +530,162 @@ def fetch_cqvip_year(
     return issues, articles
 
 
+def ncpssd_issue_url(gch: str, year: int, issue: int) -> str:
+    query = urllib.parse.urlencode(
+        {
+            "gch": gch,
+            "langType": "1",
+            "nav": "1",
+            "num": str(issue),
+            "years": str(year),
+        }
+    )
+    return f"https://m.ncpssd.cn/journal/details?{query}"
+
+
+def ncpssd_article_url(article_id: str) -> str:
+    query = urllib.parse.urlencode(
+        {
+            "id": article_id,
+            "type": "journalArticle",
+            "typename": "\u4e2d\u6587\u671f\u520a\u6587\u7ae0",
+            "nav": "1",
+            "langType": "1",
+        }
+    )
+    return f"https://m.ncpssd.cn/Literature/articleinfo?{query}"
+
+
+def parse_ncpssd_issue_catalog(html_text: str) -> tuple[list[int], list[str]]:
+    issues = []
+    for value in re.findall(r'<li\s+data-val="(\d+)"\s+dtgch="[^"]*"\s*>\s*<span>\s*\d+\s*\u671f\s*</span>', html_text):
+        try:
+            issue = int(value)
+        except ValueError:
+            continue
+        if issue and issue not in issues:
+            issues.append(issue)
+    article_ids = []
+    for pattern in [
+        r'data-id="([^"]+)"\s+data-type="\u4e2d\u6587\u671f\u520a\u6587\u7ae0"',
+        r"/Literature/articleinfo\?id=([^&'\"]+)",
+    ]:
+        for article_id in re.findall(pattern, html_text):
+            article_id = clean_text(html.unescape(article_id))
+            if article_id and article_id not in article_ids:
+                article_ids.append(article_id)
+    return sorted(issues), article_ids
+
+
+def clean_ncpssd_authors(value: Any) -> list[str]:
+    value = clean_text(html.unescape(str(value or "")))
+    value = re.sub(r"\[[^\]]+\]", "", value)
+    return normalize_authors(value)
+
+
+def split_ncpssd_keywords(value: Any) -> list[str]:
+    value = clean_text(html.unescape(str(value or "")))
+    if not value:
+        return []
+    return [clean_text(item) for item in re.split(r"[;\uff1b]", value) if clean_text(item)]
+
+
+def row_from_ncpssd_detail(
+    journal: dict[str, Any],
+    data: dict[str, Any],
+    source_file: str,
+    crawl_time: str,
+) -> dict[str, Any] | None:
+    title = clean_text(html.unescape(str(data.get("titlec") or "")))
+    if not title:
+        return None
+    try:
+        year = int(data.get("years") or 0)
+        issue = int(str(data.get("num") or "0").strip())
+    except ValueError:
+        return None
+    if not year or not issue:
+        return None
+    begin = clean_text(data.get("beginpage"))
+    end = clean_text(data.get("endpage"))
+    pages = f"{begin}-{end}" if begin and end and begin != end else begin or end
+    article_id = clean_text(data.get("lngid"))
+    source_url = ncpssd_article_url(article_id) if article_id else source_file
+    return {
+        "journal": journal["journal_name"],
+        "year": year,
+        "issue": issue,
+        "month": data.get("month") or None,
+        "issue_label": f"{year}\u5e74\u7b2c{issue}\u671f",
+        "title": title,
+        "original_title": title,
+        "authors": clean_ncpssd_authors(data.get("showwriter")),
+        "abstract": clean_text(html.unescape(str(data.get("remarkc") or ""))),
+        "keywords": split_ncpssd_keywords(data.get("keywordc")),
+        "pages": pages,
+        "column": "",
+        "source_url": source_url,
+        "source_name": "\u56fd\u5bb6\u54f2\u793e\u6587\u732e\u4e2d\u5fc3\u516c\u5f00\u76ee\u5f55\u9875",
+        "source_file": source_file,
+        "crawl_time": crawl_time,
+        "data_status": "",
+        "confidence": 0.94,
+        "notes": "\u4ece\u56fd\u5bb6\u54f2\u793e\u516c\u5f00\u671f\u520a\u76ee\u5f55\u9875\u548c\u6587\u7ae0\u5143\u6570\u636e\u63a5\u53e3\u8865\u9f50\uff1b\u672a\u4e0b\u8f7d PDF",
+    }
+
+
+def fetch_ncpssd_article_detail(
+    journal: dict[str, Any],
+    article_id: str,
+    source_file: str,
+    crawl_time: str,
+    sleep_seconds: float,
+) -> dict[str, Any] | None:
+    try:
+        payload = {"lngid": article_id, "type": "\u4e2d\u6587\u671f\u520a\u6587\u7ae0"}
+        response = post_json("https://m.ncpssd.cn/articleinfoHandler/getjournalarticletable", payload)
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+        append_error(f"{journal['journal_name']} {article_id} ncpssd detail failed: {exc}")
+        return None
+    finally:
+        if sleep_seconds:
+            time.sleep(sleep_seconds)
+    data = response.get("data") if isinstance(response, dict) else None
+    if not isinstance(data, dict):
+        append_error(f"{journal['journal_name']} {article_id} ncpssd detail returned no data")
+        return None
+    return row_from_ncpssd_detail(journal, data, source_file, crawl_time)
+
+
+def fetch_ncpssd_issue(
+    journal: dict[str, Any],
+    gch: str,
+    year: int,
+    issue: int,
+    sleep_seconds: float,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    url = ncpssd_issue_url(gch, year, issue)
+    try:
+        html_text = fetch_text(url)
+    except (urllib.error.URLError, TimeoutError) as exc:
+        append_error(f"{journal['journal_name']} {year}-{issue} ncpssd issue failed: {exc}")
+        return [], []
+    if sleep_seconds:
+        time.sleep(sleep_seconds)
+    if "captcha" in html_text.lower() or "\u9a8c\u8bc1\u7801" in html_text:
+        append_error(f"{journal['journal_name']} {year}-{issue} ncpssd verification page detected")
+        return [], []
+    issue_numbers, article_ids = parse_ncpssd_issue_catalog(html_text)
+    issues = [{"year": year, "issue": item, "source_url": url} for item in issue_numbers]
+    crawl_time = dt.datetime.now(dt.timezone.utc).isoformat()
+    articles = []
+    for article_id in article_ids:
+        article = fetch_ncpssd_article_detail(journal, article_id, url, crawl_time, sleep_seconds)
+        if article:
+            articles.append(article)
+    return issues, articles
+
+
 def expected_issue_count(issues_by_year: dict[int, set[int]]) -> int:
     counts = [len(values) for year, values in issues_by_year.items() if year < CURRENT_YEAR and values]
     if not counts:
@@ -559,13 +737,80 @@ def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> 
             writer.writerow({field: row.get(field, "") for field in fieldnames})
 
 
+def merge_existing_generated_rows(
+    journal: dict[str, Any],
+    article_map: dict[tuple[int, int], dict[str, dict[str, Any]]],
+) -> None:
+    folder = TARGET_DIR / safe_segment(journal["journal_name"])
+    if not folder.exists():
+        return
+    for path in folder.glob("*/*/articles.jsonl"):
+        for row in iter_jsonl(path):
+            row = repair_text(row)
+            try:
+                year = int(row.get("year") or 0)
+                issue = int(row.get("issue") or 0)
+            except (TypeError, ValueError):
+                continue
+            if not year or not issue:
+                continue
+            row["journal"] = journal["journal_name"]
+            key = article_key(row)
+            bucket = article_map[(year, issue)]
+            bucket[key] = merge_article(bucket.get(key), row)
+
+
+def should_fetch_journal(
+    journal: dict[str, Any],
+    fetch_journal_ids: set[int] | None,
+    fetch_journal_names: set[str] | None,
+) -> bool:
+    if not fetch_journal_ids and not fetch_journal_names:
+        return True
+    journal_id = int(journal["journal_id"])
+    journal_name = clean_text(journal["journal_name"])
+    if fetch_journal_ids and journal_id in fetch_journal_ids:
+        return True
+    if fetch_journal_names and journal_name in fetch_journal_names:
+        return True
+    return False
+
+
+def remove_lower_confidence_year_duplicates(
+    article_map: dict[tuple[int, int], dict[str, dict[str, Any]]],
+    year: int,
+) -> None:
+    trusted_titles = set()
+    for (row_year, _issue), rows_by_key in article_map.items():
+        if row_year != year:
+            continue
+        for row in rows_by_key.values():
+            if "ncpssd.cn" in clean_text(row.get("source_url")):
+                title_key = normalize_title(row.get("title") or row.get("original_title") or "")
+                if title_key:
+                    trusted_titles.add(title_key)
+    if not trusted_titles:
+        return
+    for (row_year, _issue), rows_by_key in list(article_map.items()):
+        if row_year != year:
+            continue
+        for key, row in list(rows_by_key.items()):
+            title_key = normalize_title(row.get("title") or row.get("original_title") or "")
+            source_url = clean_text(row.get("source_url"))
+            if title_key in trusted_titles and "ncpssd.cn" not in source_url and "cqvip.com" in source_url:
+                del rows_by_key[key]
+
+
 def build_chinese_political_cssci(
     fetch_cqvip: bool = False,
+    fetch_ncpssd: bool = False,
     start_year: int | None = None,
     end_year: int | None = None,
     force_update: bool = False,
     sleep_seconds: float = 2.5,
     max_journals: int | None = None,
+    fetch_journal_ids: set[int] | None = None,
+    fetch_journal_names: set[str] | None = None,
 ) -> dict[str, Any]:
     crawl_time = dt.datetime.now(dt.timezone.utc).isoformat()
     journals = load_target_metadata()
@@ -615,7 +860,10 @@ def build_chinese_political_cssci(
                     bucket = article_map[(int(article["year"]), int(article["issue"]))]
                     bucket[key] = merge_article(bucket.get(key), article)
 
-        if fetch_cqvip and cqvip_code:
+        merge_existing_generated_rows(journal, article_map)
+        fetch_this_journal = should_fetch_journal(journal, fetch_journal_ids, fetch_journal_names)
+
+        if fetch_cqvip and fetch_this_journal and cqvip_code:
             years_to_fetch = range(start_year or CURRENT_YEAR, (end_year or CURRENT_YEAR) + 1)
             for year in years_to_fetch:
                 issues, articles = fetch_cqvip_year(journal, cqvip_code, year, sleep_seconds)
@@ -635,6 +883,48 @@ def build_chinese_political_cssci(
                 if year == CURRENT_YEAR:
                     total_2026_external_issues += new_issue_count
 
+        if fetch_ncpssd and fetch_this_journal and cqvip_code:
+            years_to_fetch = range(start_year or CURRENT_YEAR, (end_year or CURRENT_YEAR) + 1)
+            for year in years_to_fetch:
+                existing_issues = sorted(issue for existing_year, issue in article_map if existing_year == year)
+                seed_issue = existing_issues[0] if existing_issues else 1
+                before_issues = {issue for existing_year, issue in article_map if existing_year == year}
+                issues, articles = fetch_ncpssd_issue(journal, cqvip_code, year, seed_issue, sleep_seconds)
+                issue_numbers = sorted({item["issue"] for item in issues} | {int(article["issue"]) for article in articles})
+                for issue in issue_numbers:
+                    if issue == seed_issue:
+                        issue_articles = articles
+                    else:
+                        more_issues, issue_articles = fetch_ncpssd_issue(journal, cqvip_code, year, issue, sleep_seconds)
+                        issues.extend(more_issues)
+                    public_found_issues[year].add(issue)
+                    for article in issue_articles:
+                        key = article_key(article)
+                        bucket = article_map[(int(article["year"]), int(article["issue"]))]
+                        was_new = key not in bucket
+                        bucket[key] = merge_article(bucket.get(key), article)
+                        if was_new:
+                            total_new_external_articles += 1
+                remove_lower_confidence_year_duplicates(article_map, year)
+                after_issues = {issue for existing_year, issue in article_map if existing_year == year}
+                new_issue_count = len(after_issues - before_issues)
+                total_new_external_issues += new_issue_count
+                if year == CURRENT_YEAR:
+                    total_2026_external_issues += new_issue_count
+
+        trusted_public_years = set()
+        for (year, _issue), rows_by_key in article_map.items():
+            for row in rows_by_key.values():
+                source_hint = f"{row.get('source_url', '')} {row.get('source_file', '')}"
+                if "ncpssd.cn" in source_hint:
+                    trusted_public_years.add(int(year))
+        if trusted_public_years:
+            first_trusted_year = min(trusted_public_years)
+            for key, rows_by_key in list(article_map.items()):
+                year, _issue = key
+                if year < first_trusted_year and all(not row.get("title") for row in rows_by_key.values()):
+                    del article_map[key]
+
         by_year_issues: dict[int, set[int]] = defaultdict(set)
         for year, issue in article_map:
             by_year_issues[int(year)].add(int(issue))
@@ -645,9 +935,16 @@ def build_chinese_political_cssci(
         latest_year = max(by_year_issues) if by_year_issues else None
         freq = expected_issue_count(by_year_issues)
         journal_all_rows = []
+        journal_target_dir = TARGET_DIR / safe_segment(journal["journal_name"])
+        if journal_target_dir.exists():
+            shutil.rmtree(journal_target_dir)
         for (year, issue), rows_by_key in sorted(article_map.items()):
-            rows = sorted(rows_by_key.values(), key=lambda item: (item.get("pages") or "", item.get("title") or "", item.get("source_url") or ""))
-            target_file = TARGET_DIR / safe_segment(journal["journal_name"]) / str(year) / f"{issue:02d}" / "articles.jsonl"
+            issue_rows = list(rows_by_key.values())
+            if any(row.get("title") for row in issue_rows):
+                issue_rows = [row for row in issue_rows if row.get("title")]
+            rows = sorted(issue_rows, key=lambda item: (item.get("pages") or "", item.get("title") or "", item.get("source_url") or ""))
+            article_map[(year, issue)] = {article_key(row): row for row in rows}
+            target_file = journal_target_dir / str(year) / f"{issue:02d}" / "articles.jsonl"
             write_jsonl(target_file, rows)
             all_rows.extend(rows)
             journal_all_rows.extend(rows)
@@ -669,7 +966,10 @@ def build_chinese_political_cssci(
                             }
                         )
                     continue
-                expected_issues = list(range(1, freq + 1)) if freq else sorted(by_year_issues.get(year, set()))
+                if year in trusted_public_years:
+                    expected_issues = sorted(by_year_issues.get(year, set()))
+                else:
+                    expected_issues = list(range(1, freq + 1)) if freq else sorted(by_year_issues.get(year, set()))
                 if not expected_issues:
                     expected_issues = [None]
                 for issue in expected_issues:
