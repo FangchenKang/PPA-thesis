@@ -958,12 +958,92 @@ def article_summary_output(row: dict[str, Any], source_file: str, summary: str, 
     }
 
 
+def parse_year_month(value: str | None) -> tuple[int, int] | None:
+    if not value:
+        return None
+    match = re.fullmatch(r"(\d{4})-(\d{1,2})", value.strip())
+    if not match:
+        raise ValueError("--since must use YYYY-MM format")
+    year = int(match.group(1))
+    month = int(match.group(2))
+    if month < 1 or month > 12:
+        raise ValueError("--since month must be between 1 and 12")
+    return year, month
+
+
+def row_matches_since(row: dict[str, Any], since: tuple[int, int] | None) -> bool:
+    if since is None:
+        return True
+    published = parse_publication_date(row)
+    if not published:
+        return False
+    return (published.year, published.month) >= since
+
+
+def first_sentence(value: str, limit: int = 160) -> str:
+    value = clean_text(value)
+    if not value:
+        return ""
+    parts = re.split(r"(?<=[。！？.!?])\s+", value)
+    sentence = parts[0].strip() if parts else value
+    if len(sentence) > limit:
+        return sentence[:limit].rstrip() + "..."
+    return sentence
+
+
+def title_based_summary(title: str) -> str:
+    title = clean_text(title).strip(" .。")
+    if not title or not title_has_enough_information(title):
+        return "信息不足，暂不展开"
+    if title.endswith("?") or title.endswith("？"):
+        question = title.rstrip("?？")
+        return f"围绕“{question}”这一问题展开，具体材料、方法和结论需结合正文进一步确认。"
+    if ":" in title or "：" in title:
+        main, detail = re.split(r"[:：]", title, maxsplit=1)
+        main = main.strip()
+        detail = detail.strip()
+        if main and detail:
+            return f"关注“{main}”，并进一步聚焦“{detail}”。"
+    patterns = [
+        (r"(?i)^(.+?)\s+and\s+(.+)$", "围绕“{a}”与“{b}”之间的关联展开。"),
+        (r"(?i)^the\s+effect\s+of\s+(.+?)\s+on\s+(.+)$", "关注“{a}”对“{b}”的影响。"),
+        (r"(?i)^the\s+impact\s+of\s+(.+?)\s+on\s+(.+)$", "关注“{a}”对“{b}”的影响。"),
+        (r"(?i)^(.+?)\s+in\s+(.+)$", "围绕“{b}”中的“{a}”展开。"),
+    ]
+    for pattern, template in patterns:
+        match = re.match(pattern, title)
+        if match:
+            a = match.group(1).strip()
+            b = match.group(2).strip()
+            if a and b and len(a) < 120 and len(b) < 160:
+                return template.format(a=a, b=b)
+    return f"围绕“{title}”所指主题展开，具体对象、机制和结论需结合正文进一步确认。"
+
+
+def generate_article_summary_locally(row: dict[str, Any], basis: str) -> str:
+    if basis == "信息不足，暂不展开":
+        return "信息不足，暂不展开"
+    title = clean_text(row.get("title"))
+    context = article_context(row)
+    keywords = article_keywords(row)
+    if context:
+        summary = f"{title_based_summary(title)} 已有信息还显示：{first_sentence(context)}"
+        if keywords:
+            summary += f" 关键词包括：{keywords}。"
+        return summary
+    if keywords:
+        return f"{title_based_summary(title)} 关键词包括：{keywords}。"
+    return title_based_summary(title)
+
+
 def run_article_summary_generation(
     start_id: int | None,
     end_id: int | None,
     batch_size: int,
     max_articles: int | None,
     sleep_seconds: float,
+    since: tuple[int, int] | None,
+    offline_title_summary: bool,
     dry_run: bool,
 ) -> dict[str, Any]:
     issue_files = iter_issue_files(start_id, end_id)
@@ -983,6 +1063,20 @@ def run_article_summary_generation(
         batch = list(pending)
         pending.clear()
         if dry_run:
+            return
+        if offline_title_summary:
+            by_output: dict[Path, list[dict[str, Any]]] = {}
+            for output_path, row, source_file, basis in batch:
+                summary = generate_article_summary_locally(row, basis)
+                if summary == "信息不足，暂不展开":
+                    basis = "信息不足，暂不展开"
+                by_output.setdefault(output_path, []).append(article_summary_output(row, source_file, summary, basis))
+            for output_path, rows in by_output.items():
+                output_path.parent.mkdir(parents=True, exist_ok=True)
+                with output_path.open("a", encoding="utf-8", newline="\n") as handle:
+                    for row in rows:
+                        append_jsonl(handle, row)
+                        generated += 1
             return
         records = [
             {
@@ -1023,6 +1117,8 @@ def run_article_summary_generation(
         existing = read_existing_summary_keys(output_path)
         source_file = str(source_path.relative_to(ROOT)).replace("\\", "/")
         for row in read_jsonl_rows(source_path):
+            if not row_matches_since(row, since):
+                continue
             if max_articles is not None and found_articles >= max_articles:
                 flush_batch()
                 return {
@@ -1373,6 +1469,12 @@ def main(argv: list[str] | None = None) -> None:
     summarize_parser.add_argument("--batch-size", type=int, default=int(os.environ.get("LLM_ARTICLE_BATCH_SIZE", "20")))
     summarize_parser.add_argument("--max-articles", type=int, help="Maximum number of unskipped source articles to scan.")
     summarize_parser.add_argument("--sleep-seconds", type=float, default=float(os.environ.get("LLM_SLEEP_SECONDS", "6")))
+    summarize_parser.add_argument("--since", help="Only summarize articles published on or after YYYY-MM.")
+    summarize_parser.add_argument(
+        "--offline-title-summary",
+        action="store_true",
+        help="Generate conservative title-based summaries locally without calling an LLM API.",
+    )
     summarize_parser.add_argument("--dry-run", action="store_true", help="Scan and report counts without writing summaries.")
 
     args = parser.parse_args(argv)
@@ -1435,6 +1537,8 @@ def main(argv: list[str] | None = None) -> None:
             args.batch_size,
             args.max_articles,
             args.sleep_seconds,
+            parse_year_month(args.since),
+            args.offline_title_summary,
             args.dry_run,
         )
         print(

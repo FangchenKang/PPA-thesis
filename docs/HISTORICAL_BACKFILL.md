@@ -80,3 +80,9 @@ python -m journal_tracker summarize-articles
 ```
 
 The command writes `ai_summaries.jsonl` next to each issue's `works.jsonl`. It skips existing summaries by `title` and `source_file`, so interrupted runs can be resumed. It reads `LLM_API_KEY`, `LLM_BASE_URL`, and `LLM_MODEL` from the environment and never stores the API key in the repository.
+
+For a local no-API pass over recent articles, use:
+
+```bash
+python -m journal_tracker summarize-articles --since 2025-01 --offline-title-summary
+```
