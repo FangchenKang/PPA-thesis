@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-05-31T19:22:12.971784+00:00",
+  "generated_at": "2026-05-31T19:26:54.165356+00:00",
   "scanned_journals": 46,
   "covered_years": 54,
-  "found_issues": 4512,
-  "newly_completed_issues": 0,
-  "new_articles": 0,
-  "filled_titles": 15173,
-  "filled_authors": 29794,
-  "filled_abstracts": 14549,
+  "found_issues": 4520,
+  "newly_completed_issues": 51,
+  "new_articles": 1070,
+  "filled_titles": 16243,
+  "filled_authors": 30604,
+  "filled_abstracts": 15626,
   "filled_2026_issues": 0,
-  "remaining_missing_issues": 3585,
+  "remaining_missing_issues": 3511,
   "largest_gap_journals": [
     {
       "journal": "西亚非洲",
