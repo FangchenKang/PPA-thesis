@@ -281,6 +281,20 @@ def data_status(row: dict[str, Any]) -> str:
     return "complete" if not missing else ";".join(missing)
 
 
+def dedupe_sources(sources: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    deduped = []
+    seen = set()
+    for source in sources:
+        source_url = clean_text(source.get("source_url", ""))
+        source_name = clean_text(source.get("source_name", ""))
+        key = (source_name, source_url)
+        if not source_url or key in seen:
+            continue
+        deduped.append(source)
+        seen.add(key)
+    return deduped
+
+
 def merge_article(existing: dict[str, Any] | None, incoming: dict[str, Any]) -> dict[str, Any]:
     if not existing:
         incoming["sources"] = incoming.get("sources") or [
@@ -291,6 +305,7 @@ def merge_article(existing: dict[str, Any] | None, incoming: dict[str, Any]) -> 
                 "confidence": incoming.get("confidence", ""),
             }
         ]
+        incoming["sources"] = dedupe_sources(incoming["sources"])
         incoming["data_status"] = data_status(incoming)
         return incoming
     merged = dict(existing)
@@ -308,7 +323,10 @@ def merge_article(existing: dict[str, Any] | None, incoming: dict[str, Any]) -> 
         "crawl_time": incoming.get("crawl_time", ""),
         "confidence": incoming.get("confidence", ""),
     }
-    if new_source.get("source_url") and new_source not in sources:
+    sources = dedupe_sources(sources)
+    if new_source.get("source_url") and (new_source.get("source_name", ""), new_source.get("source_url", "")) not in {
+        (source.get("source_name", ""), source.get("source_url", "")) for source in sources
+    }:
         sources.append(new_source)
     merged["sources"] = sources
     merged["data_status"] = data_status(merged)
@@ -747,7 +765,7 @@ def audit_issue_record(
 def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8-sig", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow({field: row.get(field, "") for field in fieldnames})
@@ -773,7 +791,11 @@ def merge_existing_generated_rows(
             row["journal"] = journal["journal_name"]
             key = article_key(row)
             bucket = article_map[(year, issue)]
-            bucket[key] = merge_article(bucket.get(key), row)
+            current = bucket.get(key)
+            if current:
+                bucket[key] = merge_article(row, current)
+            else:
+                bucket[key] = merge_article(None, row)
 
 
 def should_fetch_journal(
