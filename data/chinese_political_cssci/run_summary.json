@@ -1,23 +1,19 @@
 {
-  "generated_at": "2026-05-30T17:28:16.621042+00:00",
-  "scanned_journals": 45,
+  "generated_at": "2026-05-31T14:18:00.629967+00:00",
+  "scanned_journals": 46,
   "covered_years": 54,
-  "found_issues": 4614,
+  "found_issues": 4505,
   "newly_completed_issues": 0,
   "new_articles": 0,
-  "filled_titles": 3220,
-  "filled_authors": 21215,
-  "filled_abstracts": 2841,
+  "filled_titles": 11270,
+  "filled_authors": 26868,
+  "filled_abstracts": 10647,
   "filled_2026_issues": 0,
-  "remaining_missing_issues": 4259,
+  "remaining_missing_issues": 3773,
   "largest_gap_journals": [
     {
       "journal": "西亚非洲",
       "missing_issue_count": 348
-    },
-    {
-      "journal": "理论与改革",
-      "missing_issue_count": 275
     },
     {
       "journal": "当代亚太",
@@ -40,16 +36,20 @@
       "missing_issue_count": 209
     },
     {
-      "journal": "求实",
-      "missing_issue_count": 193
-    },
-    {
       "journal": "中国评论",
       "missing_issue_count": 159
     },
     {
       "journal": "国际政治研究",
       "missing_issue_count": 158
+    },
+    {
+      "journal": "外交评论",
+      "missing_issue_count": 157
+    },
+    {
+      "journal": "国际观察",
+      "missing_issue_count": 136
     }
   ],
   "output_files": [

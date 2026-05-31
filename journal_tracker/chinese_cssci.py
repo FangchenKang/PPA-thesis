@@ -24,6 +24,7 @@ from .tracker import HISTORY_JOURNALS_DIR, ROOT, clean_text, load_json, save_jso
 TARGET_DIR = ROOT / "data" / "chinese_political_cssci"
 LOG_DIR = ROOT / "logs"
 ERROR_LOG = LOG_DIR / "crawl_errors.log"
+PROGRESS_LOG = LOG_DIR / "crawl_progress.log"
 METADATA_PATH = ROOT / "config" / "journal_metadata.json"
 USER_AGENT = "Mozilla/5.0 (compatible; PPA-thesis-metadata-audit/0.1; public metadata only)"
 CURRENT_YEAR = 2026
@@ -66,6 +67,7 @@ EXPLICIT_TARGET_JOURNALS = {
     "行政论坛",
     "公共行政评论",
     "公共行政学报",
+    "公共管理学报",
     "理论探索",
     "理论探讨",
     "理论学刊",
@@ -75,6 +77,12 @@ EXPLICIT_TARGET_JOURNALS = {
     "中共中央党校，国家行政学院，学报",
     "中共中央党校（国家行政学院）学报",
     "中国人民公安大学学报，社会科学版",
+}
+
+MANUAL_PUBLIC_CATALOG_CODES = {
+    "中共中央党校（国家行政学院）学报": "81150A",
+    "理论学刊": "82421X",
+    "探索": "96060X",
 }
 
 
@@ -124,6 +132,13 @@ def append_error(message: str) -> None:
     LOG_DIR.mkdir(parents=True, exist_ok=True)
     stamp = dt.datetime.now(dt.timezone.utc).isoformat()
     with ERROR_LOG.open("a", encoding="utf-8") as handle:
+        handle.write(f"{stamp} {message}\n")
+
+
+def append_progress(message: str) -> None:
+    LOG_DIR.mkdir(parents=True, exist_ok=True)
+    stamp = dt.datetime.now(dt.timezone.utc).isoformat()
+    with PROGRESS_LOG.open("a", encoding="utf-8") as handle:
         handle.write(f"{stamp} {message}\n")
 
 
@@ -643,8 +658,8 @@ def fetch_ncpssd_article_detail(
 ) -> dict[str, Any] | None:
     try:
         payload = {"lngid": article_id, "type": "\u4e2d\u6587\u671f\u520a\u6587\u7ae0"}
-        response = post_json("https://m.ncpssd.cn/articleinfoHandler/getjournalarticletable", payload)
-    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+        response = post_json("https://m.ncpssd.cn/articleinfoHandler/getjournalarticletable", payload, timeout=12)
+    except (urllib.error.URLError, TimeoutError, OSError, json.JSONDecodeError) as exc:
         append_error(f"{journal['journal_name']} {article_id} ncpssd detail failed: {exc}")
         return None
     finally:
@@ -665,6 +680,7 @@ def fetch_ncpssd_issue(
     sleep_seconds: float,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     url = ncpssd_issue_url(gch, year, issue)
+    append_progress(f"{journal['journal_name']} {year}-{issue:02d} ncpssd issue")
     try:
         html_text = fetch_text(url)
     except (urllib.error.URLError, TimeoutError) as exc:
@@ -860,6 +876,8 @@ def build_chinese_political_cssci(
                     bucket = article_map[(int(article["year"]), int(article["issue"]))]
                     bucket[key] = merge_article(bucket.get(key), article)
 
+        if not cqvip_code:
+            cqvip_code = MANUAL_PUBLIC_CATALOG_CODES.get(journal["journal_name"], "")
         merge_existing_generated_rows(journal, article_map)
         fetch_this_journal = should_fetch_journal(journal, fetch_journal_ids, fetch_journal_names)
 
