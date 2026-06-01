@@ -20,6 +20,7 @@ from .tracker import (
 METADATA_PATH = ROOT / "config" / "journal_metadata.json"
 SITE_DIR = ROOT / "site"
 SITE_DATA_DIR = SITE_DIR / "data"
+CHINESE_CSSCI_ALL_ARTICLES = ROOT / "data" / "chinese_political_cssci" / "all_articles.jsonl"
 ARTICLE_SCHEMA = [
     "id",
     "journal",
@@ -200,6 +201,15 @@ def read_source_journals() -> dict[int, dict[str, Any]]:
     return {int(item["id"]): repair_text(item) for item in journals if item.get("id") is not None}
 
 
+def read_source_journals_by_name(source_journals: dict[int, dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    by_name: dict[str, dict[str, Any]] = {}
+    for row in source_journals.values():
+        title = text_value(row.get("title"))
+        if title:
+            by_name[normalize_key(title)] = row
+    return by_name
+
+
 def seed_journal_metadata(output_path: Path = METADATA_PATH, overwrite: bool = False) -> dict[str, Any]:
     source_journals = read_source_journals()
     existing: list[dict[str, Any]] = []
@@ -339,6 +349,72 @@ def article_id_for(parts: list[Any]) -> str:
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16]
 
 
+def article_row_quality(row: list[Any]) -> int:
+    index = {key: offset for offset, key in enumerate(ARTICLE_SCHEMA)}
+    score = 0
+    for field in ("title", "authors", "abstract", "keywords", "source_url"):
+        value = row[index[field]]
+        if isinstance(value, list):
+            score += 1 if value else 0
+        elif value:
+            score += 1
+    return score
+
+
+def article_merge_key(journal_key: str, period: str, title: str, source: str) -> tuple[str, str, str]:
+    title_key = summary_key(title)
+    source_key = normalize_key(source)
+    return (journal_key, period, title_key or source_key)
+
+
+def normalize_issue_number(value: Any) -> int | str | None:
+    if value is None or value == "":
+        return None
+    if isinstance(value, int):
+        return value
+    text = text_value(value)
+    if not text:
+        return None
+    digits = re.search(r"\d+", text)
+    if digits:
+        return int(digits.group())
+    return text
+
+
+def chinese_cssci_period_info(row: dict[str, Any]) -> dict[str, Any]:
+    year = int(row["year"]) if str(row.get("year") or "").isdigit() else None
+    issue = normalize_issue_number(row.get("issue"))
+    month = normalize_issue_number(row.get("month"))
+    if isinstance(issue, int):
+        period = f"{year}-{issue}" if year else str(issue)
+        label = text_value(row.get("issue_label")) or (f"{year}年第{issue}期" if year else str(issue))
+    elif isinstance(month, int):
+        period = f"{year}-{month}" if year else str(month)
+        label = text_value(row.get("issue_label")) or (f"{year}-{month:02d}" if year else str(month))
+        issue = ""
+    else:
+        label = text_value(row.get("issue_label")) or str(year or "")
+        period = f"{year}-{safe_slug(label)}" if year and label else str(year or label or "unknown")
+        issue = issue or ""
+    return {
+        "year": year,
+        "month": month if isinstance(month, int) else None,
+        "issue": issue or "",
+        "period": period,
+        "period_label": label,
+    }
+
+
+def update_year_range(journal_row: dict[str, Any], year: int | None) -> None:
+    if not year:
+        return
+    current_start = journal_row.get("year_start")
+    current_end = journal_row.get("year_end")
+    journal_row["year_start"] = min(int(current_start), year) if current_start else year
+    journal_row["year_end"] = max(int(current_end), year) if current_end else year
+    journal_row["year_range"] = f"{journal_row['year_start']}-{journal_row['year_end']}"
+
+
 def issue_frequency(journal_dir: Path) -> str:
     index_path = journal_dir / "issue_index.json"
     if not index_path.exists():
@@ -349,10 +425,14 @@ def issue_frequency(journal_dir: Path) -> str:
 
 def build_site_index(output_dir: Path = SITE_DATA_DIR) -> dict[str, Any]:
     source_journals = read_source_journals()
+    source_journals_by_name = read_source_journals_by_name(source_journals)
     metadata_by_id, metadata_by_name = load_metadata()
     journal_rows: list[dict[str, Any]] = []
+    journal_rows_by_key: dict[str, dict[str, Any]] = {}
     issue_rows: list[dict[str, Any]] = []
+    issue_rows_by_key: dict[tuple[str, str], dict[str, Any]] = {}
     article_rows: list[list[Any]] = []
+    article_rows_by_key: dict[tuple[str, str, str], int] = {}
 
     journal_dirs = sorted(path for path in HISTORY_JOURNALS_DIR.iterdir() if path.is_dir())
     for journal_dir in journal_dirs:
@@ -393,36 +473,147 @@ def build_site_index(output_dir: Path = SITE_DATA_DIR) -> dict[str, Any]:
                 summary = summaries.get(summary_key(title), {})
                 ai_summary = text_value(summary.get("ai_summary"))
                 basis = text_value(summary.get("basis"))
-                item_id = article_id_for([journal_key, period, title, authors, source_url(row)])
-                article_rows.append(
-                    [
-                        item_id,
-                        metadata["display_name"],
-                        journal_key,
-                        metadata["discipline"],
-                        metadata["journal_type"],
-                        metadata["quartile"],
-                        year,
-                        period_info["month"],
-                        period_info["issue"],
-                        period,
-                        period_info["period_label"],
-                        publication_date(row, year),
-                        title,
-                        authors,
-                        abstract,
-                        keywords,
-                        ai_summary,
-                        basis,
-                        source_url(row),
-                        source_file,
-                    ]
-                )
+                source = source_url(row)
+                article_row = [
+                    article_id_for([journal_key, period, title, authors, source]),
+                    metadata["display_name"],
+                    journal_key,
+                    metadata["discipline"],
+                    metadata["journal_type"],
+                    metadata["quartile"],
+                    year,
+                    period_info["month"],
+                    period_info["issue"],
+                    period,
+                    period_info["period_label"],
+                    publication_date(row, year),
+                    title,
+                    authors,
+                    abstract,
+                    keywords,
+                    ai_summary,
+                    basis,
+                    source,
+                    source_file,
+                ]
+                article_rows_by_key[article_merge_key(journal_key, period, title, source)] = len(article_rows)
+                article_rows.append(article_row)
                 article_count += 1
                 issue_article_count += 1
 
-            issue_rows.append(
-                {
+            issue_row = {
+                "journal": metadata["display_name"],
+                "journal_key": journal_key,
+                "discipline": metadata["discipline"],
+                "journal_type": metadata["journal_type"],
+                "quartile": metadata["quartile"],
+                "year": year,
+                "month": period_info["month"],
+                "issue": period_info["issue"],
+                "period": period,
+                "period_label": period_info["period_label"],
+                "frequency": frequency,
+                "article_count": issue_article_count,
+            }
+            issue_rows.append(issue_row)
+            issue_rows_by_key[(journal_key, period)] = issue_row
+
+        year_start = min(years) if years else None
+        year_end = max(years) if years else None
+        journal_row = {
+            "journal_id": journal_id,
+            "journal_key": journal_key,
+            "journal_name": metadata["journal_name"],
+            "display_name": metadata["display_name"],
+            "discipline": metadata["discipline"],
+            "journal_type": metadata["journal_type"],
+            "language": metadata["language"],
+            "quartile": metadata["quartile"],
+            "notes": metadata["notes"],
+            "frequency": frequency,
+            "year_start": year_start,
+            "year_end": year_end,
+            "year_range": f"{year_start}-{year_end}" if year_start and year_end else "暂无",
+            "article_count": article_count,
+            "issue_count": issue_count,
+        }
+        journal_rows.append(journal_row)
+        journal_rows_by_key[journal_key] = journal_row
+
+    if CHINESE_CSSCI_ALL_ARTICLES.exists():
+        for row in iter_jsonl(CHINESE_CSSCI_ALL_ARTICLES):
+            row = repair_text(row)
+            journal_name = text_value(row.get("journal"))
+            if not journal_name:
+                continue
+            source_journal = source_journals_by_name.get(normalize_key(journal_name))
+            journal_id = int(source_journal["id"]) if source_journal and source_journal.get("id") is not None else None
+            metadata = metadata_for(journal_id, journal_name, source_journal, metadata_by_id, metadata_by_name)
+            journal_key = journal_key_for(journal_id, metadata["display_name"], journal_name)
+            period_info = chinese_cssci_period_info(row)
+            period = period_info["period"]
+            year = period_info["year"]
+            title = text_value(row.get("title"))
+            if not title:
+                continue
+            authors = list_value(row.get("authors"))
+            abstract = text_value(row.get("abstract"))
+            keywords = article_keywords(row)
+            source = source_url(row)
+            source_file = text_value(row.get("source_file"))
+            article_row = [
+                article_id_for([journal_key, period, title, authors, source]),
+                metadata["display_name"],
+                journal_key,
+                metadata["discipline"],
+                metadata["journal_type"],
+                metadata["quartile"],
+                year,
+                period_info["month"],
+                period_info["issue"],
+                period,
+                period_info["period_label"],
+                publication_date(row, year),
+                title,
+                authors,
+                abstract,
+                keywords,
+                "",
+                "",
+                source,
+                source_file,
+            ]
+            merge_key = article_merge_key(journal_key, period, title, source)
+            existing_index = article_rows_by_key.get(merge_key)
+            if existing_index is not None:
+                if article_row_quality(article_row) > article_row_quality(article_rows[existing_index]):
+                    article_rows[existing_index] = article_row
+                continue
+
+            if journal_key not in journal_rows_by_key:
+                journal_row = {
+                    "journal_id": journal_id,
+                    "journal_key": journal_key,
+                    "journal_name": metadata["journal_name"],
+                    "display_name": metadata["display_name"],
+                    "discipline": metadata["discipline"],
+                    "journal_type": metadata["journal_type"],
+                    "language": metadata["language"],
+                    "quartile": metadata["quartile"],
+                    "notes": metadata["notes"],
+                    "frequency": "issue",
+                    "year_start": None,
+                    "year_end": None,
+                    "year_range": "暂无",
+                    "article_count": 0,
+                    "issue_count": 0,
+                }
+                journal_rows.append(journal_row)
+                journal_rows_by_key[journal_key] = journal_row
+
+            issue_key = (journal_key, period)
+            if issue_key not in issue_rows_by_key:
+                issue_row = {
                     "journal": metadata["display_name"],
                     "journal_key": journal_key,
                     "discipline": metadata["discipline"],
@@ -433,32 +624,18 @@ def build_site_index(output_dir: Path = SITE_DATA_DIR) -> dict[str, Any]:
                     "issue": period_info["issue"],
                     "period": period,
                     "period_label": period_info["period_label"],
-                    "frequency": frequency,
-                    "article_count": issue_article_count,
+                    "frequency": "issue",
+                    "article_count": 0,
                 }
-            )
+                issue_rows.append(issue_row)
+                issue_rows_by_key[issue_key] = issue_row
+                journal_rows_by_key[journal_key]["issue_count"] += 1
 
-        year_start = min(years) if years else None
-        year_end = max(years) if years else None
-        journal_rows.append(
-            {
-                "journal_id": journal_id,
-                "journal_key": journal_key,
-                "journal_name": metadata["journal_name"],
-                "display_name": metadata["display_name"],
-                "discipline": metadata["discipline"],
-                "journal_type": metadata["journal_type"],
-                "language": metadata["language"],
-                "quartile": metadata["quartile"],
-                "notes": metadata["notes"],
-                "frequency": frequency,
-                "year_start": year_start,
-                "year_end": year_end,
-                "year_range": f"{year_start}-{year_end}" if year_start and year_end else "暂无",
-                "article_count": article_count,
-                "issue_count": issue_count,
-            }
-        )
+            article_rows_by_key[merge_key] = len(article_rows)
+            article_rows.append(article_row)
+            issue_rows_by_key[issue_key]["article_count"] += 1
+            journal_rows_by_key[journal_key]["article_count"] += 1
+            update_year_range(journal_rows_by_key[journal_key], year)
 
     journal_rows.sort(key=lambda item: (item["discipline"], item["journal_type"], item["display_name"]))
     issue_rows.sort(
