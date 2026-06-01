@@ -1,0 +1,17 @@
+{
+  "journal_id": 80,
+  "journal_name": "Political Studies",
+  "display_name": "Political Studies",
+  "discipline": "政治学",
+  "journal_type": "SSCI",
+  "language": "英文",
+  "quartile": "Q1",
+  "notes": "用户提供清单；分区使用前建议以当年JCR核定",
+  "category": "英文政治学期刊",
+  "folder": "0080-Political_Studies",
+  "year_start": 1953,
+  "year_end": 2026,
+  "year_range": "1953-2026",
+  "issue_count": 272,
+  "article_count": 3705
+}

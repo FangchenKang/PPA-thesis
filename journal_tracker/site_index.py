@@ -415,6 +415,41 @@ def update_year_range(journal_row: dict[str, Any], year: int | None) -> None:
     journal_row["year_range"] = f"{journal_row['year_start']}-{journal_row['year_end']}"
 
 
+def refresh_journal_statistics(
+    journal_rows: list[dict[str, Any]],
+    issue_rows: list[dict[str, Any]],
+    article_rows: list[list[Any]],
+) -> None:
+    stats = {
+        row["journal_key"]: {
+            "article_count": 0,
+            "issue_keys": set(),
+            "years": set(),
+        }
+        for row in journal_rows
+    }
+    for row in article_rows:
+        journal_key = row[2]
+        if journal_key not in stats:
+            continue
+        stats[journal_key]["article_count"] += 1
+        year = row[6]
+        if year:
+            stats[journal_key]["years"].add(int(year))
+    for issue in issue_rows:
+        journal_key = issue["journal_key"]
+        if journal_key in stats:
+            stats[journal_key]["issue_keys"].add(issue["period"])
+    for row in journal_rows:
+        item = stats.get(row["journal_key"], {})
+        years = item.get("years") or set()
+        row["article_count"] = item.get("article_count", 0)
+        row["issue_count"] = len(item.get("issue_keys") or set())
+        row["year_start"] = min(years) if years else None
+        row["year_end"] = max(years) if years else None
+        row["year_range"] = f"{row['year_start']}-{row['year_end']}" if years else "暂无"
+
+
 def issue_frequency(journal_dir: Path) -> str:
     index_path = journal_dir / "issue_index.json"
     if not index_path.exists():
@@ -423,7 +458,175 @@ def issue_frequency(journal_dir: Path) -> str:
     return text_value(payload.get("frequency")) or "monthly"
 
 
+def build_site_index_from_unified(output_dir: Path = SITE_DATA_DIR) -> dict[str, Any]:
+    from .unified_data import UNIFIED_JOURNALS_DIR, build_unified_journals
+
+    if not UNIFIED_JOURNALS_DIR.exists():
+        build_unified_journals()
+
+    journal_rows: list[dict[str, Any]] = []
+    issue_rows: list[dict[str, Any]] = []
+    article_rows: list[list[Any]] = []
+
+    for category_dir in sorted(path for path in UNIFIED_JOURNALS_DIR.iterdir() if path.is_dir()):
+        for journal_dir in sorted(path for path in category_dir.iterdir() if path.is_dir()):
+            journal_meta = load_json(journal_dir / "journal.json", {})
+            if not journal_meta:
+                continue
+            journal_key = journal_dir.name
+            journal_rows.append(
+                {
+                    "journal_id": journal_meta.get("journal_id"),
+                    "journal_key": journal_key,
+                    "journal_name": text_value(journal_meta.get("journal_name")),
+                    "display_name": text_value(journal_meta.get("display_name")) or text_value(journal_meta.get("journal_name")),
+                    "category": text_value(journal_meta.get("category")),
+                    "discipline": text_value(journal_meta.get("discipline")) or "未分类",
+                    "journal_type": text_value(journal_meta.get("journal_type")) or "未分类",
+                    "language": text_value(journal_meta.get("language")) or "未分类",
+                    "quartile": text_value(journal_meta.get("quartile")),
+                    "notes": text_value(journal_meta.get("notes")),
+                    "frequency": "issue",
+                    "year_start": journal_meta.get("year_start"),
+                    "year_end": journal_meta.get("year_end"),
+                    "year_range": text_value(journal_meta.get("year_range")) or "暂无",
+                    "article_count": int(journal_meta.get("article_count") or 0),
+                    "issue_count": int(journal_meta.get("issue_count") or 0),
+                }
+            )
+            for year_dir in sorted((path for path in journal_dir.iterdir() if path.is_dir()), reverse=True):
+                for issue_dir in sorted((path for path in year_dir.iterdir() if path.is_dir()), reverse=True):
+                    rows = iter_jsonl(issue_dir / "articles.jsonl")
+                    if not rows:
+                        continue
+                    issue_meta = load_json(issue_dir / "issue.json", {})
+                    first = rows[0]
+                    year = issue_meta.get("year") or first.get("year")
+                    issue = issue_meta.get("issue") if issue_meta.get("issue") is not None else first.get("issue")
+                    month = issue_meta.get("month") if issue_meta.get("month") is not None else first.get("month")
+                    period = text_value(issue_meta.get("period")) or issue_dir.name
+                    period_label = text_value(issue_meta.get("issue_label")) or text_value(first.get("issue_label")) or period
+                    issue_rows.append(
+                        {
+                            "journal": journal_rows[-1]["display_name"],
+                            "journal_key": journal_key,
+                            "discipline": journal_rows[-1]["discipline"],
+                            "journal_type": journal_rows[-1]["journal_type"],
+                            "quartile": journal_rows[-1]["quartile"],
+                            "year": year,
+                            "month": month,
+                            "issue": issue,
+                            "period": period,
+                            "period_label": period_label,
+                            "frequency": "issue",
+                            "article_count": len(rows),
+                        }
+                    )
+                    source_file = str((issue_dir / "articles.jsonl").relative_to(ROOT)).replace("\\", "/")
+                    for row in rows:
+                        title = text_value(row.get("title"))
+                        source = source_url(row)
+                        article_rows.append(
+                            [
+                                article_id_for([journal_key, period, title, row.get("authors"), source]),
+                                journal_rows[-1]["display_name"],
+                                journal_key,
+                                journal_rows[-1]["discipline"],
+                                journal_rows[-1]["journal_type"],
+                                journal_rows[-1]["quartile"],
+                                year,
+                                month,
+                                issue,
+                                period,
+                                period_label,
+                                text_value(row.get("publication_date")) or str(year or ""),
+                                title,
+                                list_value(row.get("authors")),
+                                text_value(row.get("abstract")),
+                                list_value(row.get("keywords")),
+                                text_value(row.get("ai_summary")),
+                                text_value(row.get("basis")),
+                                source,
+                                text_value(row.get("source_file")) or source_file,
+                            ]
+                        )
+
+    return write_site_indexes(output_dir, journal_rows, issue_rows, article_rows)
+
+
+def write_site_indexes(
+    output_dir: Path,
+    journal_rows: list[dict[str, Any]],
+    issue_rows: list[dict[str, Any]],
+    article_rows: list[list[Any]],
+) -> dict[str, Any]:
+    journal_rows.sort(key=lambda item: (item["discipline"], item["journal_type"], item["display_name"]))
+    issue_rows.sort(
+        key=lambda item: (
+            item["journal_key"],
+            -(int(item["year"] or 0)),
+            -(int(item["month"] or item["issue"] or 0)),
+        )
+    )
+    article_rows.sort(
+        key=lambda row: (
+            str(row[2]),
+            -(int(row[6] or 0)),
+            -(int(row[7] or row[8] or 0)),
+            str(row[11]),
+            str(row[12]),
+        ),
+        reverse=False,
+    )
+
+    generated_at = dt.datetime.now(dt.timezone.utc).isoformat()
+    article_dictionaries, encoded_article_rows = dictionary_encode_rows(article_rows)
+    compact_json(
+        output_dir / "journals.json",
+        {
+            "generated_at": generated_at,
+            "journals": journal_rows,
+        },
+    )
+    compact_json(
+        output_dir / "issues.json",
+        {
+            "generated_at": generated_at,
+            "issues": issue_rows,
+        },
+    )
+    compact_json(
+        output_dir / "articles.json",
+        {
+            "generated_at": generated_at,
+            "schema": ARTICLE_SCHEMA,
+            "dictionaries": article_dictionaries,
+            "articles": encoded_article_rows,
+        },
+    )
+    compact_json(
+        output_dir / "stats.json",
+        {
+            "generated_at": generated_at,
+            "journal_count": len(journal_rows),
+            "issue_count": len(issue_rows),
+            "article_count": len(article_rows),
+        },
+    )
+    return {
+        "site_data_dir": str(output_dir.relative_to(ROOT)),
+        "journal_count": len(journal_rows),
+        "issue_count": len(issue_rows),
+        "article_count": len(article_rows),
+    }
+
+
 def build_site_index(output_dir: Path = SITE_DATA_DIR) -> dict[str, Any]:
+    from .unified_data import UNIFIED_JOURNALS_DIR
+
+    if UNIFIED_JOURNALS_DIR.exists():
+        return build_site_index_from_unified(output_dir)
+
     source_journals = read_source_journals()
     source_journals_by_name = read_source_journals_by_name(source_journals)
     metadata_by_id, metadata_by_name = load_metadata()
@@ -637,6 +840,7 @@ def build_site_index(output_dir: Path = SITE_DATA_DIR) -> dict[str, Any]:
             journal_rows_by_key[journal_key]["article_count"] += 1
             update_year_range(journal_rows_by_key[journal_key], year)
 
+    refresh_journal_statistics(journal_rows, issue_rows, article_rows)
     journal_rows.sort(key=lambda item: (item["discipline"], item["journal_type"], item["display_name"]))
     issue_rows.sort(
         key=lambda item: (

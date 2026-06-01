@@ -134,10 +134,10 @@ function groupBy(items, keyFn) {
 
 function renderHome() {
   const totalArticles = state.journals.reduce((sum, journal) => sum + Number(journal.article_count || 0), 0);
-  const disciplines = groupBy(state.journals, (journal) => journal.discipline);
-  const disciplineBlocks = [...disciplines.entries()]
+  const categories = groupBy(state.journals, (journal) => journal.category || `${journal.language || ""}${journal.discipline || "未分类"}期刊`);
+  const categoryBlocks = [...categories.entries()]
     .sort(([a], [b]) => a.localeCompare(b, "zh-CN"))
-    .map(([discipline, journals]) => {
+    .map(([category, journals]) => {
       const typeGroups = groupBy(journals, (journal) => journal.journal_type);
       const typeBlocks = [...typeGroups.entries()]
         .sort(([a], [b]) => a.localeCompare(b, "zh-CN"))
@@ -152,7 +152,7 @@ function renderHome() {
       return `
         <section class="group-block">
           <div class="group-title">
-            <h2>${escapeHtml(discipline)}</h2>
+            <h2>${escapeHtml(category)}</h2>
             <span>${journals.length} 种期刊</span>
           </div>
           ${typeBlocks}
@@ -171,7 +171,7 @@ function renderHome() {
         ${stat("文章", totalArticles)}
       </div>
     </div>
-    ${disciplineBlocks || `<div class="empty">暂无期刊数据</div>`}
+    ${categoryBlocks || `<div class="empty">暂无期刊数据</div>`}
   `;
 }
 
@@ -179,7 +179,7 @@ function renderJournalCard(journal) {
   return `
     <article class="journal-card">
       <h3><a href="#/journal/${encodeHash(journal.journal_key)}">${escapeHtml(journal.display_name)}</a></h3>
-      <div class="toolbar">${tags(journal.discipline, journal.journal_type, journal.quartile)}</div>
+      <div class="toolbar">${tags(journal.language, journal.discipline, journal.journal_type, journal.quartile)}</div>
       <div class="meta-row">
         ${stat("年份", journal.year_range || "暂无")}
         ${stat("文章", journal.article_count || 0)}

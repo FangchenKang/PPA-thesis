@@ -1,0 +1,17 @@
+{
+  "journal_id": 101,
+  "journal_name": "International Affairs",
+  "display_name": "International Affairs",
+  "discipline": "政治学",
+  "journal_type": "SSCI",
+  "language": "英文",
+  "quartile": "Q1",
+  "notes": "用户提供清单；分区使用前建议以当年JCR核定",
+  "category": "英文政治学期刊",
+  "folder": "0101-International_Affairs",
+  "year_start": 1922,
+  "year_end": 2026,
+  "year_range": "1922-2026",
+  "issue_count": 386,
+  "article_count": 35760
+}

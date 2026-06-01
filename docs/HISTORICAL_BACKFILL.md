@@ -1,10 +1,19 @@
 # Historical Backfill
 
-The historical backfill workflow collects public bibliographic metadata for the configured journals and stores it under `data/history/`.
+The historical backfill workflow collects public bibliographic metadata for the configured journals. `data/history/` is now treated as a temporary import cache; the canonical repository layout is generated under `data/journals/`.
 
 It does not use the school LLM API. It uses the OpenAlex public metadata API to find a journal source and then page through public article records for that source.
 
-## Storage Layout
+## Canonical Storage Layout
+
+- `data/journals/中文政治学期刊/{编号-期刊名}/{年份}/{年份-期次}/articles.jsonl`
+- `data/journals/英文政治学期刊/{编号-期刊名}/{年份}/{年份-期次}/articles.jsonl`
+- `data/journals/中文公共管理期刊/{编号-期刊名}/{年份}/{年份-期次}/articles.jsonl`
+- `data/journals/英文公共管理期刊/{编号-期刊名}/{年份}/{年份-期次}/articles.jsonl`
+
+The static website reads only `data/journals/` and `site/data/`.
+
+## Legacy Import Cache
 
 - `data/history/index.json`: run summary and diagnostics.
 - `data/history/journals/0001-Journal_Name/works.jsonl`: one JSONL record per article for journal ID 1.
@@ -71,6 +80,13 @@ To regenerate the issue-like folders after a backfill:
 
 ```bash
 python -m journal_tracker split-issues --start-id 31 --end-id 33
+```
+
+To rebuild the canonical journal tree and website indexes:
+
+```bash
+python -m journal_tracker build-unified-data
+python -m journal_tracker build-site-index
 ```
 
 To generate resumable per-article AI summaries inside each issue folder:

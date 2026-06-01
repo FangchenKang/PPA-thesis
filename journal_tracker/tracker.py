@@ -1489,6 +1489,12 @@ def main(argv: list[str] | None = None) -> None:
     )
     build_site_parser.add_argument("--seed-metadata", action="store_true", help="Create missing journal metadata entries before building indexes.")
 
+    unified_parser = subparsers.add_parser(
+        "build-unified-data",
+        help="Build the canonical four-category journal data tree used by the static website.",
+    )
+    unified_parser.add_argument("--keep-existing", action="store_true", help="Do not clear data/journals before regenerating.")
+
     chinese_cssci_parser = subparsers.add_parser(
         "build-chinese-political-cssci",
         help="Build and audit the Chinese political science CSSCI article directory from public metadata.",
@@ -1610,6 +1616,24 @@ def main(argv: list[str] | None = None) -> None:
                 Journals: {result['journal_count']}
                 Issues: {result['issue_count']}
                 Articles: {result['article_count']}
+                """
+            ).strip()
+        )
+    elif args.command == "build-unified-data":
+        from .unified_data import build_unified_journals
+
+        result = build_unified_journals(clear=not args.keep_existing)
+        print(
+            textwrap.dedent(
+                f"""
+                Unified journal data built.
+                Data directory: {result['data_dir']}
+                Journals: {result['journal_count']}
+                Issues: {result['issue_count']}
+                Articles: {result['article_count']}
+                Imported history records: {result['imported_history_records']}
+                Imported Chinese CSSCI records: {result['imported_curated_records']}
+                Skipped legacy Chinese CSSCI journal folders: {result['skipped_curated_history_journals']}
                 """
             ).strip()
         )

@@ -20,12 +20,19 @@
 │   └── journal_metadata.json     # 网站使用的期刊元数据配置
 ├── data/
 │   ├── journals.json             # 原始期刊清单
+│   ├── journals/                 # 统一后的期刊文章目录库
+│   │   ├── 中文政治学期刊/
+│   │   ├── 英文政治学期刊/
+│   │   ├── 中文公共管理期刊/
+│   │   └── 英文公共管理期刊/
 │   ├── items/                    # 每日新增文章快照
-│   └── history/                  # 历史文章书目信息
+│   ├── history/                  # 旧历史回填缓存，不再作为网站读取源
+│   └── chinese_political_cssci/   # 旧中文 CSSCI 补齐缓存，不再作为网站读取源
 ├── docs/
 │   └── HISTORICAL_BACKFILL.md    # 历史数据回填说明
 ├── journal_tracker/
 │   ├── tracker.py                # 追踪、回填、拆分、总结命令
+│   ├── unified_data.py           # 统一期刊目录生成脚本
 │   └── site_index.py             # 静态网站索引生成脚本
 ├── reports/                      # 日报、周报、月报、季报
 └── site/
@@ -86,6 +93,18 @@ python -m journal_tracker seed-site-metadata --overwrite
 
 ## 数据索引生成
 
+统一期刊目录库采用如下结构：
+
+```text
+data/journals/{中文政治学期刊|英文政治学期刊|中文公共管理期刊|英文公共管理期刊}/{编号-期刊名}/{年份}/{年份-期次}/articles.jsonl
+```
+
+先生成统一目录库：
+
+```bash
+python -m journal_tracker build-unified-data
+```
+
 生成网站所需的本地 JSON 索引：
 
 ```bash
@@ -98,13 +117,14 @@ python -m journal_tracker build-site-index
 python -m journal_tracker build-site-index --seed-metadata
 ```
 
-索引生成脚本只读取 `data/history/` 下已有数据，不移动、不删除、不覆盖原始爬虫数据。
+网站索引只读取 `data/journals/` 这套统一目录库。旧的 `data/history/` 和 `data/chinese_political_cssci/` 只作为过渡缓存，不再直接供网站读取。
 
 ## 本地运行
 
 静态网站不需要安装前端依赖。先生成索引，然后启动本地静态服务器：
 
 ```bash
+python -m journal_tracker build-unified-data
 python -m journal_tracker build-site-index
 python -m http.server 4173 --directory site
 ```
@@ -120,23 +140,18 @@ http://localhost:4173
 当前网站是纯静态 HTML、CSS、JavaScript，不需要 Vite 或 React 构建。构建步骤就是生成站点索引：
 
 ```bash
+python -m journal_tracker build-unified-data
 python -m journal_tracker build-site-index
 ```
 
 ## GitHub Pages 部署
 
-仓库已经包含 GitHub Pages workflow：
-
-```text
-.github/workflows/pages.yml
-```
-
 部署步骤：
 
 1. 进入 GitHub 仓库的 `Settings -> Pages`。
-2. 在 `Build and deployment` 中选择 `GitHub Actions`。
-3. 推送到 `main` 分支，或手动运行 `Static journal website` workflow。
-4. workflow 会重新生成 `site/data/*.json`，并把 `site/` 作为 GitHub Pages 页面发布。
+2. 在 `Build and deployment` 中选择 `Deploy from a branch`。
+3. Branch 选择 `main`，Folder 选择 `/(root)`。
+4. 推送到 `main` 分支后，GitHub Pages 会发布根目录；根目录入口会自动跳转到 `site/`。
 
 ## 每日追踪
 

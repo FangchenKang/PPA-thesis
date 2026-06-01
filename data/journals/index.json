@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-06-01T03:21:27.322838+00:00",
+  "category_count": 4,
+  "journal_count": 172,
+  "issue_count": 30722,
+  "article_count": 414078,
+  "imported_history_records": 388654,
+  "imported_curated_records": 31465,
+  "skipped_curated_history_journals": 59,
+  "layout": "data/journals/{category}/{journal}/{year}/{period}/articles.jsonl"
+}
