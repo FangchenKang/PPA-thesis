@@ -14,16 +14,45 @@ const state = {
 };
 
 const DATA_BASE = "./data/";
+let dataVersion = "";
+let dataVersionPromise = null;
 
-async function fetchJson(name) {
-  const response = await fetch(`${DATA_BASE}${name}`);
+function dataUrl(name, options = {}) {
+  const params = new URLSearchParams();
+  if (options.cacheBust) {
+    params.set("_", Date.now().toString());
+  } else if (dataVersion) {
+    params.set("v", dataVersion);
+  }
+  const query = params.toString();
+  return `${DATA_BASE}${name}${query ? `?${query}` : ""}`;
+}
+
+async function fetchJson(name, options = {}) {
+  const response = await fetch(dataUrl(name, options), {
+    cache: options.cacheBust ? "no-store" : "default",
+  });
   if (!response.ok) {
     throw new Error(`无法读取 ${name}`);
   }
   return response.json();
 }
 
+async function ensureDataVersion() {
+  if (!dataVersionPromise) {
+    dataVersionPromise = fetchJson("stats.json", { cacheBust: true })
+      .then((payload) => {
+        dataVersion = payload.generated_at || "20260601022207";
+      })
+      .catch(() => {
+        dataVersion = "20260601022207";
+      });
+  }
+  return dataVersionPromise;
+}
+
 async function loadBaseData() {
+  await ensureDataVersion();
   const [journalsPayload, issuesPayload] = await Promise.all([
     fetchJson("journals.json"),
     fetchJson("issues.json"),
@@ -33,6 +62,7 @@ async function loadBaseData() {
 }
 
 async function loadArticles() {
+  await ensureDataVersion();
   if (state.articleRows) return state.articleRows;
   if (!state.articleLoadPromise) {
     state.articleLoadPromise = fetchJson("articles.json").then((payload) => {
