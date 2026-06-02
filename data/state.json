@@ -424,8 +424,23 @@
       "first_seen": "2026-05-30",
       "journal_title": "PS Political Science & Politics",
       "title": "Journal information"
+    },
+    "f3d409abfc4ee456b55d2046": {
+      "first_seen": "2026-06-02",
+      "journal_title": "Foreign Affairs",
+      "title": "The End of Foreign Aid Is Not the End of Development"
+    },
+    "3fd9b383ec95cea67de15fe3": {
+      "first_seen": "2026-06-02",
+      "journal_title": "Foreign Affairs",
+      "title": "Ukraine Turns the Tide"
+    },
+    "caa11071a8a2c48f52a24197": {
+      "first_seen": "2026-06-02",
+      "journal_title": "Foreign Affairs",
+      "title": "How Migration Helps Authoritarians"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-06-01T05:00:07.888730+00:00"
+  "last_run": "2026-06-02T04:37:48.036068+00:00"
 }
