@@ -459,8 +459,18 @@
       "first_seen": "2026-06-03",
       "journal_title": "Foreign Affairs",
       "title": "Iran Embraces a Forever War"
+    },
+    "06a093706648621f9292650b": {
+      "first_seen": "2026-06-05",
+      "journal_title": "Foreign Affairs",
+      "title": "The American Military’s Coming Marathon"
+    },
+    "50446fac1035219a5a997f4f": {
+      "first_seen": "2026-06-05",
+      "journal_title": "Foreign Affairs",
+      "title": "The Transatlantic Crucible"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-06-04T04:51:45.149589+00:00"
+  "last_run": "2026-06-05T04:25:35.317743+00:00"
 }
