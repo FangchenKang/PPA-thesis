@@ -494,8 +494,18 @@
       "first_seen": "2026-06-08",
       "journal_title": "Foreign Affairs",
       "title": "The Day After in Cuba"
+    },
+    "eadb6d4d119eb694a7a388a5": {
+      "first_seen": "2026-06-10",
+      "journal_title": "Foreign Affairs",
+      "title": "How America Lost Command of the Commons"
+    },
+    "a2354e922fc9d62db4dedbc4": {
+      "first_seen": "2026-06-10",
+      "journal_title": "Foreign Affairs",
+      "title": "Don’t Give Up on Global Order"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-06-09T04:11:07.589073+00:00"
+  "last_run": "2026-06-10T04:23:13.901768+00:00"
 }
