@@ -504,8 +504,33 @@
       "first_seen": "2026-06-10",
       "journal_title": "Foreign Affairs",
       "title": "Don’t Give Up on Global Order"
+    },
+    "a389b724d4eec59d366a983d": {
+      "first_seen": "2026-06-11",
+      "journal_title": "Foreign Affairs",
+      "title": "Silicon Valley’s Bad Bet on the Gulf"
+    },
+    "8061696bcb19774fab156f32": {
+      "first_seen": "2026-06-11",
+      "journal_title": "Foreign Affairs",
+      "title": "The Real Problem With Global Trade"
+    },
+    "e4750a7b83faeef20f696f35": {
+      "first_seen": "2026-06-11",
+      "journal_title": "Foreign Affairs",
+      "title": "The Fault Lines in China’s Power"
+    },
+    "d7e863c794ab6b37806ea070": {
+      "first_seen": "2026-06-11",
+      "journal_title": "Foreign Affairs",
+      "title": "The End of the Open Internet"
+    },
+    "5be086c4e0857065b03b49fe": {
+      "first_seen": "2026-06-11",
+      "journal_title": "Foreign Affairs",
+      "title": "Turkey’s Quiet Realignment"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-06-10T04:23:13.901768+00:00"
+  "last_run": "2026-06-11T04:35:52.756444+00:00"
 }
