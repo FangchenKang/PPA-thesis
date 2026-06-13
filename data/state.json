@@ -529,8 +529,18 @@
       "first_seen": "2026-06-11",
       "journal_title": "Foreign Affairs",
       "title": "Turkey’s Quiet Realignment"
+    },
+    "818547b84d4f65360d915b24": {
+      "first_seen": "2026-06-13",
+      "journal_title": "Foreign Affairs",
+      "title": "China’s Edifice Complex"
+    },
+    "6f2ac5ad239a58fc1ff6d8ac": {
+      "first_seen": "2026-06-13",
+      "journal_title": "Foreign Affairs",
+      "title": "The Strange Defeat of Nuclear Deterrence"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-06-12T04:38:50.151368+00:00"
+  "last_run": "2026-06-13T04:27:06.349092+00:00"
 }
