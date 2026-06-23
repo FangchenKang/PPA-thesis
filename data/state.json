@@ -614,8 +614,33 @@
       "first_seen": "2026-06-22",
       "journal_title": "Foreign Affairs",
       "title": "The Only Way to Save Europe"
+    },
+    "0a3f9e9ab1a6c499ed30156e": {
+      "first_seen": "2026-06-23",
+      "journal_title": "Foreign Affairs",
+      "title": "Losing the War of the Future"
+    },
+    "2c7b143b1b080ae34cf71ee8": {
+      "first_seen": "2026-06-23",
+      "journal_title": "Foreign Affairs",
+      "title": "The Broken Nuclear Umbrella"
+    },
+    "1ce9f0ff2a4f3e5d4fb07d56": {
+      "first_seen": "2026-06-23",
+      "journal_title": "Foreign Affairs",
+      "title": "Why “China First” Will Fail"
+    },
+    "ca9385297e40dfba9db662b2": {
+      "first_seen": "2026-06-23",
+      "journal_title": "Foreign Affairs",
+      "title": "The Afghanistan Reckoning"
+    },
+    "7f0536275c5067e3e96aa88c": {
+      "first_seen": "2026-06-23",
+      "journal_title": "Foreign Affairs",
+      "title": "How to Survive the AI Shock"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-06-22T05:09:29.911093+00:00"
+  "last_run": "2026-06-23T04:11:22.717088+00:00"
 }
