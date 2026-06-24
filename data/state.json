@@ -639,8 +639,18 @@
       "first_seen": "2026-06-23",
       "journal_title": "Foreign Affairs",
       "title": "How to Survive the AI Shock"
+    },
+    "338aa7e59142d3f73bbddbf2": {
+      "first_seen": "2026-06-24",
+      "journal_title": "Foreign Affairs",
+      "title": "The Mirage of China’s Military Edge"
+    },
+    "6a94a7fb34dd66caf481b8f3": {
+      "first_seen": "2026-06-24",
+      "journal_title": "Foreign Affairs",
+      "title": "Heartland vs. Rimland"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-06-23T04:11:22.717088+00:00"
+  "last_run": "2026-06-24T04:14:52.937722+00:00"
 }
