@@ -649,8 +649,23 @@
       "first_seen": "2026-06-24",
       "journal_title": "Foreign Affairs",
       "title": "Heartland vs. Rimland"
+    },
+    "807c6bf0efbd87484c50cf8c": {
+      "first_seen": "2026-06-26",
+      "journal_title": "Foreign Affairs",
+      "title": "Iran Didn’t Win the War"
+    },
+    "fb3d2dfed7793f8caa37c680": {
+      "first_seen": "2026-06-26",
+      "journal_title": "Foreign Affairs",
+      "title": "New Prime Minister, Same Problem"
+    },
+    "9465ba8004b5b25016f60854": {
+      "first_seen": "2026-06-26",
+      "journal_title": "Foreign Affairs",
+      "title": "The Next Russia Threat"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-06-25T04:13:47.908377+00:00"
+  "last_run": "2026-06-26T04:20:36.651083+00:00"
 }
