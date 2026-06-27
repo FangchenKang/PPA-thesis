@@ -664,8 +664,13 @@
       "first_seen": "2026-06-26",
       "journal_title": "Foreign Affairs",
       "title": "The Next Russia Threat"
+    },
+    "48709dad93532a5913cb013a": {
+      "first_seen": "2026-06-27",
+      "journal_title": "Foreign Affairs",
+      "title": "Who Is Winning Africa’s Drone Wars?"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-06-26T04:20:36.651083+00:00"
+  "last_run": "2026-06-27T04:07:23.044016+00:00"
 }
