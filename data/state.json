@@ -729,8 +729,18 @@
       "first_seen": "2026-07-08",
       "journal_title": "Foreign Affairs",
       "title": "How Europe Can Get Putin’s Attention"
+    },
+    "7cb7a4bdafbd1ff8c9a058e7": {
+      "first_seen": "2026-07-09",
+      "journal_title": "Foreign Affairs",
+      "title": "The Ukraine Lesson Taiwan Keeps Missing"
+    },
+    "f21ed5e6977c04e2b21225d7": {
+      "first_seen": "2026-07-09",
+      "journal_title": "Foreign Affairs",
+      "title": "Can the Private Sector Save Vietnam?"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-07-08T03:31:01.498371+00:00"
+  "last_run": "2026-07-09T03:55:31.500419+00:00"
 }
