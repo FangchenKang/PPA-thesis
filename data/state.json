@@ -759,8 +759,18 @@
       "first_seen": "2026-07-11",
       "journal_title": "Foreign Affairs",
       "title": "Iran Is Losing Iraq"
+    },
+    "a5a757e4dc3c0a221bd2be4a": {
+      "first_seen": "2026-07-14",
+      "journal_title": "Foreign Affairs",
+      "title": "Senegal Is on the Brink"
+    },
+    "696a85efd47c7d68b5175abc": {
+      "first_seen": "2026-07-14",
+      "journal_title": "Foreign Affairs",
+      "title": "America and Iran’s Strange Moment of Opportunity"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-07-13T03:39:42.023765+00:00"
+  "last_run": "2026-07-14T03:02:41.776429+00:00"
 }
