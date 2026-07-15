@@ -769,8 +769,18 @@
       "first_seen": "2026-07-14",
       "journal_title": "Foreign Affairs",
       "title": "America and Iran’s Strange Moment of Opportunity"
+    },
+    "1ee08774d0f0f115c70bcef7": {
+      "first_seen": "2026-07-15",
+      "journal_title": "Foreign Affairs",
+      "title": "Putin Will Turn a Cease-Fire Into a Weapon"
+    },
+    "1bd748e550ae9dfc8fd1b159": {
+      "first_seen": "2026-07-15",
+      "journal_title": "Foreign Affairs",
+      "title": "How China Is Winning Friends and Influencing People"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-07-14T03:02:41.776429+00:00"
+  "last_run": "2026-07-15T03:01:15.504477+00:00"
 }
