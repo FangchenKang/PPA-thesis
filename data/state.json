@@ -779,8 +779,18 @@
       "first_seen": "2026-07-15",
       "journal_title": "Foreign Affairs",
       "title": "How China Is Winning Friends and Influencing People"
+    },
+    "eb3c380e26b6881ad7aec00e": {
+      "first_seen": "2026-07-16",
+      "journal_title": "Foreign Affairs",
+      "title": "The World Is Giving Up on America"
+    },
+    "c192b75a2dad38fb476daf3a": {
+      "first_seen": "2026-07-16",
+      "journal_title": "Foreign Affairs",
+      "title": "China Is Sabotaging the World That Enables Its Rise"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-07-15T03:01:15.504477+00:00"
+  "last_run": "2026-07-16T03:08:07.270875+00:00"
 }
