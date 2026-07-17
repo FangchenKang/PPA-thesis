@@ -789,8 +789,18 @@
       "first_seen": "2026-07-16",
       "journal_title": "Foreign Affairs",
       "title": "China Is Sabotaging the World That Enables Its Rise"
+    },
+    "e4b93c637b7369121ded13fa": {
+      "first_seen": "2026-07-17",
+      "journal_title": "Foreign Affairs",
+      "title": "The Coming Clash Between China and Europe"
+    },
+    "eb92c1d7c7b845680123f8bb": {
+      "first_seen": "2026-07-17",
+      "journal_title": "Foreign Affairs",
+      "title": "The Lost Art of Coercion"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-07-16T03:08:07.270875+00:00"
+  "last_run": "2026-07-17T03:12:46.509695+00:00"
 }
