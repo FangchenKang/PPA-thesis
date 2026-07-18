@@ -799,8 +799,18 @@
       "first_seen": "2026-07-17",
       "journal_title": "Foreign Affairs",
       "title": "The Lost Art of Coercion"
+    },
+    "e7976860d8cb1c85cbdbbace": {
+      "first_seen": "2026-07-18",
+      "journal_title": "Foreign Affairs",
+      "title": "A Dangerous Game in the Arctic"
+    },
+    "ed15de28cf554853f9c1eba1": {
+      "first_seen": "2026-07-18",
+      "journal_title": "Foreign Affairs",
+      "title": "America’s Trillion-Dollar Failure"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-07-17T03:12:46.509695+00:00"
+  "last_run": "2026-07-18T03:02:58.942584+00:00"
 }
