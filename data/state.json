@@ -819,8 +819,18 @@
       "first_seen": "2026-07-21",
       "journal_title": "Foreign Affairs",
       "title": "Pakistan Won the War in Iran"
+    },
+    "2e1e956b2ec3254ffd8eba2c": {
+      "first_seen": "2026-07-22",
+      "journal_title": "Foreign Affairs",
+      "title": "The Gulf’s China Problem"
+    },
+    "c1418bf06d894caeedbbf269": {
+      "first_seen": "2026-07-22",
+      "journal_title": "Foreign Affairs",
+      "title": "The Autocrat’s Worst Enemy"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-07-21T03:28:26.482504+00:00"
+  "last_run": "2026-07-22T03:10:35.192899+00:00"
 }
