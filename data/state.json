@@ -859,8 +859,23 @@
       "first_seen": "2026-07-25",
       "journal_title": "Foreign Affairs",
       "title": "Iran and the New Rules of Global Power"
+    },
+    "dc9477fba5123ded56d2136a": {
+      "first_seen": "2026-07-28",
+      "journal_title": "Foreign Affairs",
+      "title": "Can Renewables Industrialize Africa?"
+    },
+    "80bcebfb3d67de59a4f1515a": {
+      "first_seen": "2026-07-28",
+      "journal_title": "Foreign Affairs",
+      "title": "How Asia Learned to Live With “America First”"
+    },
+    "3f57aaab4b283e464a7cd58c": {
+      "first_seen": "2026-07-28",
+      "journal_title": "Foreign Affairs",
+      "title": "Iran and the New Rules of Global Power"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-07-27T03:47:28.532553+00:00"
+  "last_run": "2026-07-28T03:03:27.090166+00:00"
 }
