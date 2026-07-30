@@ -879,8 +879,23 @@
       "first_seen": "2026-07-29",
       "journal_title": "Foreign Affairs",
       "title": "The Hidden Path to Regime Change in Iran"
+    },
+    "e54a5fe3859055337fb24631": {
+      "first_seen": "2026-07-30",
+      "journal_title": "Foreign Affairs",
+      "title": "How to Reindustrialize America"
+    },
+    "e563c85a601f91b991a2346c": {
+      "first_seen": "2026-07-30",
+      "journal_title": "Foreign Affairs",
+      "title": "Beijing’s Next Play for the South China Sea"
+    },
+    "40969ab3a7ad2ae83cf22a5b": {
+      "first_seen": "2026-07-30",
+      "journal_title": "Foreign Affairs",
+      "title": "America’s Surprising Energy Advantage"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-07-29T03:11:25.690237+00:00"
+  "last_run": "2026-07-30T02:55:54.868841+00:00"
 }
