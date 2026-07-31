@@ -894,8 +894,18 @@
       "first_seen": "2026-07-30",
       "journal_title": "Foreign Affairs",
       "title": "America’s Surprising Energy Advantage"
+    },
+    "91eeed0ecd3a14c188247388": {
+      "first_seen": "2026-07-31",
+      "journal_title": "Foreign Affairs",
+      "title": "The New Old Middle East"
+    },
+    "1b7c8fce766bbe6668157f7f": {
+      "first_seen": "2026-07-31",
+      "journal_title": "Foreign Affairs",
+      "title": "The Next Phase of China’s Minority Crackdown"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-07-30T02:55:54.868841+00:00"
+  "last_run": "2026-07-31T03:37:43.855371+00:00"
 }
