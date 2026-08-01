@@ -904,8 +904,18 @@
       "first_seen": "2026-07-31",
       "journal_title": "Foreign Affairs",
       "title": "The Next Phase of China’s Minority Crackdown"
+    },
+    "1a1bf1df352d2d5f43393ad8": {
+      "first_seen": "2026-08-01",
+      "journal_title": "Foreign Affairs",
+      "title": "Why a Weaker Russia Keeps Fighting"
+    },
+    "3127173f0dd00cca5e34c271": {
+      "first_seen": "2026-08-01",
+      "journal_title": "Foreign Affairs",
+      "title": "The Ambiguity Spiral in Iran"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-07-31T03:37:43.855371+00:00"
+  "last_run": "2026-08-01T03:35:57.630196+00:00"
 }
