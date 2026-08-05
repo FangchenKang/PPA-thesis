@@ -924,8 +924,18 @@
       "first_seen": "2026-08-04",
       "journal_title": "Foreign Affairs",
       "title": "The Looming Nuclear Crisis in the Gulf"
+    },
+    "e8570cd845ada44c12a32dc0": {
+      "first_seen": "2026-08-05",
+      "journal_title": "Foreign Affairs",
+      "title": "The New Forever Wars"
+    },
+    "275fde1fde7e66f35857fd64": {
+      "first_seen": "2026-08-05",
+      "journal_title": "Foreign Affairs",
+      "title": "The War China Might Choose"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-08-04T03:07:38.030614+00:00"
+  "last_run": "2026-08-05T03:03:42.748012+00:00"
 }
