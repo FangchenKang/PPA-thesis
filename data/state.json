@@ -934,8 +934,23 @@
       "first_seen": "2026-08-05",
       "journal_title": "Foreign Affairs",
       "title": "The War China Might Choose"
+    },
+    "f2f8589f85a2bf898feafe3d": {
+      "first_seen": "2026-08-06",
+      "journal_title": "Foreign Affairs",
+      "title": "How the Axis of Resistance Recovered"
+    },
+    "966827e7197d59693c4133ef": {
+      "first_seen": "2026-08-06",
+      "journal_title": "Foreign Affairs",
+      "title": "America’s Superintelligence Dilemma"
+    },
+    "e2856d2e3fe4b8ccda622062": {
+      "first_seen": "2026-08-06",
+      "journal_title": "Foreign Affairs",
+      "title": "The Right Way to Balance Trade"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-08-05T03:03:42.748012+00:00"
+  "last_run": "2026-08-06T03:14:47.972229+00:00"
 }
