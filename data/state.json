@@ -949,8 +949,18 @@
       "first_seen": "2026-08-06",
       "journal_title": "Foreign Affairs",
       "title": "The Right Way to Balance Trade"
+    },
+    "7079523f04ca0c53ba08a9c3": {
+      "first_seen": "2026-08-07",
+      "journal_title": "Foreign Affairs",
+      "title": "Why We Should Fight"
+    },
+    "99d0342715a500ea06abc464": {
+      "first_seen": "2026-08-07",
+      "journal_title": "Foreign Affairs",
+      "title": "America Must Let Go of the Middle East"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-08-06T03:14:47.972229+00:00"
+  "last_run": "2026-08-07T03:05:11.601412+00:00"
 }
