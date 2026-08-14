@@ -1,0 +1,798 @@
+{
+  "date": "2026-08-14",
+  "baseline_initialized": false,
+  "new_items": [
+    {
+      "id": "5050eeb6c85b85e36d4428ea",
+      "journal_id": 103,
+      "journal_title": "Foreign Affairs",
+      "title": "How to Broker Peace in Ukraine",
+      "url": "https://www.foreignaffairs.com/ukraine/how-broker-peace-ukraine",
+      "published": "Thu, 13 Aug 2026 00:00:00 -0400",
+      "summary": "Decades of hard-won mediation experience point the way.",
+      "source": "feed"
+    },
+    {
+      "id": "579ef87dbe1d8f3a70b2d83d",
+      "journal_id": 103,
+      "journal_title": "Foreign Affairs",
+      "title": "The Next Global Economic Crisis Could Be Made in China",
+      "url": "https://www.foreignaffairs.com/china/next-global-economic-crisis-made-china-michael-froman",
+      "published": "Thu, 13 Aug 2026 00:00:00 -0400",
+      "summary": "How overcapacity ends.",
+      "source": "feed"
+    }
+  ],
+  "diagnostics": [
+    {
+      "journal_title": "Journal of Public Administration Research and Theory",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Policy and Society",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Public Administration",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Policy Studies Journal",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Public Administration Review",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Public Management Review",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Journal of European Public Policy",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Regulation & Governance",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Policy Sciences",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "Journal of Chinese Governance",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Review of Policy Research",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Public Policy and Administration",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Journal of European Social Policy",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Policy and Politics",
+      "status": "fetch error: HTTP Error 405: Not Allowed"
+    },
+    {
+      "journal_title": "Review of Public Personnel Administration",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Governance",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "International Public Management Journal",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Public Performance & Management Review",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Public Personnel Management",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "International Review of Administrative Sciences",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Journal of Social Policy",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "American Review of Public Administration",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Critical Policy Studies",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Journal of Policy Analysis and Management",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Policy Studies",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Administration & Society",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Science and Public Policy",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Social Policy & Administration",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Journal of Accounting and Public Policy",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Journal of Public Policy",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "Australian Journal of Public Administration",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Public Administration and Development",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Public Money & Management",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "社会保障评论",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "管理世界",
+      "status": "fetch error: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.glsj.cbpt.cnki.net'. (_ssl.c:1016)>"
+    },
+    {
+      "journal_title": "公共管理学报",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "电子政务",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "中国行政管理",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "治理研究",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "公共管理与政策评论",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "行政管理改革",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "公共管理评论",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "经济体制改革",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "城市发展研究",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "社会学研究",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "理论探讨",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "政治学研究",
+      "status": "fetch error: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.poli.cbpt.cnki.net'. (_ssl.c:1016)>"
+    },
+    {
+      "journal_title": "理论与改革",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "探索",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "行政论坛",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "公共行政评论",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "北京行政学院学报",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "中共中央党校（国家行政学院）学报",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "求实",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "理论学刊",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "理论探索",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "上海行政学院学报",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "江苏行政学院学报",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "甘肃行政学院学报",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "中国社会科学",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "社会科学",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "开放时代",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "学海",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "学术研究",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "经济研究",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "心理学报",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "Annual Review of Political Science",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "American Political Science Review",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "American Journal of Political Science",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Journal of Politics",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "British Journal of Political Science",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "Political Analysis",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "Political Communication",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Perspectives on Politics",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "European Journal of Political Research",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Comparative Political Studies",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Political Behavior",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "Political Psychology",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Political Geography",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Political Studies",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Politics & Gender",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "Government and Opposition",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "West European Politics",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Democratization",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Environmental Politics",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "New Political Economy",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Journal of European Public Policy",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "International Organization",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "International Studies Quarterly",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "International Studies Review",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "World Politics",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "Journal of Peace Research",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Journal of Conflict Resolution",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Review of International Political Economy",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Review of International Organizations",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "Global Environmental Politics",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Contemporary Security Policy",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "European Security",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Journal of Common Market Studies",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "European Journal of International Relations",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "International Affairs",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Security Studies",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Foreign Affairs",
+      "status": "discovered feed"
+    },
+    {
+      "journal_title": "China Quarterly",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "Journal of Contemporary China",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Journal of Chinese Political Science",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "Political Science Research and Methods",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "Comparative Politics",
+      "status": "fetch error: HTTP Error 404: Not Found"
+    },
+    {
+      "journal_title": "Electoral Studies",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Party Politics",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Legislative Studies Quarterly",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Political Research Quarterly",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Public Opinion Quarterly",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Political Studies Review",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Politics",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Politics & Society",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "European Political Science Review",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "European Union Politics",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "East European Politics",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Comparative European Politics",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "Parliamentary Affairs",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Publius",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "American Politics Research",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "State Politics & Policy Quarterly",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "Journal of Elections Public Opinion and Parties",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "International Political Science Review",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "International Political Sociology",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "International Theory",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "Cooperation and Conflict",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Journal of International Relations and Development",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "International Relations",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Foreign Policy Analysis",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Geopolitics",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Territory Politics Governance",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Terrorism and Political Violence",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Studies in Conflict & Terrorism",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Nations and Nationalism",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Citizenship Studies",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Social Movement Studies",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Journal of Political Philosophy",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Political Theory",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Politics Philosophy & Economics",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Philosophy & Public Affairs",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Journal of Theoretical Politics",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "Political Quarterly",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "PS Political Science & Politics",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "Research & Politics",
+      "status": "fetch error: HTTP Error 403: Forbidden"
+    },
+    {
+      "journal_title": "European Political Science",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "政治学研究",
+      "status": "fetch error: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.poli.cbpt.cnki.net'. (_ssl.c:1016)>"
+    },
+    {
+      "journal_title": "世界经济与政治",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "国际政治研究",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "国际政治科学",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "国际安全研究",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "国际问题研究",
+      "status": "homepage scrape"
+    },
+    {
+      "journal_title": "国际展望",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "国际观察",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "国际论坛",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "国际关系研究",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "现代国际关系",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "外交评论",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "欧洲研究",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "美国研究",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "日本学刊",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "当代亚太",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "东北亚论坛",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "东南亚研究",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "南洋问题研究",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "西亚非洲",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "亚太安全与海洋研究",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "太平洋学报",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "台湾研究",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "港澳研究",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "当代美国评论",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "当代世界",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "和平与发展",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "中国评论",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "人权",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "北京行政学院学报",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "上海行政学院学报",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "江苏行政学院学报",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "甘肃行政学院学报",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "行政论坛",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "公共行政评论",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "公共行政学报",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "理论探索",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "理论探讨",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "理论学刊",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "理论与改革",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "求实",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "探索",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "中共中央党校，国家行政学院，学报",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "journal_title": "中国人民公安大学学报，社会科学版",
+      "status": "fetch error: <urlopen error [Errno -2] Name or service not known>"
+    }
+  ],
+  "discovered_count": 85,
+  "journal_count": 192
+}
