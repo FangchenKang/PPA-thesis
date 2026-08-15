@@ -1004,8 +1004,18 @@
       "first_seen": "2026-08-14",
       "journal_title": "Foreign Affairs",
       "title": "The Next Global Economic Crisis Could Be Made in China"
+    },
+    "ae4db940c3151ee0f62e5ae8": {
+      "first_seen": "2026-08-15",
+      "journal_title": "Foreign Affairs",
+      "title": "Standing With Afghan Women"
+    },
+    "120912aa1a8a08c012795c42": {
+      "first_seen": "2026-08-15",
+      "journal_title": "Foreign Affairs",
+      "title": "The Long Shadow of the Iran Shock"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-08-14T02:29:59.558468+00:00"
+  "last_run": "2026-08-15T01:39:21.832814+00:00"
 }
