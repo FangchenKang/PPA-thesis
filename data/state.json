@@ -1024,8 +1024,33 @@
       "first_seen": "2026-08-18",
       "journal_title": "Foreign Affairs",
       "title": "The Cost of Keeping China Out"
+    },
+    "b790285582f2cc8a9c04d1ef": {
+      "first_seen": "2026-08-19",
+      "journal_title": "Foreign Affairs",
+      "title": "How China Found Its Most Potent Weapon"
+    },
+    "10ef0e9c98426623c372748a": {
+      "first_seen": "2026-08-19",
+      "journal_title": "Foreign Affairs",
+      "title": "How Alliances Survive"
+    },
+    "3bcc9101423f80a5c35f02e7": {
+      "first_seen": "2026-08-19",
+      "journal_title": "Foreign Affairs",
+      "title": "“The Strategy of Terrorism”"
+    },
+    "a7bb43c3ed0ea17f77a8a905": {
+      "first_seen": "2026-08-19",
+      "journal_title": "Foreign Affairs",
+      "title": "Democracies Need Creative Destruction"
+    },
+    "ff1b62a6a4e2116172720e11": {
+      "first_seen": "2026-08-19",
+      "journal_title": "Foreign Affairs",
+      "title": "AI and the New Age of Bioweapons"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-08-18T01:40:20.359672+00:00"
+  "last_run": "2026-08-19T01:41:12.591144+00:00"
 }
