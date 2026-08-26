@@ -1094,8 +1094,18 @@
       "first_seen": "2026-08-25",
       "journal_title": "Foreign Affairs",
       "title": "The End of Thailand’s Long Stalemate?"
+    },
+    "68da5ab0aa6b4c170358fc9c": {
+      "first_seen": "2026-08-26",
+      "journal_title": "Foreign Affairs",
+      "title": "Maximum Pressure on Iran Will Fail"
+    },
+    "ed916854e4f44e8a4711599d": {
+      "first_seen": "2026-08-26",
+      "journal_title": "Foreign Affairs",
+      "title": "The New Right’s Grand Strategy After Trump"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-08-25T01:41:44.710479+00:00"
+  "last_run": "2026-08-26T01:50:56.785596+00:00"
 }
