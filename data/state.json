@@ -1104,8 +1104,28 @@
       "first_seen": "2026-08-26",
       "journal_title": "Foreign Affairs",
       "title": "The New Right’s Grand Strategy After Trump"
+    },
+    "9f3a0bb23525f7a0efde58f5": {
+      "first_seen": "2026-08-27",
+      "journal_title": "Foreign Affairs",
+      "title": "India Is Sticking With America—For Now"
+    },
+    "c62dfa4c224bb1e993419711": {
+      "first_seen": "2026-08-27",
+      "journal_title": "Foreign Affairs",
+      "title": "The Impossible Middle East"
+    },
+    "3dcdf5166d8eea7d87e9cadf": {
+      "first_seen": "2026-08-27",
+      "journal_title": "Foreign Affairs",
+      "title": "America Doesn’t Need More Nuclear Weapons"
+    },
+    "e53406c4a9ebde80c28067ae": {
+      "first_seen": "2026-08-27",
+      "journal_title": "Foreign Affairs",
+      "title": "The Future of Ukraine’s Drone Democracy"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-08-26T01:50:56.785596+00:00"
+  "last_run": "2026-08-27T08:40:12.035939+00:00"
 }
