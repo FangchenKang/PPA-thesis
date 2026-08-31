@@ -1139,8 +1139,18 @@
       "first_seen": "2026-08-28",
       "journal_title": "Foreign Affairs",
       "title": "India Is Sticking With America—for Now"
+    },
+    "4aefe87d83b2cc98ef7ea5cc": {
+      "first_seen": "2026-08-31",
+      "journal_title": "Foreign Affairs",
+      "title": "The Price of Russian Paranoia"
+    },
+    "1bd3dfa832a3afb444fee5f1": {
+      "first_seen": "2026-08-31",
+      "journal_title": "Foreign Affairs",
+      "title": "The Road Through Damascus"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-08-30T04:52:21.818823+00:00"
+  "last_run": "2026-08-31T04:56:14.989432+00:00"
 }
