@@ -1164,8 +1164,18 @@
       "first_seen": "2026-09-02",
       "journal_title": "Foreign Affairs",
       "title": "The Real Risk of a Trade War With Canada"
+    },
+    "e8fe739ceaffb68b9d254706": {
+      "first_seen": "2026-09-03",
+      "journal_title": "Foreign Affairs",
+      "title": "How Does the World Really View China?"
+    },
+    "b309aced0083b95c5476a1a1": {
+      "first_seen": "2026-09-03",
+      "journal_title": "Foreign Affairs",
+      "title": "Can Israel End Its Forever Wars?"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-02T03:59:52.678915+00:00"
+  "last_run": "2026-09-03T03:59:28.332284+00:00"
 }
