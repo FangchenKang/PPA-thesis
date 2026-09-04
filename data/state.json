@@ -1174,8 +1174,18 @@
       "first_seen": "2026-09-03",
       "journal_title": "Foreign Affairs",
       "title": "Can Israel End Its Forever Wars?"
+    },
+    "50648c90b1974d2092165068": {
+      "first_seen": "2026-09-04",
+      "journal_title": "Foreign Affairs",
+      "title": "The Case for a Stalemate With Iran"
+    },
+    "2ad639050e3b23225c363bad": {
+      "first_seen": "2026-09-04",
+      "journal_title": "Foreign Affairs",
+      "title": "The End of American Sanctuary"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-03T03:59:28.332284+00:00"
+  "last_run": "2026-09-04T04:02:00.462450+00:00"
 }
