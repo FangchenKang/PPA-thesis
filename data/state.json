@@ -1184,8 +1184,18 @@
       "first_seen": "2026-09-04",
       "journal_title": "Foreign Affairs",
       "title": "The End of American Sanctuary"
+    },
+    "5b61e3c4d604253bd9cd88fb": {
+      "first_seen": "2026-09-05",
+      "journal_title": "Foreign Affairs",
+      "title": "Avoiding the Next Famine"
+    },
+    "d9ac8707ebf49c03bbf6f388": {
+      "first_seen": "2026-09-05",
+      "journal_title": "Foreign Affairs",
+      "title": "How Taiwan Can Win the Strait"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-04T04:02:00.462450+00:00"
+  "last_run": "2026-09-05T03:59:12.983488+00:00"
 }
