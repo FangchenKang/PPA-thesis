@@ -1199,8 +1199,18 @@
       "first_seen": "2026-09-08",
       "journal_title": "Foreign Affairs",
       "title": "The Emerging U.S.-China Détente"
+    },
+    "5df25d301078913a66f4fad3": {
+      "first_seen": "2026-09-09",
+      "journal_title": "Foreign Affairs",
+      "title": "Why America Can’t Strangle Iran"
+    },
+    "40f440785ebe33e4b476d595": {
+      "first_seen": "2026-09-09",
+      "journal_title": "Foreign Affairs",
+      "title": "The Rise and Fall of Global Jihadism"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-08T04:05:49.882169+00:00"
+  "last_run": "2026-09-09T04:10:31.781975+00:00"
 }
