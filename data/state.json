@@ -1209,8 +1209,18 @@
       "first_seen": "2026-09-09",
       "journal_title": "Foreign Affairs",
       "title": "The Rise and Fall of Global Jihadism"
+    },
+    "7617ebcabc3a014535cb17cc": {
+      "first_seen": "2026-09-10",
+      "journal_title": "Foreign Affairs",
+      "title": "The Right Way to Sanction Russia"
+    },
+    "34b041c0d5932c483ddab322": {
+      "first_seen": "2026-09-10",
+      "journal_title": "Foreign Affairs",
+      "title": "How al-Qaeda Ended"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-09T04:10:31.781975+00:00"
+  "last_run": "2026-09-10T04:09:40.441510+00:00"
 }
