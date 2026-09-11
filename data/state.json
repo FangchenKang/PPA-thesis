@@ -1219,8 +1219,18 @@
       "first_seen": "2026-09-10",
       "journal_title": "Foreign Affairs",
       "title": "How al-Qaeda Ended"
+    },
+    "70fe1f71f5231c565a7fc366": {
+      "first_seen": "2026-09-11",
+      "journal_title": "Foreign Affairs",
+      "title": "The Case for Letting China In"
+    },
+    "38ff9b0b16660e5aaa007181": {
+      "first_seen": "2026-09-11",
+      "journal_title": "Foreign Affairs",
+      "title": "The Coming Risks to Russian Power"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-10T04:09:40.441510+00:00"
+  "last_run": "2026-09-11T04:05:46.300604+00:00"
 }
