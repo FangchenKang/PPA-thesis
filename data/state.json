@@ -1229,8 +1229,18 @@
       "first_seen": "2026-09-11",
       "journal_title": "Foreign Affairs",
       "title": "The Coming Risks to Russian Power"
+    },
+    "38956d19300bdac69d04f262": {
+      "first_seen": "2026-09-12",
+      "journal_title": "Foreign Affairs",
+      "title": "Iran’s Second Front"
+    },
+    "6534332df4899477b5fbfe13": {
+      "first_seen": "2026-09-12",
+      "journal_title": "Foreign Affairs",
+      "title": "The Other War on Terror"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-11T04:05:46.300604+00:00"
+  "last_run": "2026-09-12T04:08:44.152285+00:00"
 }
