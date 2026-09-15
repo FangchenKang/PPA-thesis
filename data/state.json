@@ -1239,8 +1239,18 @@
       "first_seen": "2026-09-12",
       "journal_title": "Foreign Affairs",
       "title": "The Other War on Terror"
+    },
+    "79338fa63034f242b9b37c99": {
+      "first_seen": "2026-09-15",
+      "journal_title": "Foreign Affairs",
+      "title": "Putin Will Not Yield"
+    },
+    "9f0bb0986039f15efb722950": {
+      "first_seen": "2026-09-15",
+      "journal_title": "Foreign Affairs",
+      "title": "Europe’s Hidden Trade Advantage"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-14T04:25:16.527788+00:00"
+  "last_run": "2026-09-15T04:25:10.222233+00:00"
 }
