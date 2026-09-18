@@ -1264,8 +1264,18 @@
       "first_seen": "2026-09-17",
       "journal_title": "Foreign Affairs",
       "title": "Trump and Xi Can’t Stop the U.S.-China Spiral"
+    },
+    "28f23449392931af33c6ece8": {
+      "first_seen": "2026-09-18",
+      "journal_title": "Foreign Affairs",
+      "title": "Cuba’s Point of No Return"
+    },
+    "43ee9fa7a354df5afb14e4fa": {
+      "first_seen": "2026-09-18",
+      "journal_title": "Foreign Affairs",
+      "title": "China’s Purges Are Working as Designed"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-17T04:28:36.831375+00:00"
+  "last_run": "2026-09-18T04:12:43.679535+00:00"
 }
