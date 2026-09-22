@@ -1284,8 +1284,18 @@
       "first_seen": "2026-09-19",
       "journal_title": "Foreign Affairs",
       "title": "America’s Attrition Trap"
+    },
+    "b0506d01cac035450d85f838": {
+      "first_seen": "2026-09-22",
+      "journal_title": "Foreign Affairs",
+      "title": "Shrink the UN"
+    },
+    "68b7f4b379b446a7baa3c023": {
+      "first_seen": "2026-09-22",
+      "journal_title": "Foreign Affairs",
+      "title": "China Still Has What America Needs"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-21T04:25:11.760332+00:00"
+  "last_run": "2026-09-22T04:21:16.291823+00:00"
 }
