@@ -1304,8 +1304,18 @@
       "first_seen": "2026-09-23",
       "journal_title": "Foreign Affairs",
       "title": "The Trouble With the Nuclear-AI Analogy"
+    },
+    "fcc74b9788ae6dac01a59564": {
+      "first_seen": "2026-09-24",
+      "journal_title": "Foreign Affairs",
+      "title": "The Stalemate With Iran Is Not Sustainable"
+    },
+    "291d4c0aa838129c50f56af4": {
+      "first_seen": "2026-09-24",
+      "journal_title": "Foreign Affairs",
+      "title": "Europe Can’t Get Out of Its Own Way"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-23T04:18:55.347714+00:00"
+  "last_run": "2026-09-24T04:13:13.703712+00:00"
 }
