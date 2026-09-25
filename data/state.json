@@ -1314,8 +1314,18 @@
       "first_seen": "2026-09-24",
       "journal_title": "Foreign Affairs",
       "title": "Europe Can’t Get Out of Its Own Way"
+    },
+    "f98ba70c76a7cd554ba16f44": {
+      "first_seen": "2026-09-25",
+      "journal_title": "Foreign Affairs",
+      "title": "The Price of Arctic Ambition"
+    },
+    "adcc2e902e1a41075e0a98ef": {
+      "first_seen": "2026-09-25",
+      "journal_title": "Foreign Affairs",
+      "title": "How Putin Escalates"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-24T04:13:13.703712+00:00"
+  "last_run": "2026-09-25T04:28:39.154947+00:00"
 }
