@@ -1334,8 +1334,18 @@
       "first_seen": "2026-09-26",
       "journal_title": "Foreign Affairs",
       "title": "The Coming Taiwan Crisis"
+    },
+    "000b7138484287a9827656b7": {
+      "first_seen": "2026-09-28",
+      "journal_title": "Foreign Affairs",
+      "title": "Rewiring the Arsenal of Democracy"
+    },
+    "9708a7d0185c525dc6876ba9": {
+      "first_seen": "2026-09-28",
+      "journal_title": "Foreign Affairs",
+      "title": "Japan Is Giving the United States a Chance in Asia"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-27T04:48:47.600850+00:00"
+  "last_run": "2026-09-28T04:50:24.482754+00:00"
 }
