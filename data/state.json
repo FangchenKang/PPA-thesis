@@ -1344,8 +1344,18 @@
       "first_seen": "2026-09-28",
       "journal_title": "Foreign Affairs",
       "title": "Japan Is Giving the United States a Chance in Asia"
+    },
+    "54c1bcbcd0765db9fae189a5": {
+      "first_seen": "2026-09-29",
+      "journal_title": "Foreign Affairs",
+      "title": "The New Forever War"
+    },
+    "35a2e08abfd822b7218b3f7c": {
+      "first_seen": "2026-09-29",
+      "journal_title": "Foreign Affairs",
+      "title": "Rewiring the Arsenal of Democracy"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-28T04:50:24.482754+00:00"
+  "last_run": "2026-09-29T05:17:56.659999+00:00"
 }
