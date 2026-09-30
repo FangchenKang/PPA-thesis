@@ -1354,8 +1354,23 @@
       "first_seen": "2026-09-29",
       "journal_title": "Foreign Affairs",
       "title": "Rewiring the Arsenal of Democracy"
+    },
+    "4255482d18b139702fe36ccd": {
+      "first_seen": "2026-09-30",
+      "journal_title": "Foreign Affairs",
+      "title": "The Two Shocks Upending Latin America"
+    },
+    "ab186eeebe12eaa45c97fa58": {
+      "first_seen": "2026-09-30",
+      "journal_title": "Foreign Affairs",
+      "title": "The Scramble for the Open Seas"
+    },
+    "e948d3e0be3937fbf51441cf": {
+      "first_seen": "2026-09-30",
+      "journal_title": "Foreign Affairs",
+      "title": "The New Forever War"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-29T05:17:56.659999+00:00"
+  "last_run": "2026-09-30T05:05:06.542426+00:00"
 }
