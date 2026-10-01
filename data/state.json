@@ -1369,8 +1369,23 @@
       "first_seen": "2026-09-30",
       "journal_title": "Foreign Affairs",
       "title": "The New Forever War"
+    },
+    "c9964ed6f64bb685fb8b8897": {
+      "first_seen": "2026-10-01",
+      "journal_title": "Foreign Affairs",
+      "title": "Why Iran Escalates"
+    },
+    "3240c66dc5f68d5903c31ae1": {
+      "first_seen": "2026-10-01",
+      "journal_title": "Foreign Affairs",
+      "title": "The AI Autocrat"
+    },
+    "d70629b0874d2df3ebdfdb6b": {
+      "first_seen": "2026-10-01",
+      "journal_title": "Foreign Affairs",
+      "title": "Russia’s Plan to Break Ukraine"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-09-30T05:05:06.542426+00:00"
+  "last_run": "2026-10-01T05:17:53.817661+00:00"
 }
