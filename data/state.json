@@ -1389,8 +1389,18 @@
       "first_seen": "2026-10-02",
       "journal_title": "Foreign Affairs",
       "title": "The AI Autocrat"
+    },
+    "c0b3fd5dd6ba176bbe3e917b": {
+      "first_seen": "2026-10-03",
+      "journal_title": "Foreign Affairs",
+      "title": "Palestinians Want a Two-State Solution"
+    },
+    "19e5494d65ee85b5ac40108d": {
+      "first_seen": "2026-10-03",
+      "journal_title": "Foreign Affairs",
+      "title": "Brazil’s Election Won’t Fix What’s Broken"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-10-02T05:07:29.212745+00:00"
+  "last_run": "2026-10-03T04:50:23.680144+00:00"
 }
