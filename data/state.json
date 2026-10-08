@@ -1419,8 +1419,18 @@
       "first_seen": "2026-10-07",
       "journal_title": "Foreign Affairs",
       "title": "The Myth of Military Victory"
+    },
+    "bcbf05c8ff244ac6bd3e1dfd": {
+      "first_seen": "2026-10-08",
+      "journal_title": "Foreign Affairs",
+      "title": "The Two Africas"
+    },
+    "e37653315ab6c1e12d509174": {
+      "first_seen": "2026-10-08",
+      "journal_title": "Foreign Affairs",
+      "title": "Russia’s Hybrid War Has Entered a Dangerous New Phase"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-10-07T05:24:53.795019+00:00"
+  "last_run": "2026-10-08T05:35:46.180268+00:00"
 }
