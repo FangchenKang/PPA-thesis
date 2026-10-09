@@ -1429,8 +1429,18 @@
       "first_seen": "2026-10-08",
       "journal_title": "Foreign Affairs",
       "title": "Russia’s Hybrid War Has Entered a Dangerous New Phase"
+    },
+    "6e0113d2f0cc0cc64eba3a76": {
+      "first_seen": "2026-10-09",
+      "journal_title": "Foreign Affairs",
+      "title": "The End of Gaza"
+    },
+    "99a022d0382e7ed4264a1162": {
+      "first_seen": "2026-10-09",
+      "journal_title": "Foreign Affairs",
+      "title": "The Case for Economic Espionage"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-10-08T05:35:46.180268+00:00"
+  "last_run": "2026-10-09T05:39:34.170344+00:00"
 }
