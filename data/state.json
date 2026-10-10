@@ -1439,8 +1439,18 @@
       "first_seen": "2026-10-09",
       "journal_title": "Foreign Affairs",
       "title": "The Case for Economic Espionage"
+    },
+    "5debe3a74c718b467d884977": {
+      "first_seen": "2026-10-10",
+      "journal_title": "Foreign Affairs",
+      "title": "Iran’s Theory of Victory"
+    },
+    "1a8334d463b86279bae22147": {
+      "first_seen": "2026-10-10",
+      "journal_title": "Foreign Affairs",
+      "title": "Trump Is Gutting America’s Core Geopolitical Advantage"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-10-09T05:39:34.170344+00:00"
+  "last_run": "2026-10-10T05:22:41.831001+00:00"
 }
