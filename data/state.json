@@ -1459,8 +1459,18 @@
       "first_seen": "2026-10-13",
       "journal_title": "Foreign Affairs",
       "title": "Chinese Robots Could Decide the AI Race"
+    },
+    "f74279dd34dfd0a73582eee0": {
+      "first_seen": "2026-10-14",
+      "journal_title": "Foreign Affairs",
+      "title": "The Real Lesson of the Iran War"
+    },
+    "e589b912bb6565facce9fbe0": {
+      "first_seen": "2026-10-14",
+      "journal_title": "Foreign Affairs",
+      "title": "The Global AI Bust"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-10-13T06:25:53.571946+00:00"
+  "last_run": "2026-10-14T04:28:07.630771+00:00"
 }
