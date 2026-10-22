@@ -1529,8 +1529,18 @@
       "first_seen": "2026-10-21",
       "journal_title": "Foreign Affairs",
       "title": "The Limits of American Power"
+    },
+    "7c15dcab59b4eb84f7017c3a": {
+      "first_seen": "2026-10-22",
+      "journal_title": "Foreign Affairs",
+      "title": "How Russia Sees the World Now"
+    },
+    "b540bb4825041ad7b467e127": {
+      "first_seen": "2026-10-22",
+      "journal_title": "Foreign Affairs",
+      "title": "Empires of AI"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-10-21T04:13:21.122957+00:00"
+  "last_run": "2026-10-22T04:14:30.515335+00:00"
 }
