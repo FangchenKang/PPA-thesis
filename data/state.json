@@ -1564,8 +1564,23 @@
       "first_seen": "2026-10-27",
       "journal_title": "Foreign Affairs",
       "title": "What Israel’s Election Won’t Change"
+    },
+    "d2c1b597acc6465e00cc8b4b": {
+      "first_seen": "2026-10-28",
+      "journal_title": "Foreign Affairs",
+      "title": "Putin’s Strategy Is Working"
+    },
+    "9e88db760be6bf800c3d2aa2": {
+      "first_seen": "2026-10-28",
+      "journal_title": "Foreign Affairs",
+      "title": "The Israel Netanyahu Made"
+    },
+    "92b963cfebfc4520ba7e0e31": {
+      "first_seen": "2026-10-28",
+      "journal_title": "Foreign Affairs",
+      "title": "What Israel’s Election Won’t Change"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-10-27T04:36:35.520913+00:00"
+  "last_run": "2026-10-28T05:08:05.852635+00:00"
 }
