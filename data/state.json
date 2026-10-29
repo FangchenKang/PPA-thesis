@@ -1579,8 +1579,18 @@
       "first_seen": "2026-10-28",
       "journal_title": "Foreign Affairs",
       "title": "What Israel’s Election Won’t Change"
+    },
+    "aa8ade2a3f750229b1cbabce": {
+      "first_seen": "2026-10-29",
+      "journal_title": "Foreign Affairs",
+      "title": "How to Secure the Straits"
+    },
+    "a169054933d8fc7a5cf5e62a": {
+      "first_seen": "2026-10-29",
+      "journal_title": "Foreign Affairs",
+      "title": "The Backdoor to American Innovation"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-10-28T05:08:05.852635+00:00"
+  "last_run": "2026-10-29T05:17:12.930974+00:00"
 }
