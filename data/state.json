@@ -1589,8 +1589,18 @@
       "first_seen": "2026-10-29",
       "journal_title": "Foreign Affairs",
       "title": "The Backdoor to American Innovation"
+    },
+    "a9fc0c8cd2c1c1ed3966b60b": {
+      "first_seen": "2026-10-30",
+      "journal_title": "Foreign Affairs",
+      "title": "Only the Gulf Can End the Iran War"
+    },
+    "8bdf3b82226099b8001d88f2": {
+      "first_seen": "2026-10-30",
+      "journal_title": "Foreign Affairs",
+      "title": "Don’t Go Backward on China Policy"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-10-29T05:17:12.930974+00:00"
+  "last_run": "2026-10-30T05:16:47.345452+00:00"
 }
