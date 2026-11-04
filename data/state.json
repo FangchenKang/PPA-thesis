@@ -1624,8 +1624,23 @@
       "first_seen": "2026-11-03",
       "journal_title": "Foreign Affairs",
       "title": "The Limits of China’s Self-Sufficiency"
+    },
+    "72a39ecf6a8007c402799266": {
+      "first_seen": "2026-11-04",
+      "journal_title": "Foreign Affairs",
+      "title": "What Sanctions Get Right"
+    },
+    "47cbee36786d33ad7ed6eeef": {
+      "first_seen": "2026-11-04",
+      "journal_title": "Foreign Affairs",
+      "title": "The Fight for the Future of Democratic Foreign Policy"
+    },
+    "5172d6fa659741ddffa7c6c1": {
+      "first_seen": "2026-11-04",
+      "journal_title": "Foreign Affairs",
+      "title": "America’s AI Ambitions Depend on Taiwan"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-11-03T06:10:58.366760+00:00"
+  "last_run": "2026-11-04T05:49:30.613230+00:00"
 }
