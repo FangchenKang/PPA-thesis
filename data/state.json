@@ -1674,8 +1674,18 @@
       "first_seen": "2026-11-07",
       "journal_title": "Foreign Affairs",
       "title": "Don’t Soak the Rich"
+    },
+    "78e54e6cf8dedddca481d548": {
+      "first_seen": "2026-11-10",
+      "journal_title": "Foreign Affairs",
+      "title": "A Recipe for Disaster in Taiwan"
+    },
+    "903718f43de0ce0a8f371707": {
+      "first_seen": "2026-11-10",
+      "journal_title": "Foreign Affairs",
+      "title": "The New Epicenter of Global Terror"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-11-09T05:44:00.675721+00:00"
+  "last_run": "2026-11-10T06:55:35.928435+00:00"
 }
