@@ -1694,8 +1694,18 @@
       "first_seen": "2026-11-11",
       "journal_title": "Foreign Affairs",
       "title": "The Luxury of Children"
+    },
+    "7103875394b89798a65eb574": {
+      "first_seen": "2026-11-12",
+      "journal_title": "Foreign Affairs",
+      "title": "A New Kind of Foreign Agent"
+    },
+    "9ba06266b2c1eb7638b37b19": {
+      "first_seen": "2026-11-12",
+      "journal_title": "Foreign Affairs",
+      "title": "Trump Is Facing a Very Different North Korea"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-11-11T05:42:13.205853+00:00"
+  "last_run": "2026-11-12T06:47:08.915384+00:00"
 }
