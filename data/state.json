@@ -1704,8 +1704,33 @@
       "first_seen": "2026-11-12",
       "journal_title": "Foreign Affairs",
       "title": "Trump Is Facing a Very Different North Korea"
+    },
+    "6c1a0228c5e7b142bce82c75": {
+      "first_seen": "2026-11-13",
+      "journal_title": "Foreign Affairs",
+      "title": "The World’s Last Chance for Peace"
+    },
+    "330fdcb4e3768ca67605a079": {
+      "first_seen": "2026-11-13",
+      "journal_title": "Foreign Affairs",
+      "title": "La última oportunidad para la paz"
+    },
+    "c3eee7be6590d2d1b7c206b1": {
+      "first_seen": "2026-11-13",
+      "journal_title": "Foreign Affairs",
+      "title": "The Case for a Trump-Xi-Putin Summit"
+    },
+    "4ff0526384c89473e3f76d13": {
+      "first_seen": "2026-11-13",
+      "journal_title": "Foreign Affairs",
+      "title": "America Can Do Good—and Do Well"
+    },
+    "7c04c7c4c237be42b14ffe1c": {
+      "first_seen": "2026-11-13",
+      "journal_title": "Foreign Affairs",
+      "title": "The Paradox of Dollar Dominance"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-11-12T06:47:08.915384+00:00"
+  "last_run": "2026-11-13T06:06:08.407315+00:00"
 }
