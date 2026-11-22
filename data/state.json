@@ -1969,8 +1969,18 @@
       "first_seen": "2026-11-21",
       "journal_title": "Foreign Affairs",
       "title": "America’s Bad Bargain in Venezuela"
+    },
+    "dcdeda9defc7b592bb1775c9": {
+      "first_seen": "2026-11-22",
+      "journal_title": "Review of International Organizations",
+      "title": "The informational effects of institutional crowding: Evidence from zombie election monitors"
+    },
+    "50185e6689e5305355ac52e3": {
+      "first_seen": "2026-11-22",
+      "journal_title": "Comparative European Politics",
+      "title": "Governing by address: presidential agenda allocation around external military-security shocks in Lithuania, 1993–2025"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-11-21T06:36:47.185179+00:00"
+  "last_run": "2026-11-22T06:08:00.958469+00:00"
 }
