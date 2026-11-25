@@ -1989,8 +1989,18 @@
       "first_seen": "2026-11-24",
       "journal_title": "Journal of Chinese Political Science",
       "title": "U.S.–China AI Rivalry: Chips, Data, Talent, and Strategic Chokepoints"
+    },
+    "4d03d0ad78e9c65ae19fba73": {
+      "first_seen": "2026-11-25",
+      "journal_title": "Foreign Affairs",
+      "title": "The Real Nvidia Scandal"
+    },
+    "044907688253f7800fc4c57d": {
+      "first_seen": "2026-11-25",
+      "journal_title": "Foreign Affairs",
+      "title": "The Paradox of Iranian Power"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-11-24T09:23:59.541285+00:00"
+  "last_run": "2026-11-25T08:01:30.666965+00:00"
 }
