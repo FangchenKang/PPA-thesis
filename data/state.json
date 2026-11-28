@@ -2014,8 +2014,23 @@
       "first_seen": "2026-11-27",
       "journal_title": "Foreign Affairs",
       "title": "How Europe Comes Apart"
+    },
+    "153c45a0fe1c363203da439f": {
+      "first_seen": "2026-11-28",
+      "journal_title": "Political Behavior",
+      "title": "Conceptions of Democracy and Affective Polarization: Evidence from Political Social Distance in Europe"
+    },
+    "7c41c335e1a32713293822ba": {
+      "first_seen": "2026-11-28",
+      "journal_title": "Foreign Affairs",
+      "title": "The U.S.-China Endgame on AI"
+    },
+    "0c0028e2eaae59e0b39bfc54": {
+      "first_seen": "2026-11-28",
+      "journal_title": "Journal of International Relations and Development",
+      "title": "Constructive criticism as a diplomatic balancing act: the case of European responses to democratic backsliding in Israel"
     }
   },
   "initialized_at": "2026-05-30T04:05:03.906685+00:00",
-  "last_run": "2026-11-27T07:49:27.369716+00:00"
+  "last_run": "2026-11-28T07:16:52.814857+00:00"
 }
